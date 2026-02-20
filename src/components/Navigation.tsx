@@ -1,0 +1,283 @@
+import { useState } from "react";
+import { Link, useLocation } from "react-router-dom";
+import { motion, AnimatePresence } from "framer-motion";
+import { Menu, X, ChevronDown } from "lucide-react";
+
+const exploreLinks = [
+  { to: "/slow-life", label: "Slow Life" },
+  { to: "/experiences", label: "Experiences" },
+  { to: "/dining", label: "Dining" },
+  { to: "/gallery", label: "Gallery" },
+];
+
+const collaborateLinks = [
+  { to: "/collaborate", label: "Internship" },
+  { to: "/collaborate", label: "Volunteering" },
+  { to: "/collaborate", label: "Collaborations" },
+];
+
+const Navigation = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  const [exploreOpen, setExploreOpen] = useState(false);
+  const [collaborateOpen, setCollaborateOpen] = useState(false);
+  const location = useLocation();
+
+  return (
+    <>
+      <header className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 md:px-12 py-5">
+        <Link
+          to="/"
+          className="font-serif text-lg tracking-wide text-primary-foreground mix-blend-difference"
+        >
+          Art Village Naggar
+        </Link>
+
+        {/* Desktop Navigation */}
+        <nav className="hidden lg:flex items-center gap-8">
+          {/* Explore Dropdown */}
+          <div className="relative">
+            <button
+              onClick={() => {
+                setExploreOpen(!exploreOpen);
+                setCollaborateOpen(false);
+              }}
+              className="flex items-center gap-1 font-sans text-xs tracking-[0.15em] uppercase text-primary-foreground mix-blend-difference hover:opacity-70 transition-opacity"
+            >
+              Explore
+              <ChevronDown className={`w-3 h-3 transition-transform ${exploreOpen ? "rotate-180" : ""}`} />
+            </button>
+            <AnimatePresence>
+              {exploreOpen && (
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: 10 }}
+                  className="absolute top-full left-0 mt-4 bg-background border border-border shadow-lg min-w-[160px]"
+                >
+                  {exploreLinks.map((link) => (
+                    <Link
+                      key={link.to + link.label}
+                      to={link.to}
+                      onClick={() => setExploreOpen(false)}
+                      className="block px-4 py-3 font-sans text-sm text-foreground hover:bg-secondary transition-colors"
+                    >
+                      {link.label}
+                    </Link>
+                  ))}
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
+
+          {/* Collaborate Dropdown */}
+          <div className="relative">
+            <button
+              onClick={() => {
+                setCollaborateOpen(!collaborateOpen);
+                setExploreOpen(false);
+              }}
+              className="flex items-center gap-1 font-sans text-xs tracking-[0.15em] uppercase text-primary-foreground mix-blend-difference hover:opacity-70 transition-opacity"
+            >
+              Collaborate
+              <ChevronDown className={`w-3 h-3 transition-transform ${collaborateOpen ? "rotate-180" : ""}`} />
+            </button>
+            <AnimatePresence>
+              {collaborateOpen && (
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: 10 }}
+                  className="absolute top-full left-0 mt-4 bg-background border border-border shadow-lg min-w-[160px]"
+                >
+                  {collaborateLinks.map((link, i) => (
+                    <Link
+                      key={link.label + i}
+                      to={link.to}
+                      onClick={() => setCollaborateOpen(false)}
+                      className="block px-4 py-3 font-sans text-sm text-foreground hover:bg-secondary transition-colors"
+                    >
+                      {link.label}
+                    </Link>
+                  ))}
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
+
+          {/* Book Your Stay CTA */}
+          <Link
+            to="/stays"
+            className="font-sans text-xs tracking-[0.15em] uppercase px-5 py-2.5 bg-foreground text-background hover:bg-foreground/90 transition-colors"
+          >
+            Book Your Stay
+          </Link>
+        </nav>
+
+        <button
+          onClick={() => setIsOpen(true)}
+          className="lg:hidden text-primary-foreground mix-blend-difference p-2"
+          aria-label="Open menu"
+        >
+          <Menu className="w-6 h-6" />
+        </button>
+      </header>
+
+      {/* Mobile Menu */}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.4 }}
+            className="fixed inset-0 z-[100] bg-foreground/95 flex flex-col items-center justify-center overflow-y-auto"
+          >
+            <button
+              onClick={() => setIsOpen(false)}
+              className="absolute top-5 right-6 md:right-12 text-background p-2"
+              aria-label="Close menu"
+            >
+              <X className="w-6 h-6" />
+            </button>
+
+            <nav className="flex flex-col items-center gap-6 py-20">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.1 }}
+              >
+                <Link
+                  to="/"
+                  onClick={() => setIsOpen(false)}
+                  className={`font-serif text-2xl md:text-3xl transition-opacity duration-300 ${
+                    location.pathname === "/"
+                      ? "text-background opacity-100"
+                      : "text-background/60 hover:text-background hover:opacity-100"
+                  }`}
+                >
+                  Home
+                </Link>
+              </motion.div>
+
+              {/* Explore Section */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.15 }}
+                className="text-center"
+              >
+                <p className="font-sans text-xs tracking-[0.2em] uppercase text-background/40 mb-3">
+                  Explore
+                </p>
+                <div className="flex flex-col items-center gap-3">
+                  {exploreLinks.map((link) => (
+                    <Link
+                      key={link.to + link.label}
+                      to={link.to}
+                      onClick={() => setIsOpen(false)}
+                      className={`font-serif text-xl md:text-2xl transition-opacity duration-300 ${
+                        location.pathname === link.to
+                          ? "text-background opacity-100"
+                          : "text-background/60 hover:text-background hover:opacity-100"
+                      }`}
+                    >
+                      {link.label}
+                    </Link>
+                  ))}
+                </div>
+              </motion.div>
+
+              {/* Stays */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.25 }}
+              >
+                <Link
+                  to="/stays"
+                  onClick={() => setIsOpen(false)}
+                  className={`font-serif text-2xl md:text-3xl transition-opacity duration-300 ${
+                    location.pathname === "/stays"
+                      ? "text-background opacity-100"
+                      : "text-background/60 hover:text-background hover:opacity-100"
+                  }`}
+                >
+                  Stays
+                </Link>
+              </motion.div>
+
+              {/* Collaborate Section */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3 }}
+                className="text-center"
+              >
+                <p className="font-sans text-xs tracking-[0.2em] uppercase text-background/40 mb-3">
+                  Collaborate
+                </p>
+                <Link
+                  to="/collaborate"
+                  onClick={() => setIsOpen(false)}
+                  className={`font-serif text-xl md:text-2xl transition-opacity duration-300 ${
+                    location.pathname === "/collaborate"
+                      ? "text-background opacity-100"
+                      : "text-background/60 hover:text-background hover:opacity-100"
+                  }`}
+                >
+                  Internship & Volunteering
+                </Link>
+              </motion.div>
+
+              {/* Contact */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.35 }}
+              >
+                <Link
+                  to="/contact"
+                  onClick={() => setIsOpen(false)}
+                  className={`font-serif text-2xl md:text-3xl transition-opacity duration-300 ${
+                    location.pathname === "/contact"
+                      ? "text-background opacity-100"
+                      : "text-background/60 hover:text-background hover:opacity-100"
+                  }`}
+                >
+                  Contact
+                </Link>
+              </motion.div>
+
+              {/* Book CTA */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.4 }}
+                className="mt-6"
+              >
+                <Link
+                  to="/stays"
+                  onClick={() => setIsOpen(false)}
+                  className="inline-block font-sans text-xs tracking-[0.15em] uppercase px-6 py-3 bg-background text-foreground hover:bg-background/90 transition-colors"
+                >
+                  Book Your Stay
+                </Link>
+              </motion.div>
+            </nav>
+
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.5 }}
+              className="absolute bottom-10 text-background/40 text-sm font-sans tracking-widest uppercase"
+            >
+              Embrace slow living
+            </motion.p>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
+  );
+};
+
+export default Navigation;
