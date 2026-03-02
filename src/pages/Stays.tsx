@@ -1,375 +1,181 @@
-import { Link } from "react-router-dom";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
 import PageTransition from "@/components/PageTransition";
-import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
-import { Users, Bath, Mountain, Flame, ChefHat, Car } from "lucide-react";
-import heroImg from "@/assets/the-house-room.jpg";
+import ImageCarousel from "@/components/ImageCarousel";
+import { motion } from "framer-motion";
+
+// Import images
+import theHouseRoom from "@/assets/the-house-room.jpg";
 import kathkuniWall from "@/assets/kathkuni-wall.jpg";
-import woodTexture from "@/assets/wood-texture.jpg";
+import kathkuniDoor from "@/assets/kathkuni-door.jpg";
 import shepherdHostel from "@/assets/shepherd-hostel.jpg";
-import fireStove from "@/assets/fire-stove.jpg";
+import balconyView from "@/assets/balcony-view.jpg";
+import cafeSpace from "@/assets/cafe-space.jpg";
+import woodTexture from "@/assets/wood-texture.jpg";
+import nightArchitecture from "@/assets/night-architecture.jpg";
 import forestLight from "@/assets/forest-light.jpg";
+import fireStove from "@/assets/fire-stove.jpg";
+import villageElder from "@/assets/village-elder.jpg";
+import guestsTour from "@/assets/guests-tour.jpg";
 
 const accommodations = [
   {
     id: "kathkuni-house",
-    name: "Entire Kathkuni House",
-    tagline: "Full Villa Experience",
+    name: "Entire Kathkuni House (6 Bedrooms)",
     description:
-      "Experience the complete Kathkuni House with all 6 bedrooms — 2 duplex suites and 2 deluxe rooms. Perfect for families, groups, or retreats seeking an exclusive mountain getaway with private dining, outdoor spaces, and dedicated chef and staff service.",
-    features: [
-      { icon: Users, text: "6-16 guests" },
-      { icon: Bath, text: "6 bedrooms" },
-      { icon: ChefHat, text: "Exclusive chef & staff" },
-      { icon: Mountain, text: "Panoramic views" },
-    ],
-    details: [
-      "2 Duplex suites with hot tubs",
-      "2 Deluxe attic rooms",
-      "Private dining area",
-      "Exclusive outdoor spaces",
-      "Wood-fired fireplace",
-      "Full kitchen access",
-    ],
-    img: heroImg,
-    airbnbLink: "https://www.airbnb.com",
+      "Whole House with 2 duplex suites, 2 delux rooms, dining area & outdoors, exclusive service of chef & staff, can accommodate 6 – 16 guests.",
+    images: [theHouseRoom, kathkuniWall, cafeSpace, nightArchitecture],
+    airbnbLink: "https://www.airbnb.co.in/rooms/1093498029501498953",
   },
   {
     id: "heritage-wing",
-    name: "Heritage Wing",
-    tagline: "4 Bedroom Valley View",
+    name: "Heritage Wing (4 Bedrooms)",
     description:
-      "The valley-facing section of the Kathkuni Villa offers an exclusive verandah and panoramic mountain views. Ideal for medium-sized groups wanting privacy while sharing the heritage experience.",
-    features: [
-      { icon: Users, text: "4-8 guests" },
-      { icon: Bath, text: "4 bedrooms" },
-      { icon: Mountain, text: "Valley views" },
-      { icon: Flame, text: "Fireplace" },
-    ],
-    details: [
-      "Exclusive verandah access",
-      "Panoramic valley views",
-      "Traditional Kathkuni interiors",
-      "Shared dining space",
-      "Wood-fired heating",
-    ],
-    img: kathkuniWall,
-    airbnbLink: "https://www.airbnb.com",
+      "Entire valley facing side of the Kathkuni Villa. With exclusive access to the sprawling verandhas and the spectacular views.",
+    images: [kathkuniWall, balconyView, kathkuniDoor, theHouseRoom],
+    airbnbLink: "https://www.airbnb.co.in/rooms/1190498029501498123",
   },
   {
     id: "winter-blue",
     name: "Winter Blue Duplex Studio",
-    tagline: "Signature Two-Level Suite",
     description:
-      "Our signature two-level suite offers a thoughtfully crafted lifestyle experience with panoramic mountain views. Features a stone hot tub, fireplace, and kitchenette — perfect for couples seeking an intimate mountain retreat.",
-    features: [
-      { icon: Users, text: "2 guests" },
-      { icon: Bath, text: "Private bathroom" },
-      { icon: Flame, text: "Stone hot tub & fireplace" },
-      { icon: Mountain, text: "Panoramic views" },
-    ],
-    details: [
-      "Two-level duplex design",
-      "Private stone hot tub",
-      "Indoor fireplace",
-      "Kitchenette",
-      "Work desk",
-      "Mountain-facing balcony",
-    ],
-    img: shepherdHostel,
-    airbnbLink: "https://www.airbnb.com",
+      "A signature suite that has been thoughtfully crafted to offer a superb instagrammable lifestyle experience. It offers panoramic views, a healing stone hottub with a view, a charming fireplace and much more.",
+    images: [cafeSpace, theHouseRoom, nightArchitecture, balconyView],
+    airbnbLink: "https://www.airbnb.co.in/rooms/1093498029501498954",
   },
   {
     id: "summer-gold",
     name: "Summer Gold Duplex Suite",
-    tagline: "North-Facing Premium Suite",
     description:
-      "A north-facing premium suite with panoramic views featuring wooden floors, earthen walls, and hanging verandas. Includes stone hot tub and fireplace for the ultimate mountain comfort.",
-    features: [
-      { icon: Users, text: "2 guests" },
-      { icon: Bath, text: "Private bathroom" },
-      { icon: Flame, text: "Hot tub & fireplace" },
-      { icon: Mountain, text: "North-facing views" },
-    ],
-    details: [
-      "Premium duplex layout",
-      "Wooden floors & earthen walls",
-      "Hanging verandas",
-      "Private stone hot tub",
-      "Cozy fireplace",
-      "Kitchenette facilities",
-    ],
-    img: fireStove,
-    airbnbLink: "https://www.airbnb.com",
+      "North facing premium suite that offers panoramic views, wood floors, earthen walls, hanging verandas, a healing stone hottub, and a fireplace to make your stay extra soothing and unforgettable.",
+    images: [balconyView, cafeSpace, kathkuniDoor, theHouseRoom],
+    airbnbLink: "https://www.airbnb.co.in/rooms/1093498029501498955",
   },
   {
     id: "fall-maroon",
     name: "Fall Maroon Attic Room",
-    tagline: "Cozy Double Room",
     description:
-      "A charming double room tucked in the attic with a queen bed, kitchenette, and garden-view balcony. The perfect retreat for couples or solo travelers seeking simplicity with comfort.",
-    features: [
-      { icon: Users, text: "2 guests" },
-      { icon: Bath, text: "Attached shower" },
-      { icon: Mountain, text: "Garden views" },
-    ],
-    details: [
-      "Queen bed",
-      "Attached shower bath",
-      "Small kitchenette",
-      "Garden-view balcony",
-      "Traditional decor",
-    ],
-    img: woodTexture,
-    airbnbLink: "https://www.airbnb.com",
+      "Double room with kitchenette, queen bed and an attached shower bath. Attached balcony with ample sun and garden side views.",
+    images: [woodTexture, theHouseRoom, forestLight, kathkuniWall],
+    airbnbLink: "https://www.airbnb.co.in/rooms/1093498029501498956",
   },
   {
     id: "spring-green",
     name: "Spring Green Attic Room",
-    tagline: "Mountain View Double",
     description:
-      "A cozy double room with queen bed, attached shower bath, and a small balcony offering views of snow peaks and the village. Simple, comfortable, and connected to the landscape.",
-    features: [
-      { icon: Users, text: "2 guests" },
-      { icon: Bath, text: "Attached shower" },
-      { icon: Mountain, text: "Snowpeak & village views" },
-    ],
-    details: [
-      "Queen bed",
-      "Attached shower bath",
-      "Small balcony",
-      "Snowpeak views",
-      "Village atmosphere",
-    ],
-    img: forestLight,
-    airbnbLink: "https://www.airbnb.com",
+      "Double room with queen beds and attached shower bath. Small balcony with Snowpeak and village side views.",
+    images: [fireStove, balconyView, theHouseRoom, cafeSpace],
+    airbnbLink: "https://www.airbnb.co.in/rooms/1093498029501498957",
   },
 ];
 
-const policies = [
-  { label: "Check-in", value: "2:00 PM" },
-  { label: "Check-out", value: "12:00 PM" },
-  { label: "Cancellation", value: "14 days notice required" },
-  { label: "Payment", value: "Full payment before arrival" },
-  { label: "Breakfast", value: "9:00 AM - 11:00 AM" },
-  { label: "Dinner", value: "8:00 PM - 11:00 PM" },
-];
-
 const Stays = () => {
-  const heroRef = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: heroRef,
-    offset: ["start start", "end start"],
-  });
-  const heroY = useTransform(scrollYProgress, [0, 1], [0, 100]);
-
   return (
     <PageTransition>
       <main className="bg-background overflow-x-hidden">
         <Navigation />
 
-        {/* Hero */}
-        <section ref={heroRef} className="relative h-[85vh] overflow-hidden">
-          <motion.div style={{ y: heroY }} className="absolute inset-0">
-            <img src={heroImg} alt="Kathkuni House interior" className="w-full h-full object-cover" />
-            <div className="absolute inset-0 bg-foreground/40" />
-          </motion.div>
-          <div className="relative z-10 flex flex-col justify-end h-full pb-16 px-6 md:px-12">
-            <motion.p
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.3, duration: 1 }}
-              className="font-sans text-xs tracking-[0.3em] uppercase text-background/60 mb-4"
-            >
-              Book Your Stay
-            </motion.p>
-            <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5, duration: 0.8 }}
-              className="font-serif text-5xl md:text-7xl text-background font-normal"
-            >
-              Accommodation
-            </motion.h1>
-            <motion.p
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.7, duration: 0.8 }}
-              className="font-sans text-base text-background/70 mt-4 max-w-xl"
-            >
-              From full villa experiences to intimate attic rooms — find your perfect mountain retreat
-              in our restored 100-year-old Kathkuni house.
-            </motion.p>
-          </div>
-        </section>
-
-        {/* Introduction */}
-        <section className="py-24 md:py-36 px-6 md:px-12">
-          <div className="max-w-3xl mx-auto text-center">
+        {/* Hero Section */}
+        <section className="pt-32 pb-16 md:pt-40 md:pb-20 px-6 md:px-12">
+          <div className="max-w-4xl mx-auto text-center">
             <ScrollReveal>
-              <h2 className="font-serif text-3xl md:text-4xl leading-[1.3] mb-8">
-                Stay in a living piece of Himalayan heritage.
-              </h2>
-              <p className="font-sans text-base text-muted-foreground leading-relaxed mb-4">
-                Our accommodations are housed in a meticulously restored Kathkuni-style house,
-                featuring traditional wood-and-stone construction that has stood for over a century.
-                Each space blends authentic heritage with modern comfort.
-              </p>
-              <p className="font-sans text-base text-muted-foreground leading-relaxed">
-                Whether you're seeking a full villa experience with exclusive staff or a cozy
-                attic room with mountain views, we offer spaces designed for conscious travelers
-                who appreciate slow living and sustainable design.
-              </p>
+              <motion.h1
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8 }}
+                className="font-serif text-4xl md:text-6xl mb-4"
+              >
+                Accommodation
+              </motion.h1>
+              <motion.p
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.3, duration: 0.8 }}
+                className="font-sans text-sm tracking-[0.15em] text-muted-foreground"
+              >
+                Entire Villa • Duplex Suites • Rooms • Capsules
+              </motion.p>
             </ScrollReveal>
           </div>
         </section>
 
-        {/* Accommodations */}
-        {accommodations.map((room, i) => (
-          <section
-            key={room.id}
-            id={room.id}
-            className={`py-16 md:py-24 px-6 md:px-12 ${i % 2 === 1 ? "bg-secondary/30" : ""}`}
-          >
-            <div className="max-w-6xl mx-auto">
-              <div className={`grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-16 items-center ${i % 2 === 1 ? "lg:direction-rtl" : ""}`}>
-                <ScrollReveal direction={i % 2 === 0 ? "left" : "right"}>
-                  <div className={i % 2 === 1 ? "lg:order-2" : ""}>
-                    <div className="aspect-[4/3] overflow-hidden">
-                      <img src={room.img} alt={room.name} className="w-full h-full object-cover" />
+        {/* Accommodations Grid */}
+        <section className="px-6 md:px-12 pb-24">
+          <div className="max-w-5xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10">
+              {accommodations.map((accommodation, index) => (
+                <ScrollReveal key={accommodation.id} delay={index * 0.1}>
+                  <div className="group">
+                    {/* Image Carousel */}
+                    <ImageCarousel
+                      images={accommodation.images}
+                      alt={accommodation.name}
+                    />
+
+                    {/* Content */}
+                    <div className="pt-5">
+                      <h3 className="font-serif text-xl md:text-2xl mb-3">
+                        {accommodation.name}
+                      </h3>
+                      <p className="font-sans text-sm text-muted-foreground leading-relaxed mb-5">
+                        {accommodation.description}
+                      </p>
+
+                      {/* Book Button */}
+                      <a
+                        href={accommodation.airbnbLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 font-sans text-xs tracking-[0.15em] uppercase border border-foreground/20 px-6 py-3 hover:bg-foreground hover:text-background transition-all duration-300"
+                      >
+                        Book on Airbnb
+                        <svg
+                          className="w-3 h-3"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                          />
+                        </svg>
+                      </a>
                     </div>
-                  </div>
-                </ScrollReveal>
-
-                <ScrollReveal delay={0.2} direction={i % 2 === 0 ? "right" : "left"}>
-                  <div className={i % 2 === 1 ? "lg:order-1 lg:[direction:ltr]" : ""}>
-                    <p className="font-sans text-xs tracking-[0.2em] uppercase text-muted-foreground mb-3">
-                      {room.tagline}
-                    </p>
-                    <h3 className="font-serif text-2xl md:text-3xl mb-4">{room.name}</h3>
-                    <p className="font-sans text-base text-muted-foreground leading-relaxed mb-6">
-                      {room.description}
-                    </p>
-
-                    {/* Features */}
-                    <div className="flex flex-wrap gap-4 mb-6">
-                      {room.features.map((feature, j) => (
-                        <div key={j} className="flex items-center gap-2 text-sm text-muted-foreground">
-                          <feature.icon className="w-4 h-4" />
-                          <span>{feature.text}</span>
-                        </div>
-                      ))}
-                    </div>
-
-                    {/* Details */}
-                    <div className="grid grid-cols-2 gap-2 mb-8">
-                      {room.details.map((detail, j) => (
-                        <p key={j} className="font-sans text-sm text-muted-foreground/70">
-                          • {detail}
-                        </p>
-                      ))}
-                    </div>
-
-                    <a
-                      href={room.airbnbLink}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-block font-sans text-xs tracking-[0.2em] uppercase bg-foreground text-background px-6 py-3 hover:bg-foreground/90 transition-colors"
-                    >
-                      Book on Airbnb
-                    </a>
-                  </div>
-                </ScrollReveal>
-              </div>
-            </div>
-          </section>
-        ))}
-
-        {/* Policies & Practical Info */}
-        <section className="py-24 md:py-36 px-6 md:px-12 bg-secondary/50">
-          <div className="max-w-4xl mx-auto">
-            <ScrollReveal>
-              <p className="font-sans text-xs tracking-[0.2em] uppercase text-muted-foreground mb-4 text-center">
-                Practical Information
-              </p>
-              <h2 className="font-serif text-3xl md:text-4xl text-center mb-12">
-                Before You Arrive
-              </h2>
-            </ScrollReveal>
-
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-8 mb-16">
-              {policies.map((policy, i) => (
-                <ScrollReveal key={policy.label} delay={i * 0.1}>
-                  <div className="text-center">
-                    <p className="font-sans text-xs tracking-[0.15em] uppercase text-muted-foreground mb-2">
-                      {policy.label}
-                    </p>
-                    <p className="font-serif text-lg">{policy.value}</p>
                   </div>
                 </ScrollReveal>
               ))}
             </div>
-
-            <ScrollReveal delay={0.3}>
-              <div className="bg-background p-8 md:p-12">
-                <div className="flex items-start gap-4 mb-6">
-                  <Car className="w-6 h-6 text-muted-foreground flex-shrink-0 mt-1" />
-                  <div>
-                    <h3 className="font-serif text-xl mb-3">Getting Here</h3>
-                    <p className="font-sans text-sm text-muted-foreground leading-relaxed mb-4">
-                      We are located 4km up a dirt road from Naggar (approximately 30-minute drive).
-                      The remote location is part of the experience — please plan accordingly.
-                    </p>
-                    <p className="font-sans text-sm text-muted-foreground leading-relaxed">
-                      <strong>Complimentary shuttle service:</strong><br />
-                      Pickup: 12:30 PM - 9:00 PM<br />
-                      Drop-off: 10:30 AM - 7:00 PM
-                    </p>
-                  </div>
-                </div>
-
-                <div className="border-t border-border pt-6 mt-6">
-                  <p className="font-sans text-sm text-muted-foreground leading-relaxed">
-                    <strong>Note:</strong> We do not have 24-hour staff on site.
-                    Late-night service charges apply between 11 PM and 6 AM.
-                    A 5% service fee applies after 48 hours of booking.
-                  </p>
-                </div>
-              </div>
-            </ScrollReveal>
           </div>
         </section>
 
-        {/* Contact CTA */}
-        <section className="py-24 md:py-32 px-6 md:px-12 text-center">
-          <ScrollReveal>
-            <h2 className="font-serif text-3xl md:text-5xl italic mb-6">
-              Questions about your stay?
-            </h2>
-            <p className="font-sans text-base text-muted-foreground mb-8 max-w-lg mx-auto">
-              We're happy to help you plan your mountain retreat.
-              Reach out via WhatsApp or give us a call.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+        {/* WhatsApp CTA */}
+        <section className="py-20 md:py-28 px-6 md:px-12 bg-secondary/30">
+          <div className="max-w-3xl mx-auto text-center">
+            <ScrollReveal>
+              <h2 className="font-serif text-2xl md:text-3xl mb-4">
+                Need help choosing?
+              </h2>
+              <p className="font-sans text-base text-muted-foreground leading-relaxed mb-8">
+                We're happy to help you find the perfect room for your stay.
+                Reach out via WhatsApp and we'll respond within a few hours.
+              </p>
               <a
-                href="https://wa.me/919816650400"
+                href="https://wa.me/919816650400?text=Hi%2C%20I%27m%20interested%20in%20booking%20a%20stay%20at%20Art%20Village%20Naggar"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block font-sans text-xs tracking-[0.2em] uppercase bg-foreground text-background px-8 py-4 hover:bg-foreground/90 transition-colors"
+                className="inline-flex items-center gap-3 font-sans text-sm tracking-[0.1em] uppercase bg-foreground text-background px-8 py-4 hover:bg-foreground/90 transition-colors"
               >
-                WhatsApp Us
+                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                </svg>
+                Chat on WhatsApp
               </a>
-              <a
-                href="tel:+919816650400"
-                className="inline-block font-sans text-xs tracking-[0.2em] uppercase border border-foreground px-8 py-4 hover:bg-foreground hover:text-background transition-colors"
-              >
-                Call +91 98166 50400
-              </a>
-            </div>
-          </ScrollReveal>
+            </ScrollReveal>
+          </div>
         </section>
 
         <Footer />

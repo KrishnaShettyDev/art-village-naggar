@@ -8,18 +8,14 @@ const exploreLinks = [
   { to: "/experiences", label: "Experiences" },
   { to: "/dining", label: "Dining" },
   { to: "/gallery", label: "Gallery" },
+  { to: "/blogs", label: "Blogs" },
+  { to: "/story", label: "Our Story" },
 ];
 
-const collaborateLinks = [
-  { to: "/collaborate", label: "Internship" },
-  { to: "/collaborate", label: "Volunteering" },
-  { to: "/collaborate", label: "Collaborations" },
-];
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [exploreOpen, setExploreOpen] = useState(false);
-  const [collaborateOpen, setCollaborateOpen] = useState(false);
   const location = useLocation();
 
   return (
@@ -37,10 +33,7 @@ const Navigation = () => {
           {/* Explore Dropdown */}
           <div className="relative">
             <button
-              onClick={() => {
-                setExploreOpen(!exploreOpen);
-                setCollaborateOpen(false);
-              }}
+              onClick={() => setExploreOpen(!exploreOpen)}
               className="flex items-center gap-1 font-sans text-xs tracking-[0.15em] uppercase text-primary-foreground mix-blend-difference hover:opacity-70 transition-opacity"
             >
               Explore
@@ -69,40 +62,13 @@ const Navigation = () => {
             </AnimatePresence>
           </div>
 
-          {/* Collaborate Dropdown */}
-          <div className="relative">
-            <button
-              onClick={() => {
-                setCollaborateOpen(!collaborateOpen);
-                setExploreOpen(false);
-              }}
-              className="flex items-center gap-1 font-sans text-xs tracking-[0.15em] uppercase text-primary-foreground mix-blend-difference hover:opacity-70 transition-opacity"
-            >
-              Collaborate
-              <ChevronDown className={`w-3 h-3 transition-transform ${collaborateOpen ? "rotate-180" : ""}`} />
-            </button>
-            <AnimatePresence>
-              {collaborateOpen && (
-                <motion.div
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: 10 }}
-                  className="absolute top-full left-0 mt-4 bg-background border border-border shadow-lg min-w-[160px]"
-                >
-                  {collaborateLinks.map((link, i) => (
-                    <Link
-                      key={link.label + i}
-                      to={link.to}
-                      onClick={() => setCollaborateOpen(false)}
-                      className="block px-4 py-3 font-sans text-sm text-foreground hover:bg-secondary transition-colors"
-                    >
-                      {link.label}
-                    </Link>
-                  ))}
-                </motion.div>
-              )}
-            </AnimatePresence>
-          </div>
+          {/* Collaborate Link */}
+          <Link
+            to="/collaborate"
+            className="font-sans text-xs tracking-[0.15em] uppercase text-primary-foreground mix-blend-difference hover:opacity-70 transition-opacity"
+          >
+            Collaborate
+          </Link>
 
           {/* Book Your Stay CTA */}
           <Link
@@ -206,26 +172,22 @@ const Navigation = () => {
                 </Link>
               </motion.div>
 
-              {/* Collaborate Section */}
+              {/* Collaborate */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3 }}
-                className="text-center"
               >
-                <p className="font-sans text-xs tracking-[0.2em] uppercase text-background/40 mb-3">
-                  Collaborate
-                </p>
                 <Link
                   to="/collaborate"
                   onClick={() => setIsOpen(false)}
-                  className={`font-serif text-xl md:text-2xl transition-opacity duration-300 ${
+                  className={`font-serif text-2xl md:text-3xl transition-opacity duration-300 ${
                     location.pathname === "/collaborate"
                       ? "text-background opacity-100"
                       : "text-background/60 hover:text-background hover:opacity-100"
                   }`}
                 >
-                  Internship & Volunteering
+                  Collaborate
                 </Link>
               </motion.div>
 
@@ -233,7 +195,7 @@ const Navigation = () => {
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.35 }}
+                transition={{ delay: 0.4 }}
               >
                 <Link
                   to="/contact"
@@ -252,7 +214,7 @@ const Navigation = () => {
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.4 }}
+                transition={{ delay: 0.45 }}
                 className="mt-6"
               >
                 <Link

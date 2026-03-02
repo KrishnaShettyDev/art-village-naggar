@@ -1,325 +1,199 @@
-import { Link } from "react-router-dom";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
 import PageTransition from "@/components/PageTransition";
-import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
-import { ExternalLink, Users, Home, Utensils, Heart } from "lucide-react";
-import heroImg from "@/assets/hands-working.jpg";
-import woodTexture from "@/assets/wood-texture.jpg";
-import villagePath from "@/assets/village-path.jpg";
-import experienceCultural from "@/assets/experience-cultural.jpg";
+import { motion } from "framer-motion";
+import { ExternalLink } from "lucide-react";
 
-const opportunities = [
-  {
-    id: "internship",
-    title: "Internship Program",
-    tagline: "Immersive Learning Experience",
-    description:
-      "Join us for an immersive internship experience at our 100-year-old Kathkuni-style house in the Kullu Valley. Interns become part of a unique initiative that blends sustainable design, cultural preservation, and community development.",
-    whatYouGet: [
-      "Hands-on experience in sustainable rural tourism",
-      "Learning traditional construction and design techniques",
-      "Exposure to community development projects",
-      "Free accommodation and meals during your stay",
-      "Certificate of completion",
-    ],
-    whatWeNeed: [
-      "Design students (architecture, interior, landscape)",
-      "Hospitality and tourism students",
-      "Environmental and sustainability focused individuals",
-      "Minimum 4-week commitment",
-    ],
-    applyLink: "https://forms.gle/1asR5LtLfVeVffQp9",
-    img: woodTexture,
-  },
-  {
-    id: "volunteering",
-    title: "Volunteer Opportunities",
-    tagline: "Give Back While Growing",
-    description:
-      "Our volunteer program emphasizes hospitality, design projects, community workshops, and operational support within an environmentally conscious rural setting. It's an opportunity to contribute to positive community change while experiencing authentic Himalayan life.",
-    whatYouGet: [
-      "Free long-term accommodation",
-      "All meals included",
-      "Experience working in sustainable rural tourism",
-      "Engagement with local culture and traditions",
-      "Flexible duration (minimum 2 weeks)",
-    ],
-    whatWeNeed: [
-      "Help with guest services and hospitality",
-      "Support for community workshops",
-      "Garden and farm maintenance",
-      "Content creation and documentation",
-      "General operational support",
-    ],
-    applyLink: "https://forms.gle/hsLja1HfP7KJUuyPA",
-    img: villagePath,
-  },
-  {
-    id: "collaborations",
-    title: "Creative Collaborations",
-    tagline: "For Researchers, Designers & Cultural Practitioners",
-    description:
-      "We seek collaborators interested in redesigning rural lifestyles while experiencing authentic Himalayan living. Every element of the experience here represents unique cultural and ecological harmony — and we're always looking for new perspectives.",
-    whatYouGet: [
-      "Access to a living research environment",
-      "Accommodation at discounted rates",
-      "Connection with local artisans and community",
-      "Platform to showcase your work",
-      "Collaborative project opportunities",
-    ],
-    whatWeNeed: [
-      "Researchers in vernacular architecture",
-      "Sustainable design practitioners",
-      "Cultural documentarians and anthropologists",
-      "Artists and creative practitioners",
-      "Food and culinary researchers",
-    ],
-    applyLink: "https://forms.gle/ZmCJe1XgUUGacFZE6",
-    img: experienceCultural,
-  },
-];
+import villageElder from "@/assets/village-elder.jpg";
+import guestsTour from "@/assets/guests-tour.jpg";
+import handsWorking from "@/assets/hands-working.jpg";
+import balconyView from "@/assets/balcony-view.jpg";
 
-const benefits = [
-  {
-    icon: Home,
-    title: "Free Accommodation",
-    description: "Stay in our traditional Kathkuni house while you learn and contribute.",
-  },
-  {
-    icon: Utensils,
-    title: "Meals Included",
-    description: "Farm-to-table meals from our Shepherd Cafe throughout your stay.",
-  },
-  {
-    icon: Users,
-    title: "Community Connection",
-    description: "Work alongside locals and become part of village life.",
-  },
-  {
-    icon: Heart,
-    title: "Meaningful Work",
-    description: "Contribute to sustainable design and cultural preservation.",
-  },
-];
+const VOLUNTEER_FORM_LINK = "https://forms.gle/YZymXVkZmPHkdfVX8";
+const COLLABORATE_FORM_LINK = "https://docs.google.com/forms/d/e/1FAIpQLSc6NDrHl92TSHChaNpfEV28TuNY7-TeZDR3tf1l_SQouhb4_A/viewform";
 
 const Collaborate = () => {
-  const heroRef = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: heroRef,
-    offset: ["start start", "end start"],
-  });
-  const heroY = useTransform(scrollYProgress, [0, 1], [0, 100]);
-
   return (
     <PageTransition>
       <main className="bg-background overflow-x-hidden">
         <Navigation />
 
         {/* Hero */}
-        <section ref={heroRef} className="relative h-[85vh] overflow-hidden">
-          <motion.div style={{ y: heroY }} className="absolute inset-0">
-            <img
-              src={heroImg}
-              alt="Hands working on traditional craft"
-              className="w-full h-full object-cover"
-            />
-            <div className="absolute inset-0 bg-foreground/50" />
-          </motion.div>
-          <div className="relative z-10 flex flex-col justify-end h-full pb-16 px-6 md:px-12">
-            <motion.p
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.3, duration: 1 }}
-              className="font-sans text-xs tracking-[0.3em] uppercase text-background/60 mb-4"
-            >
-              Join Our Community
-            </motion.p>
-            <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5, duration: 0.8 }}
-              className="font-serif text-5xl md:text-7xl text-background font-normal"
-            >
-              Collaborate
-            </motion.h1>
-            <motion.p
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.7, duration: 0.8 }}
-              className="font-sans text-base text-background/70 mt-4 max-w-xl"
-            >
-              Internships, volunteering, and creative partnerships for those who share our vision.
-            </motion.p>
-          </div>
-        </section>
-
-        {/* Introduction */}
-        <section className="py-24 md:py-36 px-6 md:px-12">
+        <section className="pt-32 pb-16 md:pt-40 md:pb-20 px-6 md:px-12">
           <div className="max-w-4xl mx-auto text-center">
             <ScrollReveal>
-              <h2 className="font-serif text-3xl md:text-4xl leading-[1.3] mb-8">
-                Become part of something meaningful.
-              </h2>
-              <p className="font-sans text-base text-muted-foreground leading-relaxed max-w-2xl mx-auto mb-6">
-                ART Village Naggar is more than a place to stay — it's a living project dedicated
-                to sustainable design, cultural preservation, and community development. We welcome
-                individuals who share our values and want to contribute while learning.
-              </p>
-              <p className="font-sans text-base text-muted-foreground leading-relaxed max-w-2xl mx-auto">
-                Whether you're a student seeking hands-on experience, a volunteer wanting to give back,
-                or a creative professional looking for collaboration — there's a place for you here.
-              </p>
+              <motion.h1
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8 }}
+                className="font-serif text-4xl md:text-6xl mb-4"
+              >
+                Collaborate
+              </motion.h1>
             </ScrollReveal>
           </div>
         </section>
 
-        {/* Benefits Grid */}
-        <section className="py-16 md:py-20 px-6 md:px-12 bg-secondary/30">
+        {/* Volunteer Section */}
+        <section className="py-20 md:py-28 px-6 md:px-12">
           <div className="max-w-6xl mx-auto">
-            <ScrollReveal>
-              <p className="font-sans text-xs tracking-[0.2em] uppercase text-muted-foreground mb-4 text-center">
-                What We Offer
-              </p>
-              <h2 className="font-serif text-2xl md:text-3xl text-center mb-12">
-                Benefits of joining our community.
-              </h2>
-            </ScrollReveal>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 items-center">
+              <ScrollReveal direction="left">
+                <div className="aspect-[4/5] overflow-hidden">
+                  <img
+                    src={guestsTour}
+                    alt="Volunteering at Art Village"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              </ScrollReveal>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-              {benefits.map((benefit, i) => (
-                <ScrollReveal key={benefit.title} delay={i * 0.1}>
-                  <div className="text-center">
-                    <benefit.icon className="w-8 h-8 mx-auto mb-4 text-muted-foreground" />
-                    <h3 className="font-serif text-lg mb-2">{benefit.title}</h3>
-                    <p className="font-sans text-sm text-muted-foreground leading-relaxed">
-                      {benefit.description}
+              <ScrollReveal delay={0.2} direction="right">
+                <div>
+                  <h2 className="font-serif text-3xl md:text-4xl mb-6">
+                    Volunteer
+                  </h2>
+                  <div className="space-y-4 font-sans text-base text-muted-foreground leading-relaxed">
+                    <p>
+                      Join us in a transformative experience at our 100-year-old Kathkuni house,
+                      nestled in the heart of the Kullu valley. As part of ART (Adaptive Rural Tourism),
+                      a village-based design community, you will immerse yourself in the serenity of
+                      rural life while contributing to sustainable tourism initiatives.
+                    </p>
+                    <p>
+                      Interns will have the opportunity to engage in hospitality, design projects,
+                      community workshops, and day-to-day operations, all while surrounded by the
+                      breathtaking beauty of forests, snow peaks, and traditional Himalayan culture.
+                    </p>
+                    <p>
+                      This is a unique chance to live in an environmentally conscious space designed
+                      with locally sourced materials and upcycled elements. You will be part of a
+                      meaningful community-focused project, with exposure to local culture, traditions,
+                      and the chance to help foster positive change.
+                    </p>
+                    <p>
+                      In exchange for your contributions, we offer free long-term accommodation, meals,
+                      and the invaluable experience of working in a sustainable, rural tourism environment.
+                      If you're passionate about hospitality, community engagement, and design, and want
+                      to make a difference in a picturesque setting, this opportunity is for you!
                     </p>
                   </div>
-                </ScrollReveal>
-              ))}
+
+                  <a
+                    href={VOLUNTEER_FORM_LINK}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 mt-8 font-sans text-xs tracking-[0.15em] uppercase bg-foreground text-background px-6 py-3 hover:bg-foreground/90 transition-all duration-300"
+                  >
+                    Apply Now
+                    <ExternalLink className="w-3 h-3" />
+                  </a>
+                </div>
+              </ScrollReveal>
             </div>
           </div>
         </section>
 
-        {/* Opportunities */}
-        {opportunities.map((opp, i) => (
-          <section
-            key={opp.id}
-            id={opp.id}
-            className={`py-24 md:py-36 px-6 md:px-12 ${i % 2 === 1 ? "bg-secondary/20" : ""}`}
-          >
-            <div className="max-w-6xl mx-auto">
-              <div className={`grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-16 items-start ${i % 2 === 1 ? "lg:[direction:rtl]" : ""}`}>
-                <ScrollReveal direction={i % 2 === 0 ? "left" : "right"}>
-                  <div className={i % 2 === 1 ? "lg:order-2" : ""}>
-                    <div className="aspect-[4/3] overflow-hidden">
-                      <img src={opp.img} alt={opp.title} className="w-full h-full object-cover" />
-                    </div>
+        {/* Life at ART Village - Image Break */}
+        <section className="py-16 px-6 md:px-12 bg-secondary/30">
+          <div className="max-w-4xl mx-auto text-center">
+            <ScrollReveal>
+              <p className="font-sans text-xs tracking-[0.2em] uppercase text-muted-foreground mb-4">
+                Life at ART Village
+              </p>
+              <p className="font-serif text-xl md:text-2xl italic leading-relaxed">
+                "Bask in the sun and laze on our wooden verandas, witness Himachali village
+                customs and festivities, or take a hike through endless country landscapes and forests."
+              </p>
+            </ScrollReveal>
+          </div>
+        </section>
+
+        {/* Collaborate Section */}
+        <section className="py-20 md:py-28 px-6 md:px-12">
+          <div className="max-w-6xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 items-center">
+              <ScrollReveal delay={0.2} direction="left">
+                <div className="md:order-2">
+                  <h2 className="font-serif text-3xl md:text-4xl mb-6">
+                    Collaborate
+                  </h2>
+                  <div className="space-y-4 font-sans text-base text-muted-foreground leading-relaxed">
+                    <p>
+                      The ART Village Naggar at Chachogi offers the most authentic Himalayan natural
+                      living experiences you will come across. We tend to involve local skills and
+                      knowledge in every aspect of the provided experience.
+                    </p>
+                    <p>
+                      From the architecture to design to aesthetics to food to merriment, every
+                      element of the experience here represents unique cultural and ecological harmony.
+                    </p>
+                    <p>
+                      Come join us as collaborators in the creative processes of redesigning rural
+                      lifestyle, or book a stay with us and experience the magic!
+                    </p>
                   </div>
-                </ScrollReveal>
 
-                <ScrollReveal delay={0.2} direction={i % 2 === 0 ? "right" : "left"}>
-                  <div className={i % 2 === 1 ? "lg:order-1 lg:[direction:ltr]" : ""}>
-                    <p className="font-sans text-xs tracking-[0.2em] uppercase text-muted-foreground mb-3">
-                      {opp.tagline}
-                    </p>
-                    <h2 className="font-serif text-2xl md:text-3xl mb-4">{opp.title}</h2>
-                    <p className="font-sans text-base text-muted-foreground leading-relaxed mb-6">
-                      {opp.description}
-                    </p>
-
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-                      <div>
-                        <h3 className="font-sans text-xs tracking-[0.15em] uppercase text-muted-foreground mb-3">
-                          What You Get
-                        </h3>
-                        <ul className="space-y-2">
-                          {opp.whatYouGet.map((item, j) => (
-                            <li key={j} className="font-sans text-sm text-muted-foreground/80 flex items-start gap-2">
-                              <span className="text-foreground mt-0.5">•</span>
-                              {item}
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                      <div>
-                        <h3 className="font-sans text-xs tracking-[0.15em] uppercase text-muted-foreground mb-3">
-                          What We Need
-                        </h3>
-                        <ul className="space-y-2">
-                          {opp.whatWeNeed.map((item, j) => (
-                            <li key={j} className="font-sans text-sm text-muted-foreground/80 flex items-start gap-2">
-                              <span className="text-foreground mt-0.5">•</span>
-                              {item}
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    </div>
-
+                  <div className="flex flex-wrap gap-4 mt-8">
                     <a
-                      href={opp.applyLink}
+                      href={COLLABORATE_FORM_LINK}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 font-sans text-xs tracking-[0.2em] uppercase bg-foreground text-background px-6 py-3 hover:bg-foreground/90 transition-colors"
+                      className="inline-flex items-center gap-2 font-sans text-xs tracking-[0.15em] uppercase bg-foreground text-background px-6 py-3 hover:bg-foreground/90 transition-all duration-300"
                     >
-                      Apply Now <ExternalLink className="w-3 h-3" />
+                      Apply Now
+                      <ExternalLink className="w-3 h-3" />
+                    </a>
+                    <a
+                      href="https://instagram.com/artvillagenaggar"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 font-sans text-xs tracking-[0.15em] uppercase border border-foreground/20 px-6 py-3 hover:bg-foreground hover:text-background transition-all duration-300"
+                    >
+                      View Publications
+                      <ExternalLink className="w-3 h-3" />
                     </a>
                   </div>
-                </ScrollReveal>
-              </div>
-            </div>
-          </section>
-        ))}
+                </div>
+              </ScrollReveal>
 
-        {/* Quote Section */}
-        <section className="py-24 md:py-36 px-6 md:px-12 bg-foreground text-background">
-          <div className="max-w-4xl mx-auto text-center">
-            <ScrollReveal>
-              <h2 className="font-serif text-3xl md:text-5xl italic leading-[1.2] mb-8">
-                "Every element of the experience here represents unique cultural and ecological harmony."
-              </h2>
-              <p className="font-sans text-base text-background/70 leading-relaxed max-w-2xl mx-auto mb-8">
-                Surrounded by forests, snow-capped peaks, and traditional architecture,
-                our collaborators find inspiration in the meeting point of ancient wisdom
-                and contemporary sustainable practice.
-              </p>
-              <p className="font-sans text-sm text-background/50">
-                Ideal for those valuing slow living and sustainable practices.
-              </p>
-            </ScrollReveal>
+              <ScrollReveal direction="right">
+                <div className="md:order-1 aspect-[4/5] overflow-hidden">
+                  <img
+                    src={balconyView}
+                    alt="Collaborate with Art Village"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              </ScrollReveal>
+            </div>
           </div>
         </section>
 
         {/* Contact CTA */}
-        <section className="py-24 md:py-32 px-6 md:px-12 text-center">
-          <ScrollReveal>
-            <h2 className="font-serif text-3xl md:text-4xl mb-6">
-              Have questions?
-            </h2>
-            <p className="font-sans text-base text-muted-foreground mb-8 max-w-lg mx-auto">
-              We're happy to discuss opportunities and find the right fit for your skills and interests.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+        <section className="py-20 md:py-28 px-6 md:px-12 bg-secondary/30">
+          <div className="max-w-3xl mx-auto text-center">
+            <ScrollReveal>
+              <h2 className="font-serif text-2xl md:text-3xl mb-4">
+                Have questions?
+              </h2>
+              <p className="font-sans text-base text-muted-foreground leading-relaxed mb-8">
+                Reach out to us and we'll help you find the right opportunity.
+              </p>
               <a
-                href="https://wa.me/919816650400"
+                href="https://wa.me/919816650400?text=Hi%2C%20I%27m%20interested%20in%20collaborating%20with%20Art%20Village%20Naggar"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block font-sans text-xs tracking-[0.2em] uppercase bg-foreground text-background px-8 py-4 hover:bg-foreground/90 transition-colors"
+                className="inline-flex items-center gap-3 font-sans text-sm tracking-[0.1em] uppercase bg-foreground text-background px-8 py-4 hover:bg-foreground/90 transition-colors"
               >
-                WhatsApp Us
+                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                </svg>
+                Chat on WhatsApp
               </a>
-              <Link
-                to="/contact"
-                className="inline-block font-sans text-xs tracking-[0.2em] uppercase border border-foreground px-8 py-4 hover:bg-foreground hover:text-background transition-colors"
-              >
-                Contact Page
-              </Link>
-            </div>
-          </ScrollReveal>
+            </ScrollReveal>
+          </div>
         </section>
 
         <Footer />

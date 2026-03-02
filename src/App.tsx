@@ -11,8 +11,12 @@ import Dining from "./pages/Dining";
 import About from "./pages/About";
 import Gallery from "./pages/Gallery";
 import Experiences from "./pages/Experiences";
-import Collaborate from "./pages/Collaborate";
 import Contact from "./pages/Contact";
+import Blogs from "./pages/Blogs";
+import TheHouse from "./pages/TheHouse";
+import TheCafe from "./pages/TheCafe";
+import ShepherdHostel from "./pages/ShepherdHostel";
+import Collaborate from "./pages/Collaborate";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -25,11 +29,15 @@ const AnimatedRoutes = () => {
       <Routes location={location} key={location.pathname}>
         <Route path="/" element={<Index />} />
         <Route path="/stays" element={<Stays />} />
+        <Route path="/stays/the-house" element={<TheHouse />} />
+        <Route path="/stays/shepherd-hostel" element={<ShepherdHostel />} />
         <Route path="/slow-life" element={<SlowLife />} />
         <Route path="/dining" element={<Dining />} />
+        <Route path="/dining/cafe" element={<TheCafe />} />
         <Route path="/story" element={<About />} />
         <Route path="/gallery" element={<Gallery />} />
         <Route path="/experiences" element={<Experiences />} />
+        <Route path="/blogs" element={<Blogs />} />
         <Route path="/collaborate" element={<Collaborate />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="*" element={<NotFound />} />

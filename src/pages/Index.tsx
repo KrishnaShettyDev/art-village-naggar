@@ -329,30 +329,6 @@ const Index = () => {
         </ScrollReveal>
       </section>
 
-      {/* Collaborate Section */}
-      <section className="py-24 md:py-36 px-6 md:px-12">
-        <div className="max-w-4xl mx-auto text-center">
-          <ScrollReveal>
-            <p className="font-sans text-xs tracking-[0.2em] uppercase text-muted-foreground mb-4">
-              Collaborate With Us
-            </p>
-            <h2 className="font-serif text-3xl md:text-5xl italic leading-[1.2] mb-8">
-              Join our community of mindful travelers and creators.
-            </h2>
-            <p className="font-sans text-base text-muted-foreground leading-relaxed max-w-2xl mx-auto mb-8">
-              We welcome interns, volunteers, and creative collaborators who share our vision of
-              sustainable design, cultural preservation, and community development.
-            </p>
-            <Link
-              to="/collaborate"
-              className="inline-block font-sans text-xs tracking-[0.2em] uppercase border border-foreground px-8 py-4 hover:bg-foreground hover:text-background transition-all duration-500"
-            >
-              Learn More
-            </Link>
-          </ScrollReveal>
-        </div>
-      </section>
-
       {/* CTA */}
       <section className="py-24 md:py-36 px-6 md:px-12 bg-secondary/50 text-center">
         <ScrollReveal>

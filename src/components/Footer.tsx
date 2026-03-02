@@ -127,6 +127,7 @@ const Footer = () => {
                   <Link to="/experiences" className="font-sans text-sm text-background/70 hover:text-background transition-colors">Experiences</Link>
                   <Link to="/dining" className="font-sans text-sm text-background/70 hover:text-background transition-colors">Dining</Link>
                   <Link to="/gallery" className="font-sans text-sm text-background/70 hover:text-background transition-colors">Gallery</Link>
+                  <Link to="/blogs" className="font-sans text-sm text-background/70 hover:text-background transition-colors">Blogs</Link>
                 </div>
               </div>
               <div>
@@ -142,21 +143,12 @@ const Footer = () => {
               </div>
               <div>
                 <h4 className="font-sans text-xs tracking-[0.15em] uppercase text-background/40 mb-3">
-                  Collaborate
-                </h4>
-                <div className="flex flex-col gap-2">
-                  <Link to="/collaborate#internship" className="font-sans text-sm text-background/70 hover:text-background transition-colors">Internship</Link>
-                  <Link to="/collaborate#volunteering" className="font-sans text-sm text-background/70 hover:text-background transition-colors">Volunteering</Link>
-                  <Link to="/collaborate#collaborations" className="font-sans text-sm text-background/70 hover:text-background transition-colors">Collaborations</Link>
-                </div>
-              </div>
-              <div>
-                <h4 className="font-sans text-xs tracking-[0.15em] uppercase text-background/40 mb-3">
                   Info
                 </h4>
                 <div className="flex flex-col gap-2">
                   <Link to="/contact" className="font-sans text-sm text-background/70 hover:text-background transition-colors">Contact</Link>
                   <Link to="/story" className="font-sans text-sm text-background/70 hover:text-background transition-colors">Our Story</Link>
+                  <Link to="/collaborate" className="font-sans text-sm text-background/70 hover:text-background transition-colors">Collaborate</Link>
                 </div>
               </div>
             </div>
