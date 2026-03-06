@@ -36,7 +36,7 @@ const Index = () => {
       <Navigation />
 
       {/* Hero */}
-      <section ref={heroRef} className="relative min-h-[100dvh] overflow-hidden">
+      <section ref={heroRef} className="relative h-screen min-h-[100dvh] overflow-hidden">
         <motion.div style={{ y: heroY }} className="absolute inset-0">
           <img
             src={heroImg}
@@ -48,7 +48,7 @@ const Index = () => {
 
         <motion.div
           style={{ opacity: heroOpacity }}
-          className="relative z-10 flex flex-col items-center justify-center h-full text-center px-6"
+          className="relative z-10 flex flex-col items-center justify-center min-h-[100dvh] text-center px-6"
         >
           <motion.p
             initial={{ opacity: 0 }}
