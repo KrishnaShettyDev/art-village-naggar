@@ -1,12 +1,11 @@
 import { Client } from "@notionhq/client";
 import type { VercelRequest, VercelResponse } from "@vercel/node";
-import type { BlockObjectResponse } from "@notionhq/client/build/src/api-endpoints";
 
 const notion = new Client({
   auth: process.env.NOTION_API_KEY,
 });
 
-const databaseId = process.env.NOTION_DATABASE_ID!;
+const databaseId = process.env.NOTION_DATABASE_ID as string;
 
 interface ArticleContent {
   id: string;
@@ -63,7 +62,7 @@ function getRichText(richText: any[]): string {
   return richText.map((t: any) => t.plain_text).join("");
 }
 
-function parseBlock(block: BlockObjectResponse): ContentBlock | null {
+function parseBlock(block: any): ContentBlock | null {
   const blockType = block.type;
 
   switch (blockType) {

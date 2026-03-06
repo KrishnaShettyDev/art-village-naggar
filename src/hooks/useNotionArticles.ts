@@ -53,7 +53,7 @@ export const fallbackArticles: Article[] = [
 ];
 
 async function fetchArticles(): Promise<Article[]> {
-  const apiUrl = import.meta.env.PROD ? "/api/articles" : "http://localhost:3001/api/articles";
+  const apiUrl = "/api/articles";
 
   const response = await fetch(apiUrl);
 

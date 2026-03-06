@@ -22,9 +22,7 @@ export interface ArticleContent {
 }
 
 async function fetchArticle(slug: string): Promise<ArticleContent> {
-  const apiUrl = import.meta.env.PROD
-    ? `/api/article/${slug}`
-    : `http://localhost:3001/api/article/${slug}`;
+  const apiUrl = `/api/article/${slug}`;
 
   const response = await fetch(apiUrl);
 

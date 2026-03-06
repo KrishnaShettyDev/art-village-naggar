@@ -5,7 +5,7 @@ const notion = new Client({
   auth: process.env.NOTION_API_KEY,
 });
 
-const databaseId = process.env.NOTION_DATABASE_ID!;
+const databaseId = process.env.NOTION_DATABASE_ID as string;
 
 export interface NotionArticle {
   id: string;
