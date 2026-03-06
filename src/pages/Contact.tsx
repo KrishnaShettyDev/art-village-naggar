@@ -1,9 +1,11 @@
 import { useState } from "react";
 import { MapPin, Phone, Mail, Clock } from "lucide-react";
+import { motion } from "framer-motion";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
 import PageTransition from "@/components/PageTransition";
+import { EASING, HERO_TIMING } from "@/lib/animations";
 import howToReachImg from "@/assets/how-to-reach.jpg";
 
 const Contact = () => {
@@ -34,17 +36,25 @@ const Contact = () => {
         />
         <div className="absolute inset-0 bg-foreground/40" />
         <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6">
-          <ScrollReveal>
-            <p className="font-sans text-xs tracking-[0.3em] uppercase text-background/60 mb-4">
-              Contact & Directions
-            </p>
-            <h1 className="font-serif text-3xl sm:text-4xl md:text-6xl text-background leading-[1.15]">
-              The road ends here.
-              <span className="hidden md:inline"><br /></span>
-              <span className="inline md:hidden"> </span>
-              The story begins.
-            </h1>
-          </ScrollReveal>
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: HERO_TIMING.tagline.delay, duration: HERO_TIMING.tagline.duration, ease: EASING }}
+            className="font-sans text-xs tracking-[0.3em] uppercase text-background/60 mb-4"
+          >
+            Contact & Directions
+          </motion.p>
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: HERO_TIMING.heading.delay, duration: HERO_TIMING.heading.duration, ease: EASING }}
+            className="font-serif text-3xl sm:text-4xl md:text-6xl text-background leading-[1.15]"
+          >
+            The road ends here.
+            <span className="hidden md:inline"><br /></span>
+            <span className="inline md:hidden"> </span>
+            The story begins.
+          </motion.h1>
         </div>
       </section>
 

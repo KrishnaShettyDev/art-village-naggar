@@ -5,6 +5,7 @@ import ScrollReveal from "@/components/ScrollReveal";
 import PageTransition from "@/components/PageTransition";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
+import { EASING, HERO_TIMING } from "@/lib/animations";
 // Slow Life images
 import heroImage from "@/assets/slow-life/IMG_3840.JPG";
 import consciousTravel from "@/assets/slow-life/20260220-P1034047.jpg";
@@ -60,7 +61,7 @@ const SlowLife = () => {
             <motion.p
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ delay: 0.3, duration: 1 }}
+              transition={{ delay: HERO_TIMING.tagline.delay, duration: HERO_TIMING.tagline.duration, ease: EASING }}
               className="font-sans text-xs tracking-[0.3em] uppercase text-background/60 mb-6"
             >
               A Different Way to Travel
@@ -68,7 +69,7 @@ const SlowLife = () => {
             <motion.h1
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5, duration: 0.8 }}
+              transition={{ delay: HERO_TIMING.heading.delay, duration: HERO_TIMING.heading.duration, ease: EASING }}
               className="font-serif text-4xl sm:text-5xl md:text-7xl lg:text-8xl text-background font-normal italic leading-[1.1]"
             >
               Slow Life<br />Staycation
@@ -76,7 +77,7 @@ const SlowLife = () => {
             <motion.p
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ delay: 0.9, duration: 1 }}
+              transition={{ delay: HERO_TIMING.description.delay, duration: HERO_TIMING.description.duration, ease: EASING }}
               className="mt-8 font-sans text-base md:text-lg text-background/70 max-w-xl"
             >
               Conscious Travel · Therapeutic Relaxation · Contextual Lifestyle
@@ -84,12 +85,12 @@ const SlowLife = () => {
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ delay: 1.3, duration: 1 }}
+              transition={{ delay: HERO_TIMING.cta.delay, duration: HERO_TIMING.cta.duration, ease: EASING }}
               className="mt-12"
             >
               <Link
                 to="/stays"
-                className="inline-block font-sans text-xs tracking-[0.2em] uppercase bg-background text-foreground px-8 py-4 hover:bg-background/90 transition-all duration-500"
+                className="inline-block font-sans text-xs tracking-[0.2em] uppercase bg-background text-foreground px-8 py-4 hover:bg-background/90 transition-all duration-700"
               >
                 Book Your Stay
               </Link>
@@ -139,6 +140,7 @@ const SlowLife = () => {
                         src={pillar.img}
                         alt={pillar.title}
                         className="w-full h-full object-cover"
+                        loading="lazy"
                       />
                     </div>
                     <div className={i % 2 === 1 ? "md:[direction:ltr]" : ""}>
@@ -163,6 +165,7 @@ const SlowLife = () => {
                   src={villageView}
                   alt="Chachogi village view"
                   className="w-full h-full object-cover"
+                  loading="lazy"
                 />
               </div>
             </ScrollReveal>

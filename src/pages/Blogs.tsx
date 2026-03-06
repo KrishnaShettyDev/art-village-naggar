@@ -1,9 +1,11 @@
 import { useState, useMemo } from "react";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
 import PageTransition from "@/components/PageTransition";
+import { EASING, HERO_TIMING } from "@/lib/animations";
 import { useNotionArticles, fallbackArticles, formatArticleDate, type Article } from "@/hooks/useNotionArticles";
 
 // Default images for articles without cover images
@@ -54,21 +56,34 @@ const Blogs = () => {
         {/* Hero */}
         <section className="pt-28 pb-12 md:pt-40 md:pb-24 px-5 md:px-12">
           <div className="max-w-4xl mx-auto">
-            <ScrollReveal>
-              <p className="font-sans text-xs tracking-[0.3em] uppercase text-muted-foreground mb-4">
-                Blogs
-              </p>
-              <h1 className="font-serif text-3xl sm:text-4xl md:text-6xl leading-[1.15] mb-6">
-                Observations from
-                <span className="hidden md:inline"><br /></span>
-                <span className="inline md:hidden"> </span>
-                2,300 metres.
-              </h1>
-              <p className="font-sans text-base text-muted-foreground leading-relaxed max-w-xl">
-                Stories about Kathkuni architecture, the people of Chachogi, the food that grows here,
-                and the seasons that shape everything.
-              </p>
-            </ScrollReveal>
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: HERO_TIMING.tagline.delay, duration: HERO_TIMING.tagline.duration, ease: EASING }}
+              className="font-sans text-xs tracking-[0.3em] uppercase text-muted-foreground mb-4"
+            >
+              Blogs
+            </motion.p>
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: HERO_TIMING.heading.delay, duration: HERO_TIMING.heading.duration, ease: EASING }}
+              className="font-serif text-3xl sm:text-4xl md:text-6xl leading-[1.15] mb-6"
+            >
+              Observations from
+              <span className="hidden md:inline"><br /></span>
+              <span className="inline md:hidden"> </span>
+              2,300 metres.
+            </motion.h1>
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: HERO_TIMING.description.delay, duration: HERO_TIMING.description.duration, ease: EASING }}
+              className="font-sans text-base text-muted-foreground leading-relaxed max-w-xl"
+            >
+              Stories about Kathkuni architecture, the people of Chachogi, the food that grows here,
+              and the seasons that shape everything.
+            </motion.p>
           </div>
         </section>
 
@@ -132,6 +147,7 @@ const Blogs = () => {
                       src={getArticleImage(featuredArticle, 0)}
                       alt={featuredArticle.title}
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                      loading="lazy"
                     />
                   </div>
                   <div className="flex flex-col justify-center">

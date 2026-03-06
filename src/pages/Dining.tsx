@@ -6,6 +6,7 @@ import ScrollReveal from "@/components/ScrollReveal";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { ExternalLink } from "lucide-react";
+import { EASING, HERO_TIMING } from "@/lib/animations";
 // Dining images
 import dining1 from "@/assets/dining/dining 1.avif";
 import dining2 from "@/assets/dining/dining 2.avif";
@@ -58,7 +59,7 @@ const Dining = () => {
             <motion.p
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ delay: 0.3, duration: 1 }}
+              transition={{ delay: HERO_TIMING.tagline.delay, duration: HERO_TIMING.tagline.duration, ease: EASING }}
               className="font-sans text-xs tracking-[0.3em] uppercase text-background/60 mb-4"
             >
               Farm to Table
@@ -66,7 +67,7 @@ const Dining = () => {
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5, duration: 0.8 }}
+              transition={{ delay: HERO_TIMING.heading.delay, duration: HERO_TIMING.heading.duration, ease: EASING }}
               className="font-serif text-4xl sm:text-5xl md:text-7xl text-background font-normal"
             >
               Shepherd Cafe
@@ -77,7 +78,7 @@ const Dining = () => {
             <motion.p
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ delay: 0.7, duration: 0.8 }}
+              transition={{ delay: HERO_TIMING.description.delay, duration: HERO_TIMING.description.duration, ease: EASING }}
               className="font-sans text-base text-background/70 mt-4 max-w-xl"
             >
               A blend of casual and traditional Himachali dining.
@@ -141,7 +142,7 @@ const Dining = () => {
           <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-16 items-center">
             <ScrollReveal>
               <div className="aspect-[4/3] overflow-hidden">
-                <img src={dining2} alt="The cafe interior" className="w-full h-full object-cover" />
+                <img src={dining2} alt="The cafe interior" className="w-full h-full object-cover" loading="lazy" />
               </div>
             </ScrollReveal>
             <ScrollReveal delay={0.15}>
@@ -212,6 +213,7 @@ const Dining = () => {
                     src={dining4}
                     alt="Seasonal produce from the mountain"
                     className="w-full h-full object-cover"
+                    loading="lazy"
                   />
                 </div>
               </ScrollReveal>
@@ -224,7 +226,7 @@ const Dining = () => {
           <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center">
             <ScrollReveal>
               <div className="aspect-[3/4] overflow-hidden">
-                <img src={dining1} alt="Hands preparing food" className="w-full h-full object-cover" />
+                <img src={dining1} alt="Hands preparing food" className="w-full h-full object-cover" loading="lazy" />
               </div>
             </ScrollReveal>
             <ScrollReveal delay={0.15}>
@@ -261,12 +263,12 @@ const Dining = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4 px-3 md:px-4">
             <ScrollReveal>
               <div className="aspect-[16/10] overflow-hidden">
-                <img src={dining2} alt="The fire stove" className="w-full h-full object-cover" />
+                <img src={dining2} alt="The fire stove" className="w-full h-full object-cover" loading="lazy" />
               </div>
             </ScrollReveal>
             <ScrollReveal delay={0.1}>
               <div className="aspect-[16/10] overflow-hidden">
-                <img src={dining4} alt="Evening meal by the fire" className="w-full h-full object-cover" />
+                <img src={dining4} alt="Evening meal by the fire" className="w-full h-full object-cover" loading="lazy" />
               </div>
             </ScrollReveal>
           </div>

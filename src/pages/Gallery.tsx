@@ -5,6 +5,7 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
 import PageTransition from "@/components/PageTransition";
+import { EASING } from "@/lib/animations";
 
 // Gallery images
 import gallery1 from "@/assets/gallery/Gallery 1.webp";
@@ -162,7 +163,7 @@ const Gallery = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              transition={{ duration: 0.2 }}
+              transition={{ duration: 0.4, ease: EASING }}
               className="fixed inset-0 z-[100] bg-black/95 flex items-center justify-center"
               onClick={() => setLightboxIndex(null)}
             >
@@ -205,7 +206,7 @@ const Gallery = () => {
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.95 }}
-                transition={{ duration: 0.2 }}
+                transition={{ duration: 0.4, ease: EASING }}
                 src={images[lightboxIndex]}
                 alt={`Gallery image ${lightboxIndex + 1}`}
                 className="max-w-[90vw] max-h-[85vh] object-contain"

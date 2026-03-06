@@ -6,6 +6,7 @@ import PageTransition from "@/components/PageTransition";
 import SplashScreen from "@/components/SplashScreen";
 import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
+import { EASING, HERO_TIMING } from "@/lib/animations";
 import heroImg from "@/assets/home/20260222-P1034400.jpg";
 import woodTexture from "@/assets/wood-texture.jpg";
 // Accommodation images
@@ -53,7 +54,7 @@ const Index = () => {
           <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 0.5, duration: 1.2 }}
+            transition={{ delay: HERO_TIMING.tagline.delay, duration: HERO_TIMING.tagline.duration, ease: EASING }}
             className="font-sans text-xs tracking-[0.3em] uppercase text-background/60 mb-6"
           >
             Chachogi Village · Naggar · Kullu Valley
@@ -61,7 +62,7 @@ const Index = () => {
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.8, duration: 1 }}
+            transition={{ delay: HERO_TIMING.heading.delay, duration: HERO_TIMING.heading.duration, ease: EASING }}
             className="font-serif text-4xl sm:text-5xl md:text-7xl lg:text-8xl text-background font-normal italic leading-[1.1]"
           >
             Embrace a<br />slow life.
@@ -69,7 +70,7 @@ const Index = () => {
           <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 1.2, duration: 1 }}
+            transition={{ delay: HERO_TIMING.description.delay, duration: HERO_TIMING.description.duration, ease: EASING }}
             className="mt-6 font-sans text-sm md:text-base text-background/70 max-w-md"
           >
             Conscious Travel · Therapeutic Relaxation · Contextual Lifestyle
@@ -77,7 +78,7 @@ const Index = () => {
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 1.6, duration: 1 }}
+            transition={{ delay: HERO_TIMING.cta.delay, duration: HERO_TIMING.cta.duration, ease: EASING }}
             className="mt-12"
           >
             <Link
@@ -92,7 +93,7 @@ const Index = () => {
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 2, duration: 1 }}
+          transition={{ delay: HERO_TIMING.scrollIndicator.delay, duration: HERO_TIMING.scrollIndicator.duration, ease: EASING }}
           className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10"
         >
           <div className="w-px h-12 bg-background/30 animate-pulse" />
@@ -207,6 +208,7 @@ const Index = () => {
                       src={tier.img}
                       alt={tier.title}
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                      loading="lazy"
                     />
                   </div>
                   <p className="font-sans text-xs tracking-[0.15em] uppercase text-muted-foreground mb-2">

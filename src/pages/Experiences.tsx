@@ -5,6 +5,7 @@ import ScrollReveal from "@/components/ScrollReveal";
 import PageTransition from "@/components/PageTransition";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
+import { EASING, HERO_TIMING } from "@/lib/animations";
 // Experience images
 import expCultural from "@/assets/experiences/20260220-P1034047.jpg";
 import expCooking from "@/assets/experiences/DSC07673 (3).JPG";
@@ -121,7 +122,7 @@ const Experiences = () => {
             <motion.p
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ delay: 0.3, duration: 1 }}
+              transition={{ delay: HERO_TIMING.tagline.delay, duration: HERO_TIMING.tagline.duration, ease: EASING }}
               className="font-sans text-xs tracking-[0.3em] uppercase text-background/60 mb-4"
             >
               Immersive Experiences
@@ -129,7 +130,7 @@ const Experiences = () => {
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5, duration: 0.8 }}
+              transition={{ delay: HERO_TIMING.heading.delay, duration: HERO_TIMING.heading.duration, ease: EASING }}
               className="font-serif text-4xl sm:text-5xl md:text-7xl text-background font-normal"
             >
               Experiences
@@ -137,7 +138,7 @@ const Experiences = () => {
             <motion.p
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ delay: 0.7, duration: 0.8 }}
+              transition={{ delay: HERO_TIMING.description.delay, duration: HERO_TIMING.description.duration, ease: EASING }}
               className="font-sans text-base text-background/70 mt-4 max-w-xl"
             >
               Step away from ordinary routines and connect with nature, local culture, and mountain landscapes.

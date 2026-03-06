@@ -4,6 +4,7 @@ import ScrollReveal from "@/components/ScrollReveal";
 import PageTransition from "@/components/PageTransition";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
+import { EASING, HERO_TIMING } from "@/lib/animations";
 import kathkuniWall from "@/assets/our story/20260222-P1034301.jpg";
 import heroImg from "@/assets/hero-home.jpg";
 import villagePath from "@/assets/village-path.jpg";
@@ -31,10 +32,18 @@ const About = () => {
           <div className="absolute inset-0 bg-foreground/20" />
         </motion.div>
         <div className="relative z-10 flex flex-col justify-end h-full pb-12 md:pb-16 px-5 md:px-12">
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: HERO_TIMING.tagline.delay, duration: HERO_TIMING.tagline.duration, ease: EASING }}
+            className="font-sans text-xs tracking-[0.3em] uppercase text-background/60 mb-4"
+          >
+            Our Heritage
+          </motion.p>
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5, duration: 0.8 }}
+            transition={{ delay: HERO_TIMING.heading.delay, duration: HERO_TIMING.heading.duration, ease: EASING }}
             className="font-serif text-4xl sm:text-5xl md:text-7xl text-background font-normal"
           >
             The Story
@@ -81,7 +90,7 @@ const About = () => {
       <section className="px-5 md:px-12">
         <ScrollReveal>
           <div className="max-w-6xl mx-auto aspect-[21/9] overflow-hidden">
-            <img src={heroImg} alt="Light through Kathkuni window" className="w-full h-full object-cover" />
+            <img src={heroImg} alt="Light through Kathkuni window" className="w-full h-full object-cover" loading="lazy" />
           </div>
         </ScrollReveal>
       </section>
@@ -124,12 +133,12 @@ const About = () => {
         <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-4">
           <ScrollReveal>
             <div className="aspect-square overflow-hidden">
-              <img src={handsWorking} alt="Artisan hands working wood" className="w-full h-full object-cover" />
+              <img src={handsWorking} alt="Artisan hands working wood" className="w-full h-full object-cover" loading="lazy" />
             </div>
           </ScrollReveal>
           <ScrollReveal delay={0.15}>
             <div className="aspect-square overflow-hidden">
-              <img src={woodTexture} alt="Wood and stone detail" className="w-full h-full object-cover" />
+              <img src={woodTexture} alt="Wood and stone detail" className="w-full h-full object-cover" loading="lazy" />
             </div>
           </ScrollReveal>
         </div>
@@ -173,12 +182,12 @@ const About = () => {
         <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-4">
           <ScrollReveal>
             <div className="aspect-[4/5] overflow-hidden">
-              <img src={villagePath} alt="Village path in morning fog" className="w-full h-full object-cover" />
+              <img src={villagePath} alt="Village path in morning fog" className="w-full h-full object-cover" loading="lazy" />
             </div>
           </ScrollReveal>
           <ScrollReveal delay={0.15}>
             <div className="aspect-[4/5] overflow-hidden">
-              <img src={forestLight} alt="Forest light through deodar" className="w-full h-full object-cover" />
+              <img src={forestLight} alt="Forest light through deodar" className="w-full h-full object-cover" loading="lazy" />
             </div>
           </ScrollReveal>
         </div>

@@ -6,6 +6,7 @@ import PageTransition from "@/components/PageTransition";
 import ImageCarousel from "@/components/ImageCarousel";
 import { motion } from "framer-motion";
 import { Users, Bed, Bath, Mountain, Flame, ExternalLink } from "lucide-react";
+import { EASING, HERO_TIMING } from "@/lib/animations";
 
 // Import images - Entire Kathkuni House
 import entireKathkuniVilla from "@/assets/Entire Kathkuni House (6 Bedrooms)/Entire Kathkuni Villa.avif";
@@ -117,7 +118,7 @@ const Stays = () => {
               <motion.p
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ duration: 0.8 }}
+                transition={{ delay: HERO_TIMING.tagline.delay, duration: HERO_TIMING.tagline.duration, ease: EASING }}
                 className="font-sans text-xs tracking-[0.3em] uppercase text-muted-foreground mb-4"
               >
                 Stay With Us
@@ -125,7 +126,7 @@ const Stays = () => {
               <motion.h1
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.2, duration: 0.8 }}
+                transition={{ delay: HERO_TIMING.heading.delay, duration: HERO_TIMING.heading.duration, ease: EASING }}
                 className="font-serif text-4xl md:text-6xl mb-6"
               >
                 Accommodation
@@ -133,7 +134,7 @@ const Stays = () => {
               <motion.p
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ delay: 0.4, duration: 0.8 }}
+                transition={{ delay: HERO_TIMING.description.delay, duration: HERO_TIMING.description.duration, ease: EASING }}
                 className="font-sans text-base text-muted-foreground max-w-xl mx-auto leading-relaxed"
               >
                 Heritage rooms in a 100-year-old Kathkuni house, each with its own character,
@@ -188,7 +189,7 @@ const Stays = () => {
                     href={featuredAccommodation.airbnbLink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 font-sans text-xs tracking-[0.15em] uppercase bg-foreground text-background px-8 py-4 hover:bg-foreground/90 transition-all duration-300"
+                    className="inline-flex items-center gap-2 font-sans text-xs tracking-[0.15em] uppercase bg-foreground text-background px-8 py-4 hover:bg-foreground/90 transition-all duration-500"
                   >
                     Book Entire House
                     <ExternalLink className="w-3.5 h-3.5" />
@@ -247,7 +248,7 @@ const Stays = () => {
                         href={suite.airbnbLink}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 font-sans text-xs tracking-[0.15em] uppercase border border-foreground/20 px-5 py-3 hover:bg-foreground hover:text-background transition-all duration-300"
+                        className="inline-flex items-center gap-2 font-sans text-xs tracking-[0.15em] uppercase border border-foreground/20 px-5 py-3 hover:bg-foreground hover:text-background transition-all duration-500"
                       >
                         Book on Airbnb
                         <ExternalLink className="w-3 h-3" />
@@ -308,7 +309,7 @@ const Stays = () => {
                         href={room.airbnbLink}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 font-sans text-xs tracking-[0.15em] uppercase border border-foreground/20 px-5 py-3 hover:bg-foreground hover:text-background transition-all duration-300"
+                        className="inline-flex items-center gap-2 font-sans text-xs tracking-[0.15em] uppercase border border-foreground/20 px-5 py-3 hover:bg-foreground hover:text-background transition-all duration-500"
                       >
                         Book on Airbnb
                         <ExternalLink className="w-3 h-3" />
