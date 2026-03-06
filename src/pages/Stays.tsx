@@ -1,9 +1,11 @@
+import { Link } from "react-router-dom";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
 import PageTransition from "@/components/PageTransition";
 import ImageCarousel from "@/components/ImageCarousel";
 import { motion } from "framer-motion";
+import { Users, Bed, Bath, Mountain, Flame, ExternalLink } from "lucide-react";
 
 // Import images - Entire Kathkuni House
 import entireKathkuniVilla from "@/assets/Entire Kathkuni House (6 Bedrooms)/Entire Kathkuni Villa.avif";
@@ -41,57 +43,64 @@ import winterBlue6 from "@/assets/Winter Blue Duplex Studio/Winter Blue Duplex S
 import winterBlue7 from "@/assets/Winter Blue Duplex Studio/Winter Blue Duplex Studio 7.webp";
 import winterBlue8 from "@/assets/Winter Blue Duplex Studio/Winter Blue Duplex Studio 8.webp";
 
-// Heritage Wing image
-import heritageWing from "@/assets/Heritage Wing (4 Bedrooms)/Heritage Wing (4 Bedrooms).webp";
+// Featured accommodation
+const featuredAccommodation = {
+  id: "kathkuni-house",
+  name: "Entire Kathkuni House",
+  subtitle: "6 Bedrooms",
+  description:
+    "Experience the complete heritage villa with 2 duplex suites, 2 deluxe attic rooms, a traditional dining hall, and exclusive outdoor spaces. Includes dedicated chef and staff service for an unforgettable group retreat.",
+  images: [entireKathkuniVilla],
+  airbnbLink: "https://www.airbnb.co.in/rooms/1269463075803029322",
+  features: [
+    { icon: Users, label: "6-16 Guests" },
+    { icon: Bed, label: "6 Bedrooms" },
+    { icon: Mountain, label: "Valley Views" },
+    { icon: Flame, label: "Fireplace" },
+  ],
+};
 
-const accommodations = [
+// Duplex Suites
+const duplexSuites = [
   {
-    id: "kathkuni-house",
-    name: "Entire Kathkuni House (6 Bedrooms)",
+    id: "summer-gold",
+    name: "Summer Gold Duplex Suite",
     description:
-      "Whole House with 2 duplex suites, 2 delux rooms, dining area & outdoors, exclusive service of chef & staff, can accommodate 6 – 16 guests.",
-    images: [entireKathkuniVilla],
-    airbnbLink: "https://www.airbnb.co.in/rooms/1093498029501498953",
-  },
-  {
-    id: "heritage-wing",
-    name: "Heritage Wing (4 Bedrooms)",
-    description:
-      "Entire valley facing side of the Kathkuni Villa. With exclusive access to the sprawling verandhas and the spectacular views.",
-    images: [heritageWing],
-    airbnbLink: "https://www.airbnb.co.in/rooms/1190498029501498123",
+      "North-facing premium suite with panoramic valley views, heritage wood floors, earthen walls, private veranda, stone hot tub, and a cozy fireplace.",
+    images: [summerGold1, summerGold2, summerGold3, summerGold4, summerGold5, summerGold6, summerGold7, summerGold8],
+    airbnbLink: "https://www.airbnb.co.in/rooms/898430473088156687",
+    capacity: "2-4 Guests",
   },
   {
     id: "winter-blue",
     name: "Winter Blue Duplex Studio",
     description:
-      "A signature suite that has been thoughtfully crafted to offer a superb instagrammable lifestyle experience. It offers panoramic views, a healing stone hottub with a view, a charming fireplace and much more.",
+      "A signature suite crafted for an instagrammable lifestyle experience. Features panoramic views, healing stone hot tub, charming fireplace, and thoughtful design details.",
     images: [winterBlue1, winterBlue2, winterBlue3, winterBlue4, winterBlue5, winterBlue6, winterBlue7, winterBlue8],
-    airbnbLink: "https://www.airbnb.co.in/rooms/1093498029501498954",
+    airbnbLink: "https://www.airbnb.co.in/rooms/1318115446497662496",
+    capacity: "2-4 Guests",
   },
+];
+
+// Attic Rooms
+const atticRooms = [
   {
-    id: "summer-gold",
-    name: "Summer Gold Duplex Suite",
+    id: "spring-green",
+    name: "Spring Green Attic Room",
     description:
-      "North facing premium suite that offers panoramic views, wood floors, earthen walls, hanging verandas, a healing stone hottub, and a fireplace to make your stay extra soothing and unforgettable.",
-    images: [summerGold1, summerGold2, summerGold3, summerGold4, summerGold5, summerGold6, summerGold7, summerGold8],
-    airbnbLink: "https://www.airbnb.co.in/rooms/1093498029501498955",
+      "Cozy double room with queen bed and attached shower bath. Private balcony with snow peak and village views.",
+    images: [springGreen1, springGreen2, springGreen3, springGreen4, springGreen5, springGreen7],
+    airbnbLink: "https://www.airbnb.co.in/rooms/21466866",
+    capacity: "2 Guests",
   },
   {
     id: "fall-maroon",
     name: "Fall Maroon Attic Room",
     description:
-      "Double room with kitchenette, queen bed and an attached shower bath. Attached balcony with ample sun and garden side views.",
+      "Double room with kitchenette, queen bed, and attached shower bath. Attached balcony with garden views and ample natural light.",
     images: [fallMaroon1, fallMaroon2, fallMaroon4],
-    airbnbLink: "https://www.airbnb.co.in/rooms/1093498029501498956",
-  },
-  {
-    id: "spring-green",
-    name: "Spring Green Attic Room",
-    description:
-      "Double room with queen beds and attached shower bath. Small balcony with Snowpeak and village side views.",
-    images: [springGreen1, springGreen2, springGreen3, springGreen4, springGreen5, springGreen7],
-    airbnbLink: "https://www.airbnb.co.in/rooms/1093498029501498957",
+    airbnbLink: "https://www.airbnb.co.in/rooms/1055715753752546041",
+    capacity: "2 Guests",
   },
 ];
 
@@ -102,77 +111,226 @@ const Stays = () => {
         <Navigation />
 
         {/* Hero Section */}
-        <section className="pt-32 pb-16 md:pt-40 md:pb-20 px-6 md:px-12">
+        <section className="pt-32 pb-12 md:pt-40 md:pb-16 px-6 md:px-12">
           <div className="max-w-4xl mx-auto text-center">
             <ScrollReveal>
+              <motion.p
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.8 }}
+                className="font-sans text-xs tracking-[0.3em] uppercase text-muted-foreground mb-4"
+              >
+                Stay With Us
+              </motion.p>
               <motion.h1
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8 }}
-                className="font-serif text-4xl md:text-6xl mb-4"
+                transition={{ delay: 0.2, duration: 0.8 }}
+                className="font-serif text-4xl md:text-6xl mb-6"
               >
                 Accommodation
               </motion.h1>
               <motion.p
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ delay: 0.3, duration: 0.8 }}
-                className="font-sans text-sm tracking-[0.15em] text-muted-foreground"
+                transition={{ delay: 0.4, duration: 0.8 }}
+                className="font-sans text-base text-muted-foreground max-w-xl mx-auto leading-relaxed"
               >
-                Entire Villa • Duplex Suites • Rooms • Capsules
+                Heritage rooms in a 100-year-old Kathkuni house, each with its own character,
+                view, and story to tell.
               </motion.p>
             </ScrollReveal>
           </div>
         </section>
 
-        {/* Accommodations Grid */}
-        <section className="px-6 md:px-12 pb-24">
-          <div className="max-w-5xl mx-auto">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10">
-              {accommodations.map((accommodation, index) => (
-                <ScrollReveal key={accommodation.id} delay={index * 0.1}>
+        {/* Featured: Entire House */}
+        <section className="px-6 md:px-12 pb-20">
+          <div className="max-w-6xl mx-auto">
+            <ScrollReveal>
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+                {/* Image */}
+                <div className="aspect-[4/3] overflow-hidden">
+                  <ImageCarousel
+                    images={featuredAccommodation.images}
+                    alt={featuredAccommodation.name}
+                  />
+                </div>
+
+                {/* Content */}
+                <div className="lg:pl-4">
+                  <p className="font-sans text-xs tracking-[0.2em] uppercase text-muted-foreground mb-3">
+                    Featured
+                  </p>
+                  <h2 className="font-serif text-3xl md:text-4xl mb-2">
+                    {featuredAccommodation.name}
+                  </h2>
+                  <p className="font-sans text-sm text-muted-foreground mb-6">
+                    {featuredAccommodation.subtitle}
+                  </p>
+                  <p className="font-sans text-base text-muted-foreground leading-relaxed mb-8">
+                    {featuredAccommodation.description}
+                  </p>
+
+                  {/* Features */}
+                  <div className="grid grid-cols-2 gap-4 mb-8">
+                    {featuredAccommodation.features.map((feature) => (
+                      <div key={feature.label} className="flex items-center gap-3">
+                        <feature.icon className="w-5 h-5 text-foreground/60" />
+                        <span className="font-sans text-sm text-muted-foreground">
+                          {feature.label}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* CTA */}
+                  <a
+                    href={featuredAccommodation.airbnbLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 font-sans text-xs tracking-[0.15em] uppercase bg-foreground text-background px-8 py-4 hover:bg-foreground/90 transition-all duration-300"
+                  >
+                    Book Entire House
+                    <ExternalLink className="w-3.5 h-3.5" />
+                  </a>
+                </div>
+              </div>
+            </ScrollReveal>
+          </div>
+        </section>
+
+        {/* Divider */}
+        <div className="max-w-6xl mx-auto px-6 md:px-12">
+          <div className="border-t border-border/50" />
+        </div>
+
+        {/* Duplex Suites Section */}
+        <section className="px-6 md:px-12 py-20">
+          <div className="max-w-6xl mx-auto">
+            <ScrollReveal>
+              <div className="text-center mb-12">
+                <p className="font-sans text-xs tracking-[0.2em] uppercase text-muted-foreground mb-3">
+                  Premium Suites
+                </p>
+                <h2 className="font-serif text-2xl md:text-3xl">
+                  Duplex Suites
+                </h2>
+              </div>
+            </ScrollReveal>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+              {duplexSuites.map((suite, index) => (
+                <ScrollReveal key={suite.id} delay={index * 0.1}>
                   <div className="group">
-                    {/* Image Carousel */}
-                    <ImageCarousel
-                      images={accommodation.images}
-                      alt={accommodation.name}
-                    />
+                    {/* Image */}
+                    <div className="aspect-[4/3] overflow-hidden mb-6">
+                      <ImageCarousel
+                        images={suite.images}
+                        alt={suite.name}
+                      />
+                    </div>
 
                     {/* Content */}
-                    <div className="pt-5">
-                      <h3 className="font-serif text-xl md:text-2xl mb-3">
-                        {accommodation.name}
-                      </h3>
-                      <p className="font-sans text-sm text-muted-foreground leading-relaxed mb-5">
-                        {accommodation.description}
+                    <div>
+                      <div className="flex items-center justify-between mb-3">
+                        <h3 className="font-serif text-xl md:text-2xl">
+                          {suite.name}
+                        </h3>
+                        <span className="font-sans text-xs text-muted-foreground">
+                          {suite.capacity}
+                        </span>
+                      </div>
+                      <p className="font-sans text-sm text-muted-foreground leading-relaxed mb-6">
+                        {suite.description}
                       </p>
-
-                      {/* Book Button */}
                       <a
-                        href={accommodation.airbnbLink}
+                        href={suite.airbnbLink}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="inline-flex items-center gap-2 font-sans text-xs tracking-[0.15em] uppercase border border-foreground/20 px-6 py-3 hover:bg-foreground hover:text-background transition-all duration-300"
                       >
                         Book on Airbnb
-                        <svg
-                          className="w-3 h-3"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                          />
-                        </svg>
+                        <ExternalLink className="w-3 h-3" />
                       </a>
                     </div>
                   </div>
                 </ScrollReveal>
               ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Divider */}
+        <div className="max-w-6xl mx-auto px-6 md:px-12">
+          <div className="border-t border-border/50" />
+        </div>
+
+        {/* Attic Rooms Section */}
+        <section className="px-6 md:px-12 py-20">
+          <div className="max-w-6xl mx-auto">
+            <ScrollReveal>
+              <div className="text-center mb-12">
+                <p className="font-sans text-xs tracking-[0.2em] uppercase text-muted-foreground mb-3">
+                  Cozy Retreats
+                </p>
+                <h2 className="font-serif text-2xl md:text-3xl">
+                  Attic Rooms
+                </h2>
+              </div>
+            </ScrollReveal>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+              {atticRooms.map((room, index) => (
+                <ScrollReveal key={room.id} delay={index * 0.1}>
+                  <div className="group">
+                    {/* Image */}
+                    <div className="aspect-[4/3] overflow-hidden mb-6">
+                      <ImageCarousel
+                        images={room.images}
+                        alt={room.name}
+                      />
+                    </div>
+
+                    {/* Content */}
+                    <div>
+                      <div className="flex items-center justify-between mb-3">
+                        <h3 className="font-serif text-xl md:text-2xl">
+                          {room.name}
+                        </h3>
+                        <span className="font-sans text-xs text-muted-foreground">
+                          {room.capacity}
+                        </span>
+                      </div>
+                      <p className="font-sans text-sm text-muted-foreground leading-relaxed mb-6">
+                        {room.description}
+                      </p>
+                      <a
+                        href={room.airbnbLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 font-sans text-xs tracking-[0.15em] uppercase border border-foreground/20 px-6 py-3 hover:bg-foreground hover:text-background transition-all duration-300"
+                      >
+                        Book on Airbnb
+                        <ExternalLink className="w-3 h-3" />
+                      </a>
+                    </div>
+                  </div>
+                </ScrollReveal>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Terms Notice */}
+        <section className="px-6 md:px-12 pb-8">
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center">
+              <p className="font-sans text-xs text-muted-foreground">
+                All bookings are subject to our{" "}
+                <Link to="/terms" className="underline hover:text-foreground transition-colors">
+                  Terms & Conditions
+                </Link>
+              </p>
             </div>
           </div>
         </section>

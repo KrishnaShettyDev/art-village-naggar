@@ -17,6 +17,7 @@ import TheHouse from "./pages/TheHouse";
 import TheCafe from "./pages/TheCafe";
 import ShepherdHostel from "./pages/ShepherdHostel";
 import Collaborate from "./pages/Collaborate";
+import Terms from "./pages/Terms";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -40,6 +41,7 @@ const AnimatedRoutes = () => {
         <Route path="/blogs" element={<Blogs />} />
         <Route path="/collaborate" element={<Collaborate />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/terms" element={<Terms />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </AnimatePresence>
