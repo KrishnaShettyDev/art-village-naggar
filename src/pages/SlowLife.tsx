@@ -6,30 +6,30 @@ import PageTransition from "@/components/PageTransition";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 // Slow Life images
-import slowLife1 from "@/assets/slow-life/slow life 1.jpg";
-import slowLife2 from "@/assets/slow-life/slow life 2.jpg";
-import slowLifeForest from "@/assets/slow-life/20241011_183347_060.jpg";
-import slowLifeMorning from "@/assets/slow-life/20260220-P1034047.jpg";
-import slowLifeView from "@/assets/slow-life/IMG_3840.JPG";
+import heroImage from "@/assets/slow-life/IMG_3840.JPG";
+import consciousTravel from "@/assets/slow-life/20260220-P1034047.jpg";
+import therapeuticRelax from "@/assets/slow-life/20241011_183347_060.jpg";
+import contextualLifestyle from "@/assets/slow-life/slow life 1.jpg";
+import villageView from "@/assets/slow-life/slow life 2.jpg";
 
 const pillars = [
   {
     title: "Conscious Travel",
     description:
       "Travel that goes beyond sightseeing. Immerse yourself in local culture, gain insights, and engage in meaningful interactions with the community. Every journey here is an opportunity for personal growth and connection.",
-    img: slowLife1,
+    img: consciousTravel,
   },
   {
     title: "Therapeutic Relaxation",
     description:
       "Let the mountains heal you. From yoga sessions in traditional wooden houses to forest walks and stargazing, we offer experiences designed to restore your mind, body, and spirit in the embrace of nature.",
-    img: slowLifeMorning,
+    img: therapeuticRelax,
   },
   {
     title: "Contextual Lifestyle",
     description:
       "Live as the village lives. Learn traditional crafts, cook with local ingredients, wear traditional Kullu dress, and participate in village customs. Experience a lifestyle that has evolved in harmony with these mountains for generations.",
-    img: slowLife2,
+    img: contextualLifestyle,
   },
 ];
 
@@ -50,7 +50,7 @@ const SlowLife = () => {
         <section ref={heroRef} className="relative h-screen overflow-hidden">
           <motion.div style={{ y: heroY }} className="absolute inset-0">
             <img
-              src={slowLifeForest}
+              src={heroImage}
               alt="Forest light through deodar trees"
               className="w-full h-full object-cover"
             />
@@ -160,7 +160,7 @@ const SlowLife = () => {
             <ScrollReveal>
               <div className="aspect-[4/5] overflow-hidden">
                 <img
-                  src={slowLifeView}
+                  src={villageView}
                   alt="Chachogi village view"
                   className="w-full h-full object-cover"
                 />

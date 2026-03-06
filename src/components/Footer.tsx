@@ -75,7 +75,7 @@ const Footer = () => {
               </h4>
               <div className="flex gap-4 mb-6">
                 <a
-                  href="https://instagram.com/artvillagenaggar"
+                  href="https://www.instagram.com/artvillagenaggar/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-background/40 hover:text-background transition-colors"
@@ -84,7 +84,7 @@ const Footer = () => {
                   <Instagram className="w-5 h-5" />
                 </a>
                 <a
-                  href="https://youtube.com"
+                  href="https://www.youtube.com/@AdaptiveRuralTourism"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-background/40 hover:text-background transition-colors"
@@ -93,7 +93,7 @@ const Footer = () => {
                   <Youtube className="w-5 h-5" />
                 </a>
                 <a
-                  href="https://facebook.com"
+                  href="https://www.facebook.com/artvillagenaggar"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-background/40 hover:text-background transition-colors"
