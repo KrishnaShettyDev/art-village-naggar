@@ -5,45 +5,32 @@ import ScrollReveal from "@/components/ScrollReveal";
 import PageTransition from "@/components/PageTransition";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
-import heroImg from "@/assets/forest-light.jpg";
-import woodTexture from "@/assets/wood-texture.jpg";
-import villagePath from "@/assets/village-path.jpg";
-import handsWorking from "@/assets/hands-working.jpg";
-import fireStove from "@/assets/fire-stove.jpg";
-import experienceCultural from "@/assets/experience-cultural.jpg";
-import experienceForaging from "@/assets/experience-foraging.jpg";
-import kathkuniWall from "@/assets/kathkuni-wall.jpg";
+// Slow Life images
+import slowLife1 from "@/assets/slow-life/slow life 1.jpg";
+import slowLife2 from "@/assets/slow-life/slow life 2.jpg";
+import slowLifeForest from "@/assets/slow-life/20241011_183347_060.jpg";
+import slowLifeMorning from "@/assets/slow-life/20260220-P1034047.jpg";
+import slowLifeView from "@/assets/slow-life/IMG_3840.JPG";
 
 const pillars = [
   {
     title: "Conscious Travel",
     description:
       "Travel that goes beyond sightseeing. Immerse yourself in local culture, gain insights, and engage in meaningful interactions with the community. Every journey here is an opportunity for personal growth and connection.",
-    img: experienceCultural,
+    img: slowLife1,
   },
   {
     title: "Therapeutic Relaxation",
     description:
       "Let the mountains heal you. From yoga sessions in traditional wooden houses to forest walks and stargazing, we offer experiences designed to restore your mind, body, and spirit in the embrace of nature.",
-    img: fireStove,
+    img: slowLifeMorning,
   },
   {
     title: "Contextual Lifestyle",
     description:
       "Live as the village lives. Learn traditional crafts, cook with local ingredients, wear traditional Kullu dress, and participate in village customs. Experience a lifestyle that has evolved in harmony with these mountains for generations.",
-    img: handsWorking,
+    img: slowLife2,
   },
-];
-
-const experiences = [
-  { title: "Yoga in traditional houses", img: woodTexture },
-  { title: "Interactive talks with local experts", img: experienceCultural },
-  { title: "Traditional Kullu dress experience", img: kathkuniWall },
-  { title: "Trekking & forest walks", img: experienceForaging },
-  { title: "Local weaving & wood carving", img: handsWorking },
-  { title: "Shepherd trails exploration", img: villagePath },
-  { title: "Chanderkhani trek adventures", img: heroImg },
-  { title: "Bonfire & stargazing nights", img: fireStove },
 ];
 
 const SlowLife = () => {
@@ -63,7 +50,7 @@ const SlowLife = () => {
         <section ref={heroRef} className="relative h-screen overflow-hidden">
           <motion.div style={{ y: heroY }} className="absolute inset-0">
             <img
-              src={heroImg}
+              src={slowLifeForest}
               alt="Forest light through deodar trees"
               className="w-full h-full object-cover"
             />
@@ -167,47 +154,14 @@ const SlowLife = () => {
           </div>
         </section>
 
-        {/* Experience Gallery */}
-        <section className="py-24 md:py-36 px-6 md:px-12">
-          <div className="max-w-6xl mx-auto">
-            <ScrollReveal>
-              <p className="font-sans text-xs tracking-[0.2em] uppercase text-muted-foreground mb-4 text-center">
-                What Awaits You
-              </p>
-              <h2 className="font-serif text-3xl md:text-4xl text-center mb-16">
-                Moments that matter.
-              </h2>
-            </ScrollReveal>
-
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-              {experiences.map((exp, i) => (
-                <ScrollReveal key={exp.title} delay={i * 0.05}>
-                  <div className="group relative overflow-hidden aspect-square">
-                    <img
-                      src={exp.img}
-                      alt={exp.title}
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                    />
-                    <div className="absolute inset-0 bg-foreground/0 group-hover:bg-foreground/60 transition-colors duration-500 flex items-end p-4">
-                      <p className="font-sans text-sm text-background opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                        {exp.title}
-                      </p>
-                    </div>
-                  </div>
-                </ScrollReveal>
-              ))}
-            </div>
-          </div>
-        </section>
-
         {/* The Setting */}
         <section className="py-20 md:py-28 px-6 md:px-12 bg-secondary/50">
           <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center">
             <ScrollReveal>
               <div className="aspect-[4/5] overflow-hidden">
                 <img
-                  src={villagePath}
-                  alt="Chachogi village path"
+                  src={slowLifeView}
+                  alt="Chachogi village view"
                   className="w-full h-full object-cover"
                 />
               </div>

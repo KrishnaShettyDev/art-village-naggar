@@ -5,12 +5,11 @@ import ScrollReveal from "@/components/ScrollReveal";
 import PageTransition from "@/components/PageTransition";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
-import experienceForaging from "@/assets/experience-foraging.jpg";
-import experienceWorkshop from "@/assets/experience-workshop.jpg";
-import experienceCultural from "@/assets/experience-cultural.jpg";
-import forestLight from "@/assets/forest-light.jpg";
-import fireStove from "@/assets/fire-stove.jpg";
-import cafeFood from "@/assets/cafe-food.jpg";
+// Experience images
+import expCultural from "@/assets/experiences/20180311-_DSC0492.jpg";
+import expNature from "@/assets/experiences/20190109-_DSC0741.jpg";
+import expForest from "@/assets/experiences/DSC07673 (3).JPG";
+import expOutdoor from "@/assets/experiences/IMG_20180918_165742.jpg";
 
 const experiences = [
   {
@@ -24,7 +23,7 @@ const experiences = [
       "Stories from village elders",
       "Understanding the devta tradition",
     ],
-    image: experienceCultural,
+    image: expCultural,
   },
   {
     title: "Farm-to-Table Cooking & Wood-Fire Pizza",
@@ -37,7 +36,7 @@ const experiences = [
       "Wood-fired pizza making",
       "Farm-to-table philosophy",
     ],
-    image: cafeFood,
+    image: expOutdoor,
   },
   {
     title: "Snowline Hikes & Meadow Retreat",
@@ -50,7 +49,7 @@ const experiences = [
       "Seasonal wildflower trails",
       "Expert local guides",
     ],
-    image: forestLight,
+    image: expNature,
   },
   {
     title: "Stargazing & Night Camping",
@@ -63,7 +62,7 @@ const experiences = [
       "Overnight camping options",
       "Traditional storytelling",
     ],
-    image: fireStove,
+    image: expForest,
   },
   {
     title: "Forest Walks & Hidden Trails",
@@ -76,7 +75,7 @@ const experiences = [
       "Secret viewpoint discoveries",
       "Bird watching opportunities",
     ],
-    image: experienceForaging,
+    image: expNature,
   },
   {
     title: "Traditional Crafts Workshop",
@@ -89,7 +88,7 @@ const experiences = [
       "Wood carving basics",
       "Take home your creation",
     ],
-    image: experienceWorkshop,
+    image: expCultural,
   },
 ];
 
@@ -110,7 +109,7 @@ const Experiences = () => {
         <section ref={heroRef} className="relative h-[70vh] overflow-hidden">
           <motion.div style={{ y: heroY }} className="absolute inset-0">
             <img
-              src={experienceCultural}
+              src={expCultural}
               alt="Village cultural experience"
               className="w-full h-full object-cover"
             />

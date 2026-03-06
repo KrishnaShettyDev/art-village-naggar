@@ -5,19 +5,44 @@ import PageTransition from "@/components/PageTransition";
 import ImageCarousel from "@/components/ImageCarousel";
 import { motion } from "framer-motion";
 
-// Import images
-import theHouseRoom from "@/assets/the-house-room.jpg";
-import kathkuniWall from "@/assets/kathkuni-wall.jpg";
-import kathkuniDoor from "@/assets/kathkuni-door.jpg";
-import shepherdHostel from "@/assets/shepherd-hostel.jpg";
-import balconyView from "@/assets/balcony-view.jpg";
-import cafeSpace from "@/assets/cafe-space.jpg";
-import woodTexture from "@/assets/wood-texture.jpg";
-import nightArchitecture from "@/assets/night-architecture.jpg";
-import forestLight from "@/assets/forest-light.jpg";
-import fireStove from "@/assets/fire-stove.jpg";
-import villageElder from "@/assets/village-elder.jpg";
-import guestsTour from "@/assets/guests-tour.jpg";
+// Import images - Entire Kathkuni House
+import entireKathkuniVilla from "@/assets/Entire Kathkuni House (6 Bedrooms)/Entire Kathkuni Villa.avif";
+
+// Import images - Fall Maroon Attic Room
+import fallMaroon1 from "@/assets/Fall Maroon Attic Room/Fall Maroon Attic Room 1.webp";
+import fallMaroon2 from "@/assets/Fall Maroon Attic Room/Fall Maroon Attic Room 2.webp";
+import fallMaroon4 from "@/assets/Fall Maroon Attic Room/Fall Maroon Attic Room 4.webp";
+
+// Import images - Spring Green Attic Room
+import springGreen1 from "@/assets/Spring Green Attic Room/Spring Green Attic Room 1.webp";
+import springGreen2 from "@/assets/Spring Green Attic Room/Spring Green Attic Room  2.webp";
+import springGreen3 from "@/assets/Spring Green Attic Room/Spring Green Attic Room  3.webp";
+import springGreen4 from "@/assets/Spring Green Attic Room/Spring Green Attic Room  4.webp";
+import springGreen5 from "@/assets/Spring Green Attic Room/Spring Green Attic Room  5.webp";
+import springGreen7 from "@/assets/Spring Green Attic Room/Spring Green Attic Room  7.webp";
+
+// Import images - Summer Gold Duplex Suite
+import summerGold1 from "@/assets/Summer Gold Duplex Suite/Summer Gold Duplex Suite 1.webp";
+import summerGold2 from "@/assets/Summer Gold Duplex Suite/Summer Gold Duplex Suite 2.webp";
+import summerGold3 from "@/assets/Summer Gold Duplex Suite/Summer Gold Duplex Suite 3.webp";
+import summerGold4 from "@/assets/Summer Gold Duplex Suite/Summer Gold Duplex Suite 4.webp";
+import summerGold5 from "@/assets/Summer Gold Duplex Suite/Summer Gold Duplex Suite 5.webp";
+import summerGold6 from "@/assets/Summer Gold Duplex Suite/Summer Gold Duplex Suite 6.webp";
+import summerGold7 from "@/assets/Summer Gold Duplex Suite/Summer Gold Duplex Suite 7.webp";
+import summerGold8 from "@/assets/Summer Gold Duplex Suite/Summer Gold Duplex Suite 8.webp";
+
+// Import images - Winter Blue Duplex Studio
+import winterBlue1 from "@/assets/Winter Blue Duplex Studio/Winter Blue Duplex Studio 1.webp";
+import winterBlue2 from "@/assets/Winter Blue Duplex Studio/Winter Blue Duplex Studio 2.webp";
+import winterBlue3 from "@/assets/Winter Blue Duplex Studio/Winter Blue Duplex Studio 3.webp";
+import winterBlue4 from "@/assets/Winter Blue Duplex Studio/Winter Blue Duplex Studio 4.webp";
+import winterBlue5 from "@/assets/Winter Blue Duplex Studio/Winter Blue Duplex Studio 5.webp";
+import winterBlue6 from "@/assets/Winter Blue Duplex Studio/Winter Blue Duplex Studio 6.webp";
+import winterBlue7 from "@/assets/Winter Blue Duplex Studio/Winter Blue Duplex Studio 7.webp";
+import winterBlue8 from "@/assets/Winter Blue Duplex Studio/Winter Blue Duplex Studio 8.webp";
+
+// Heritage Wing image
+import heritageWing from "@/assets/Heritage Wing (4 Bedrooms)/Heritage Wing (4 Bedrooms).webp";
 
 const accommodations = [
   {
@@ -25,7 +50,7 @@ const accommodations = [
     name: "Entire Kathkuni House (6 Bedrooms)",
     description:
       "Whole House with 2 duplex suites, 2 delux rooms, dining area & outdoors, exclusive service of chef & staff, can accommodate 6 – 16 guests.",
-    images: [theHouseRoom, kathkuniWall, cafeSpace, nightArchitecture],
+    images: [entireKathkuniVilla],
     airbnbLink: "https://www.airbnb.co.in/rooms/1093498029501498953",
   },
   {
@@ -33,7 +58,7 @@ const accommodations = [
     name: "Heritage Wing (4 Bedrooms)",
     description:
       "Entire valley facing side of the Kathkuni Villa. With exclusive access to the sprawling verandhas and the spectacular views.",
-    images: [kathkuniWall, balconyView, kathkuniDoor, theHouseRoom],
+    images: [heritageWing],
     airbnbLink: "https://www.airbnb.co.in/rooms/1190498029501498123",
   },
   {
@@ -41,7 +66,7 @@ const accommodations = [
     name: "Winter Blue Duplex Studio",
     description:
       "A signature suite that has been thoughtfully crafted to offer a superb instagrammable lifestyle experience. It offers panoramic views, a healing stone hottub with a view, a charming fireplace and much more.",
-    images: [cafeSpace, theHouseRoom, nightArchitecture, balconyView],
+    images: [winterBlue1, winterBlue2, winterBlue3, winterBlue4, winterBlue5, winterBlue6, winterBlue7, winterBlue8],
     airbnbLink: "https://www.airbnb.co.in/rooms/1093498029501498954",
   },
   {
@@ -49,7 +74,7 @@ const accommodations = [
     name: "Summer Gold Duplex Suite",
     description:
       "North facing premium suite that offers panoramic views, wood floors, earthen walls, hanging verandas, a healing stone hottub, and a fireplace to make your stay extra soothing and unforgettable.",
-    images: [balconyView, cafeSpace, kathkuniDoor, theHouseRoom],
+    images: [summerGold1, summerGold2, summerGold3, summerGold4, summerGold5, summerGold6, summerGold7, summerGold8],
     airbnbLink: "https://www.airbnb.co.in/rooms/1093498029501498955",
   },
   {
@@ -57,7 +82,7 @@ const accommodations = [
     name: "Fall Maroon Attic Room",
     description:
       "Double room with kitchenette, queen bed and an attached shower bath. Attached balcony with ample sun and garden side views.",
-    images: [woodTexture, theHouseRoom, forestLight, kathkuniWall],
+    images: [fallMaroon1, fallMaroon2, fallMaroon4],
     airbnbLink: "https://www.airbnb.co.in/rooms/1093498029501498956",
   },
   {
@@ -65,7 +90,7 @@ const accommodations = [
     name: "Spring Green Attic Room",
     description:
       "Double room with queen beds and attached shower bath. Small balcony with Snowpeak and village side views.",
-    images: [fireStove, balconyView, theHouseRoom, cafeSpace],
+    images: [springGreen1, springGreen2, springGreen3, springGreen4, springGreen5, springGreen7],
     airbnbLink: "https://www.airbnb.co.in/rooms/1093498029501498957",
   },
 ];

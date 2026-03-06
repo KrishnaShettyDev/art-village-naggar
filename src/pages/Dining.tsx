@@ -6,12 +6,10 @@ import ScrollReveal from "@/components/ScrollReveal";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { ExternalLink } from "lucide-react";
-import heroImg from "@/assets/cafe-food.jpg";
-import cafeSpace from "@/assets/cafe-space.jpg";
-import makerHands from "@/assets/cafe-maker-hands.jpg";
-import seasonalProduce from "@/assets/cafe-seasonal-produce.jpg";
-import fireStove from "@/assets/fire-stove.jpg";
-import blogFood from "@/assets/blog-food.jpg";
+// Dining images
+import dining1 from "@/assets/dining/dining 1.avif";
+import dining2 from "@/assets/dining/dining 2.avif";
+import dining4 from "@/assets/dining/dining 4.avif";
 
 const cuisineTypes = [
   {
@@ -53,7 +51,7 @@ const Dining = () => {
         {/* Hero */}
         <section ref={heroRef} className="relative h-[85vh] overflow-hidden">
           <motion.div style={{ y: heroY }} className="absolute inset-0">
-            <img src={heroImg} alt="Shepherd Cafe dining" className="w-full h-full object-cover" />
+            <img src={dining1} alt="Shepherd Cafe dining" className="w-full h-full object-cover" />
             <div className="absolute inset-0 bg-foreground/40" />
           </motion.div>
           <div className="relative z-10 flex flex-col justify-end h-full pb-16 px-6 md:px-12">
@@ -140,7 +138,7 @@ const Dining = () => {
           <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center">
             <ScrollReveal>
               <div className="aspect-[4/3] overflow-hidden">
-                <img src={cafeSpace} alt="The cafe interior" className="w-full h-full object-cover" />
+                <img src={dining2} alt="The cafe interior" className="w-full h-full object-cover" />
               </div>
             </ScrollReveal>
             <ScrollReveal delay={0.15}>
@@ -208,7 +206,7 @@ const Dining = () => {
               <ScrollReveal delay={0.2}>
                 <div className="aspect-[3/4] overflow-hidden md:mt-16">
                   <img
-                    src={seasonalProduce}
+                    src={dining4}
                     alt="Seasonal produce from the mountain"
                     className="w-full h-full object-cover"
                   />
@@ -223,7 +221,7 @@ const Dining = () => {
           <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center">
             <ScrollReveal>
               <div className="aspect-[3/4] overflow-hidden">
-                <img src={makerHands} alt="Hands preparing food" className="w-full h-full object-cover" />
+                <img src={dining1} alt="Hands preparing food" className="w-full h-full object-cover" />
               </div>
             </ScrollReveal>
             <ScrollReveal delay={0.15}>
@@ -260,12 +258,12 @@ const Dining = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 px-4">
             <ScrollReveal>
               <div className="aspect-[16/10] overflow-hidden">
-                <img src={fireStove} alt="The fire stove" className="w-full h-full object-cover" />
+                <img src={dining2} alt="The fire stove" className="w-full h-full object-cover" />
               </div>
             </ScrollReveal>
             <ScrollReveal delay={0.1}>
               <div className="aspect-[16/10] overflow-hidden">
-                <img src={blogFood} alt="Evening meal by the fire" className="w-full h-full object-cover" />
+                <img src={dining4} alt="Evening meal by the fire" className="w-full h-full object-cover" />
               </div>
             </ScrollReveal>
           </div>
