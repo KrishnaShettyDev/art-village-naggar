@@ -8,9 +8,10 @@ import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
 import heroImg from "@/assets/home/20260222-P1034400.jpg";
 import woodTexture from "@/assets/wood-texture.jpg";
-import theHouseRoom from "@/assets/the-house-room.jpg";
-import shepherdHostel from "@/assets/shepherd-hostel.jpg";
-import cafeFood from "@/assets/cafe-food.jpg";
+// Accommodation images
+import entireKathkuniVilla from "@/assets/Entire Kathkuni House (6 Bedrooms)/Entire Kathkuni Villa.avif";
+import summerGoldSuite from "@/assets/Summer Gold Duplex Suite/Summer Gold Duplex Suite 1.webp";
+import springGreenRoom from "@/assets/Spring Green Attic Room/Spring Green Attic Room 1.webp";
 const Index = () => {
   const hasSeenSplash = sessionStorage.getItem("splash_seen") === "true";
   const [showSplash, setShowSplash] = useState(!hasSeenSplash);
@@ -180,21 +181,21 @@ const Index = () => {
               {
                 title: "Kathkuni House",
                 subtitle: "Full villa rental with 2 duplex suites and 2 deluxe rooms. Exclusive chef and staff service.",
-                img: theHouseRoom,
+                img: entireKathkuniVilla,
                 link: "/stays",
                 guests: "6-16 guests",
               },
               {
                 title: "Duplex Suites",
                 subtitle: "Two-level signature suites with panoramic views, stone hot tub, fireplace, and kitchenette.",
-                img: shepherdHostel,
+                img: summerGoldSuite,
                 link: "/stays",
-                guests: "2 guests",
+                guests: "2-4 guests",
               },
               {
                 title: "Attic Rooms",
                 subtitle: "Cozy double rooms with queen bed, attached bath, and mountain or garden views.",
-                img: cafeFood,
+                img: springGreenRoom,
                 link: "/stays",
                 guests: "2 guests",
               },

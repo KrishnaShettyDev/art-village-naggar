@@ -4,10 +4,10 @@ import ScrollReveal from "@/components/ScrollReveal";
 import PageTransition from "@/components/PageTransition";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
-import kathkuniWall from "@/assets/kathkuni-wall.jpg";
+import kathkuniWall from "@/assets/our story/20260222-P1034301.jpg";
 import heroImg from "@/assets/hero-home.jpg";
 import villagePath from "@/assets/village-path.jpg";
-import handsWorking from "@/assets/hands-working.jpg";
+import handsWorking from "@/assets/our story/20260222-P1034318.jpg";
 import forestLight from "@/assets/forest-light.jpg";
 import woodTexture from "@/assets/wood-texture.jpg";
 

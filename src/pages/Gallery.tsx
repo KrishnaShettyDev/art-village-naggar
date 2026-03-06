@@ -1,10 +1,11 @@
-import { useState } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X } from "lucide-react";
+import { X, ChevronLeft, ChevronRight } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
 import PageTransition from "@/components/PageTransition";
+
 // Gallery images
 import gallery1 from "@/assets/gallery/Gallery 1.webp";
 import gallery2 from "@/assets/gallery/Gallery 2.webp";
@@ -51,171 +52,176 @@ import gallery55 from "@/assets/gallery/Gallery 55.webp";
 import gallery58 from "@/assets/gallery/Gallery 58.webp";
 import gallery59 from "@/assets/gallery/Gallery 59.webp";
 
-interface GalleryImage {
-  src: string;
-  alt: string;
-  category: string;
-  aspect: "portrait" | "landscape" | "square";
-}
-
-const images: GalleryImage[] = [
-  { src: gallery1, alt: "Kathkuni architecture detail", category: "Architecture", aspect: "landscape" },
-  { src: gallery2, alt: "Mountain view from the village", category: "Landscapes", aspect: "landscape" },
-  { src: gallery3, alt: "Traditional wooden interiors", category: "Spaces", aspect: "landscape" },
-  { src: gallery4, alt: "Village life and culture", category: "Village Life", aspect: "portrait" },
-  { src: gallery5, alt: "Deodar forest pathway", category: "Nature", aspect: "landscape" },
-  { src: gallery6, alt: "Kathkuni wall texture", category: "Architecture", aspect: "square" },
-  { src: gallery7, alt: "Morning light through windows", category: "Light Studies", aspect: "landscape" },
-  { src: gallery8, alt: "Traditional craftsmanship", category: "Crafts", aspect: "landscape" },
-  { src: gallery9, alt: "Valley panorama", category: "Landscapes", aspect: "landscape" },
-  { src: gallery10, alt: "Cozy room interior", category: "Spaces", aspect: "portrait" },
-  { src: gallery11, alt: "Village pathway", category: "Village Life", aspect: "landscape" },
-  { src: gallery12, alt: "Wooden beam details", category: "Architecture", aspect: "landscape" },
-  { src: gallery14, alt: "Sunset over the mountains", category: "Landscapes", aspect: "landscape" },
-  { src: gallery15, alt: "Traditional stone work", category: "Architecture", aspect: "square" },
-  { src: gallery16, alt: "Forest morning mist", category: "Nature", aspect: "landscape" },
-  { src: gallery17, alt: "Rustic dining setup", category: "Spaces", aspect: "landscape" },
-  { src: gallery18, alt: "Hand-carved woodwork", category: "Crafts", aspect: "portrait" },
-  { src: gallery19, alt: "Village temple architecture", category: "Architecture", aspect: "landscape" },
-  { src: gallery20, alt: "Snow-capped peaks view", category: "Landscapes", aspect: "landscape" },
-  { src: gallery22, alt: "Traditional fireplace", category: "Spaces", aspect: "square" },
-  { src: gallery23, alt: "Artisan at work", category: "Crafts", aspect: "portrait" },
-  { src: gallery25, alt: "Deodar forest canopy", category: "Nature", aspect: "landscape" },
-  { src: gallery26, alt: "Stone and wood detail", category: "Architecture", aspect: "landscape" },
-  { src: gallery29, alt: "Village gathering space", category: "Village Life", aspect: "landscape" },
-  { src: gallery31, alt: "Mountain trail", category: "Nature", aspect: "portrait" },
-  { src: gallery32, alt: "Balcony view", category: "Spaces", aspect: "landscape" },
-  { src: gallery33, alt: "Traditional textiles", category: "Crafts", aspect: "square" },
-  { src: gallery34, alt: "Golden hour in the valley", category: "Light Studies", aspect: "landscape" },
-  { src: gallery35, alt: "Carved wooden door", category: "Architecture", aspect: "portrait" },
-  { src: gallery36, alt: "Local flora", category: "Nature", aspect: "landscape" },
-  { src: gallery37, alt: "Warm interior lighting", category: "Spaces", aspect: "landscape" },
-  { src: gallery38, alt: "Village elder portrait", category: "Village Life", aspect: "portrait" },
-  { src: gallery40, alt: "Himalayan landscape", category: "Landscapes", aspect: "landscape" },
-  { src: gallery41, alt: "Cooking by fire", category: "Village Life", aspect: "square" },
-  { src: gallery43, alt: "Ancient tree trunk", category: "Nature", aspect: "landscape" },
-  { src: gallery45, alt: "Room with a view", category: "Spaces", aspect: "landscape" },
-  { src: gallery47, alt: "Traditional tools", category: "Crafts", aspect: "portrait" },
-  { src: gallery49, alt: "Sunrise over ridges", category: "Light Studies", aspect: "landscape" },
-  { src: gallery50, alt: "Kathkuni joint system", category: "Architecture", aspect: "landscape" },
-  { src: gallery51, alt: "Veranda seating", category: "Spaces", aspect: "square" },
-  { src: gallery54, alt: "Wild flowers", category: "Nature", aspect: "portrait" },
-  { src: gallery55, alt: "Evening atmosphere", category: "Light Studies", aspect: "landscape" },
-  { src: gallery58, alt: "Community celebration", category: "Village Life", aspect: "landscape" },
-  { src: gallery59, alt: "Mountain silhouettes", category: "Landscapes", aspect: "landscape" },
+const images = [
+  gallery1, gallery2, gallery3, gallery4, gallery5, gallery6, gallery7, gallery8,
+  gallery9, gallery10, gallery11, gallery12, gallery14, gallery15, gallery16,
+  gallery17, gallery18, gallery19, gallery20, gallery22, gallery23, gallery25,
+  gallery26, gallery29, gallery31, gallery32, gallery33, gallery34, gallery35,
+  gallery36, gallery37, gallery38, gallery40, gallery41, gallery43, gallery45,
+  gallery47, gallery49, gallery50, gallery51, gallery54, gallery55, gallery58, gallery59,
 ];
 
-const categories = ["All", ...Array.from(new Set(images.map((img) => img.category)))];
-
 const Gallery = () => {
-  const [selectedCategory, setSelectedCategory] = useState("All");
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
 
-  const filtered = selectedCategory === "All" ? images : images.filter((img) => img.category === selectedCategory);
+  const goToPrevious = useCallback(() => {
+    if (lightboxIndex !== null) {
+      setLightboxIndex(lightboxIndex === 0 ? images.length - 1 : lightboxIndex - 1);
+    }
+  }, [lightboxIndex]);
+
+  const goToNext = useCallback(() => {
+    if (lightboxIndex !== null) {
+      setLightboxIndex(lightboxIndex === images.length - 1 ? 0 : lightboxIndex + 1);
+    }
+  }, [lightboxIndex]);
+
+  // Keyboard navigation
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (lightboxIndex === null) return;
+
+      if (e.key === "ArrowLeft") {
+        goToPrevious();
+      } else if (e.key === "ArrowRight") {
+        goToNext();
+      } else if (e.key === "Escape") {
+        setLightboxIndex(null);
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [lightboxIndex, goToPrevious, goToNext]);
+
+  // Prevent body scroll when lightbox is open
+  useEffect(() => {
+    if (lightboxIndex !== null) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [lightboxIndex]);
 
   return (
     <PageTransition>
-    <main className="bg-background overflow-x-hidden">
-      <Navigation />
+      <main className="bg-background overflow-x-hidden">
+        <Navigation />
 
-      {/* Hero */}
-      <section className="pt-32 pb-16 md:pt-40 md:pb-24 px-6 md:px-12">
-        <div className="max-w-4xl mx-auto">
-          <ScrollReveal>
-            <p className="font-sans text-xs tracking-[0.3em] uppercase text-muted-foreground mb-4">
-              Gallery
-            </p>
-            <h1 className="font-serif text-4xl md:text-6xl leading-[1.15] mb-6">
-              Materials. Light.<br />Hands. Fire.
-            </h1>
-            <p className="font-sans text-base text-muted-foreground leading-relaxed max-w-xl">
-              The visual language of Art Village — wood grain, stone texture, forest light,
-              and the people who make this place what it is.
-            </p>
-          </ScrollReveal>
-        </div>
-      </section>
+        {/* Hero */}
+        <section className="pt-32 pb-12 md:pt-40 md:pb-16 px-6 md:px-12">
+          <div className="max-w-4xl mx-auto text-center">
+            <ScrollReveal>
+              <motion.h1
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8 }}
+                className="font-serif text-4xl md:text-6xl mb-4"
+              >
+                Gallery
+              </motion.h1>
+              <motion.p
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.3, duration: 0.8 }}
+                className="font-sans text-sm text-muted-foreground max-w-md mx-auto"
+              >
+                The visual language of Art Village — wood grain, stone texture, forest light.
+              </motion.p>
+            </ScrollReveal>
+          </div>
+        </section>
 
-      {/* Category filters */}
-      <section className="px-6 md:px-12 mb-12">
-        <div className="max-w-6xl mx-auto flex gap-3 flex-wrap">
-          {categories.map((cat) => (
-            <button
-              key={cat}
-              onClick={() => setSelectedCategory(cat)}
-              className={`font-sans text-xs tracking-[0.1em] uppercase px-4 py-2 border transition-colors ${
-                selectedCategory === cat
-                  ? "border-foreground text-foreground"
-                  : "border-border text-muted-foreground hover:text-foreground hover:border-foreground"
-              }`}
-            >
-              {cat}
-            </button>
-          ))}
-        </div>
-      </section>
-
-      {/* Masonry-style grid */}
-      <section className="px-6 md:px-12 pb-24">
-        <div className="max-w-6xl mx-auto columns-1 md:columns-2 lg:columns-3 gap-4 space-y-4">
-          {filtered.map((img, i) => (
-            <ScrollReveal key={`${img.src}-${i}`} delay={i * 0.05}>
+        {/* Masonry Grid */}
+        <section className="px-4 md:px-8 pb-24">
+          <div className="max-w-7xl mx-auto columns-2 md:columns-3 lg:columns-4 gap-3 md:gap-4">
+            {images.map((img, i) => (
               <div
-                className="break-inside-avoid cursor-pointer group overflow-hidden"
+                key={i}
+                className="break-inside-avoid mb-3 md:mb-4 cursor-pointer group overflow-hidden"
                 onClick={() => setLightboxIndex(i)}
               >
                 <img
-                  src={img.src}
-                  alt={img.alt}
-                  className={`w-full object-cover transition-transform duration-700 group-hover:scale-105 ${
-                    img.aspect === "portrait" ? "aspect-[3/4]" : img.aspect === "square" ? "aspect-square" : "aspect-[3/2]"
-                  }`}
+                  src={img}
+                  alt={`Gallery image ${i + 1}`}
+                  className="w-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"
                   loading="lazy"
                 />
-                <div className="py-2">
-                  <p className="font-sans text-xs text-muted-foreground">{img.alt}</p>
-                </div>
               </div>
-            </ScrollReveal>
-          ))}
-        </div>
-      </section>
+            ))}
+          </div>
+        </section>
 
-      {/* Lightbox */}
-      <AnimatePresence>
-        {lightboxIndex !== null && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[100] bg-foreground/95 flex items-center justify-center p-6"
-            onClick={() => setLightboxIndex(null)}
-          >
-            <button
-              className="absolute top-6 right-6 text-background/60 hover:text-background transition-colors"
+        {/* Lightbox */}
+        <AnimatePresence>
+          {lightboxIndex !== null && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.2 }}
+              className="fixed inset-0 z-[100] bg-black/95 flex items-center justify-center"
               onClick={() => setLightboxIndex(null)}
-              aria-label="Close lightbox"
             >
-              <X className="w-8 h-8" />
-            </button>
-            <motion.img
-              initial={{ scale: 0.9, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.9, opacity: 0 }}
-              src={filtered[lightboxIndex].src}
-              alt={filtered[lightboxIndex].alt}
-              className="max-w-full max-h-[85vh] object-contain"
-              onClick={(e) => e.stopPropagation()}
-            />
-            <p className="absolute bottom-8 text-background/50 font-sans text-sm">
-              {filtered[lightboxIndex].alt}
-            </p>
-          </motion.div>
-        )}
-      </AnimatePresence>
+              {/* Close button */}
+              <button
+                className="absolute top-4 right-4 md:top-6 md:right-6 z-10 p-2 text-white/60 hover:text-white transition-colors"
+                onClick={() => setLightboxIndex(null)}
+                aria-label="Close"
+              >
+                <X className="w-6 h-6 md:w-8 md:h-8" />
+              </button>
 
-      <Footer />
-    </main>
+              {/* Previous button */}
+              <button
+                className="absolute left-2 md:left-6 top-1/2 -translate-y-1/2 z-10 p-2 md:p-3 text-white/60 hover:text-white transition-colors bg-black/20 hover:bg-black/40 rounded-full"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  goToPrevious();
+                }}
+                aria-label="Previous image"
+              >
+                <ChevronLeft className="w-6 h-6 md:w-8 md:h-8" />
+              </button>
+
+              {/* Next button */}
+              <button
+                className="absolute right-2 md:right-6 top-1/2 -translate-y-1/2 z-10 p-2 md:p-3 text-white/60 hover:text-white transition-colors bg-black/20 hover:bg-black/40 rounded-full"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  goToNext();
+                }}
+                aria-label="Next image"
+              >
+                <ChevronRight className="w-6 h-6 md:w-8 md:h-8" />
+              </button>
+
+              {/* Image */}
+              <motion.img
+                key={lightboxIndex}
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.95 }}
+                transition={{ duration: 0.2 }}
+                src={images[lightboxIndex]}
+                alt={`Gallery image ${lightboxIndex + 1}`}
+                className="max-w-[90vw] max-h-[85vh] object-contain"
+                onClick={(e) => e.stopPropagation()}
+              />
+
+              {/* Image counter */}
+              <div className="absolute bottom-4 md:bottom-6 left-1/2 -translate-x-1/2 text-white/50 font-sans text-sm">
+                {lightboxIndex + 1} / {images.length}
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+
+        <Footer />
+      </main>
     </PageTransition>
   );
 };
