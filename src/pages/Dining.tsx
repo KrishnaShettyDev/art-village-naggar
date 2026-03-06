@@ -3,6 +3,7 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import PageTransition from "@/components/PageTransition";
 import ScrollReveal from "@/components/ScrollReveal";
+import SEO from "@/components/SEO";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { ExternalLink } from "lucide-react";
@@ -46,6 +47,7 @@ const Dining = () => {
 
   return (
     <PageTransition>
+      <SEO />
       <main className="bg-background overflow-x-hidden">
         <Navigation />
 

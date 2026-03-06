@@ -4,6 +4,9 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
 import PageTransition from "@/components/PageTransition";
+import SEO from "@/components/SEO";
+import { BlogPostSchema } from "@/components/StructuredData";
+import { SITE_URL } from "@/lib/seo";
 import { useNotionArticle, formatArticleDate, type ContentBlock } from "@/hooks/useNotionArticle";
 
 // Default cover images
@@ -177,9 +180,28 @@ const BlogPost = () => {
   }
 
   const coverImage = article.coverImage || getDefaultCover(article.slug);
+  const articleUrl = `${SITE_URL}/blogs/${article.slug}`;
 
   return (
     <PageTransition>
+      <SEO
+        title={`${article.title} | Art Village Naggar`}
+        description={article.excerpt}
+        ogImage={coverImage}
+        ogType="article"
+        article={{
+          publishedTime: article.date,
+          author: "Art Village Naggar",
+          tags: [article.category],
+        }}
+      />
+      <BlogPostSchema
+        title={article.title}
+        description={article.excerpt}
+        datePublished={article.date}
+        image={coverImage}
+        url={articleUrl}
+      />
       <main className="bg-background overflow-x-hidden">
         <Navigation />
 

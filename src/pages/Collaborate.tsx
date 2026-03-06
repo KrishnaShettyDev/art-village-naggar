@@ -2,6 +2,7 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
 import PageTransition from "@/components/PageTransition";
+import SEO from "@/components/SEO";
 import { motion } from "framer-motion";
 import { ExternalLink } from "lucide-react";
 
@@ -16,6 +17,7 @@ const COLLABORATE_FORM_LINK = "https://docs.google.com/forms/d/e/1FAIpQLSc6NDrHl
 const Collaborate = () => {
   return (
     <PageTransition>
+      <SEO />
       <main className="bg-background overflow-x-hidden">
         <Navigation />
 

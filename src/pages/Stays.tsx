@@ -4,6 +4,8 @@ import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
 import PageTransition from "@/components/PageTransition";
 import ImageCarousel from "@/components/ImageCarousel";
+import SEO from "@/components/SEO";
+import { AccommodationSchema } from "@/components/StructuredData";
 import { motion } from "framer-motion";
 import { Users, Bed, Bath, Mountain, Flame, ExternalLink } from "lucide-react";
 import { EASING, HERO_TIMING } from "@/lib/animations";
@@ -108,6 +110,13 @@ const atticRooms = [
 const Stays = () => {
   return (
     <PageTransition>
+      <SEO />
+      <AccommodationSchema
+        name="Art Village Naggar - Heritage Accommodation"
+        description="Heritage rooms in a 100-year-old Kathkuni house. Duplex suites with hot tubs, cozy attic rooms, and full villa rental."
+        image="https://artvillagenaggar.com/og-image.jpg"
+        amenities={["Mountain View", "Fireplace", "Hot Tub", "Free WiFi", "Restaurant"]}
+      />
       <main className="bg-background overflow-x-hidden">
         <Navigation />
 

@@ -6,6 +6,8 @@ import PageTransition from "@/components/PageTransition";
 import SplashScreen from "@/components/SplashScreen";
 import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
+import SEO from "@/components/SEO";
+import { OrganizationSchema } from "@/components/StructuredData";
 import { EASING, HERO_TIMING } from "@/lib/animations";
 import heroImg from "@/assets/home/20260222-P1034400.jpg";
 import woodTexture from "@/assets/wood-texture.jpg";
@@ -32,6 +34,8 @@ const Index = () => {
 
   return (
     <PageTransition>
+      <SEO />
+      <OrganizationSchema />
     <main className="bg-background overflow-x-hidden">
       {showSplash && <SplashScreen onComplete={handleSplashComplete} />}
       <Navigation />

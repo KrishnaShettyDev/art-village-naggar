@@ -5,6 +5,8 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
 import PageTransition from "@/components/PageTransition";
+import SEO from "@/components/SEO";
+import { LocalBusinessSchema } from "@/components/StructuredData";
 import { EASING, HERO_TIMING } from "@/lib/animations";
 import howToReachImg from "@/assets/how-to-reach.jpg";
 
@@ -24,6 +26,8 @@ const Contact = () => {
 
   return (
     <PageTransition>
+      <SEO />
+      <LocalBusinessSchema />
     <main className="bg-background overflow-x-hidden">
       <Navigation />
 

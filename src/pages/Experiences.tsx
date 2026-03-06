@@ -3,6 +3,7 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
 import PageTransition from "@/components/PageTransition";
+import SEO from "@/components/SEO";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { EASING, HERO_TIMING } from "@/lib/animations";
@@ -105,6 +106,7 @@ const Experiences = () => {
 
   return (
     <PageTransition>
+      <SEO />
       <main className="bg-background overflow-x-hidden">
         <Navigation />
 
