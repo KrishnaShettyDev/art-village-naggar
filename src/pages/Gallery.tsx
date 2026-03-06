@@ -112,7 +112,7 @@ const Gallery = () => {
         <Navigation />
 
         {/* Hero */}
-        <section className="pt-32 pb-12 md:pt-40 md:pb-16 px-6 md:px-12">
+        <section className="pt-28 pb-10 md:pt-40 md:pb-16 px-5 md:px-12">
           <div className="max-w-4xl mx-auto text-center">
             <ScrollReveal>
               <motion.h1
@@ -136,7 +136,7 @@ const Gallery = () => {
         </section>
 
         {/* Masonry Grid */}
-        <section className="px-4 md:px-8 pb-24">
+        <section className="px-3 md:px-8 pb-16 md:pb-24">
           <div className="max-w-7xl mx-auto columns-2 md:columns-3 lg:columns-4 gap-3 md:gap-4">
             {images.map((img, i) => (
               <div
@@ -168,7 +168,7 @@ const Gallery = () => {
             >
               {/* Close button */}
               <button
-                className="absolute top-4 right-4 md:top-6 md:right-6 z-10 p-2 text-white/60 hover:text-white transition-colors"
+                className="absolute top-4 right-4 md:top-6 md:right-6 z-10 p-3 text-white/60 hover:text-white transition-colors"
                 onClick={() => setLightboxIndex(null)}
                 aria-label="Close"
               >
@@ -177,7 +177,7 @@ const Gallery = () => {
 
               {/* Previous button */}
               <button
-                className="absolute left-2 md:left-6 top-1/2 -translate-y-1/2 z-10 p-2 md:p-3 text-white/60 hover:text-white transition-colors bg-black/20 hover:bg-black/40 rounded-full"
+                className="absolute left-3 md:left-6 top-1/2 -translate-y-1/2 z-10 p-3 text-white/60 hover:text-white transition-colors bg-black/30 hover:bg-black/50 rounded-full"
                 onClick={(e) => {
                   e.stopPropagation();
                   goToPrevious();
@@ -189,7 +189,7 @@ const Gallery = () => {
 
               {/* Next button */}
               <button
-                className="absolute right-2 md:right-6 top-1/2 -translate-y-1/2 z-10 p-2 md:p-3 text-white/60 hover:text-white transition-colors bg-black/20 hover:bg-black/40 rounded-full"
+                className="absolute right-3 md:right-6 top-1/2 -translate-y-1/2 z-10 p-3 text-white/60 hover:text-white transition-colors bg-black/30 hover:bg-black/50 rounded-full"
                 onClick={(e) => {
                   e.stopPropagation();
                   goToNext();

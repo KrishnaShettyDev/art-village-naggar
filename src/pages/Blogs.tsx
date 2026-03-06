@@ -52,14 +52,17 @@ const Blogs = () => {
         <Navigation />
 
         {/* Hero */}
-        <section className="pt-32 pb-16 md:pt-40 md:pb-24 px-6 md:px-12">
+        <section className="pt-28 pb-12 md:pt-40 md:pb-24 px-5 md:px-12">
           <div className="max-w-4xl mx-auto">
             <ScrollReveal>
               <p className="font-sans text-xs tracking-[0.3em] uppercase text-muted-foreground mb-4">
                 Blogs
               </p>
-              <h1 className="font-serif text-4xl md:text-6xl leading-[1.15] mb-6">
-                Observations from<br />2,300 metres.
+              <h1 className="font-serif text-3xl sm:text-4xl md:text-6xl leading-[1.15] mb-6">
+                Observations from
+                <span className="hidden md:inline"><br /></span>
+                <span className="inline md:hidden"> </span>
+                2,300 metres.
               </h1>
               <p className="font-sans text-base text-muted-foreground leading-relaxed max-w-xl">
                 Stories about Kathkuni architecture, the people of Chachogi, the food that grows here,
@@ -70,7 +73,7 @@ const Blogs = () => {
         </section>
 
         {/* Category pills */}
-        <section className="px-6 md:px-12 mb-12">
+        <section className="px-5 md:px-12 mb-10 md:mb-12">
           <div className="max-w-4xl mx-auto flex gap-3 flex-wrap">
             {categories.map((cat) => (
               <button
@@ -90,7 +93,7 @@ const Blogs = () => {
 
         {/* Loading state */}
         {isLoading && (
-          <section className="px-6 md:px-12 mb-20">
+          <section className="px-5 md:px-12 mb-16 md:mb-20">
             <div className="max-w-6xl mx-auto">
               <div className="animate-pulse">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
@@ -109,7 +112,7 @@ const Blogs = () => {
 
         {/* Error state - still shows fallback content */}
         {isError && (
-          <section className="px-6 md:px-12 mb-8">
+          <section className="px-5 md:px-12 mb-8">
             <div className="max-w-4xl mx-auto">
               <p className="font-sans text-sm text-muted-foreground text-center">
                 Showing cached articles. Latest content will load shortly.
@@ -120,10 +123,10 @@ const Blogs = () => {
 
         {/* Featured article */}
         {!isLoading && featuredArticle && (
-          <section className="px-6 md:px-12 mb-20">
+          <section className="px-5 md:px-12 mb-14 md:mb-20">
             <div className="max-w-6xl mx-auto">
               <ScrollReveal>
-                <Link to={`/blogs/${featuredArticle.slug}`} className="group grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+                <Link to={`/blogs/${featuredArticle.slug}`} className="group grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-12">
                   <div className="aspect-[16/10] overflow-hidden">
                     <img
                       src={getArticleImage(featuredArticle, 0)}
@@ -153,8 +156,8 @@ const Blogs = () => {
 
         {/* Article grid */}
         {!isLoading && otherArticles.length > 0 && (
-          <section className="px-6 md:px-12 pb-24">
-            <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10">
+          <section className="px-5 md:px-12 pb-16 md:pb-24">
+            <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10">
               {otherArticles.map((article, i) => (
                 <ScrollReveal key={article.id} delay={i * 0.1}>
                   <Link to={`/blogs/${article.slug}`} className="group block">
@@ -184,7 +187,7 @@ const Blogs = () => {
 
         {/* Empty state */}
         {!isLoading && filteredArticles.length === 0 && (
-          <section className="px-6 md:px-12 pb-24">
+          <section className="px-5 md:px-12 pb-16 md:pb-24">
             <div className="max-w-4xl mx-auto text-center py-16">
               <p className="font-sans text-base text-muted-foreground">
                 No articles found in this category.

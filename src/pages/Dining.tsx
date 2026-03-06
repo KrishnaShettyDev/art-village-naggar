@@ -54,7 +54,7 @@ const Dining = () => {
             <img src={dining1} alt="Shepherd Cafe dining" className="w-full h-full object-cover" />
             <div className="absolute inset-0 bg-foreground/40" />
           </motion.div>
-          <div className="relative z-10 flex flex-col justify-end h-full pb-16 px-6 md:px-12">
+          <div className="relative z-10 flex flex-col justify-end h-full pb-12 md:pb-16 px-5 md:px-12">
             <motion.p
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -67,9 +67,12 @@ const Dining = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5, duration: 0.8 }}
-              className="font-serif text-5xl md:text-7xl text-background font-normal"
+              className="font-serif text-4xl sm:text-5xl md:text-7xl text-background font-normal"
             >
-              Shepherd Cafe<br />& Dining Hall
+              Shepherd Cafe
+              <span className="hidden md:inline"><br /></span>
+              <span className="inline md:hidden"> </span>
+              & Dining Hall
             </motion.h1>
             <motion.p
               initial={{ opacity: 0 }}
@@ -83,7 +86,7 @@ const Dining = () => {
         </section>
 
         {/* Philosophy */}
-        <section className="py-24 md:py-36 px-6 md:px-12">
+        <section className="py-16 md:py-36 px-5 md:px-12">
           <div className="max-w-3xl mx-auto">
             <ScrollReveal>
               <h2 className="font-serif text-3xl md:text-5xl italic leading-[1.3] mb-8">
@@ -107,18 +110,18 @@ const Dining = () => {
         </section>
 
         {/* Cuisine Types */}
-        <section className="py-16 md:py-24 px-6 md:px-12 bg-secondary/30">
+        <section className="py-14 md:py-24 px-5 md:px-12 bg-secondary/30">
           <div className="max-w-6xl mx-auto">
             <ScrollReveal>
               <p className="font-sans text-xs tracking-[0.2em] uppercase text-muted-foreground mb-4 text-center">
                 Our Cuisine
               </p>
-              <h2 className="font-serif text-3xl md:text-4xl text-center mb-16">
+              <h2 className="font-serif text-3xl md:text-4xl text-center mb-10 md:mb-16">
                 Three culinary traditions, one table.
               </h2>
             </ScrollReveal>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-12">
               {cuisineTypes.map((cuisine, i) => (
                 <ScrollReveal key={cuisine.name} delay={i * 0.15}>
                   <div className="text-center">
@@ -134,8 +137,8 @@ const Dining = () => {
         </section>
 
         {/* The Space */}
-        <section className="py-24 md:py-36 px-6 md:px-12">
-          <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center">
+        <section className="py-16 md:py-36 px-5 md:px-12">
+          <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-16 items-center">
             <ScrollReveal>
               <div className="aspect-[4/3] overflow-hidden">
                 <img src={dining2} alt="The cafe interior" className="w-full h-full object-cover" />
@@ -165,9 +168,9 @@ const Dining = () => {
         </section>
 
         {/* Menu Highlights */}
-        <section className="py-16 md:py-24 px-6 md:px-12 bg-secondary/50">
+        <section className="py-14 md:py-24 px-5 md:px-12 bg-secondary/50">
           <div className="max-w-6xl mx-auto">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-start">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-start">
               <div>
                 <ScrollReveal>
                   <p className="font-sans text-xs tracking-[0.2em] uppercase text-muted-foreground mb-4">
@@ -217,8 +220,8 @@ const Dining = () => {
         </section>
 
         {/* Farm to Table Process */}
-        <section className="py-24 md:py-36 px-6 md:px-12">
-          <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center">
+        <section className="py-16 md:py-36 px-5 md:px-12">
+          <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center">
             <ScrollReveal>
               <div className="aspect-[3/4] overflow-hidden">
                 <img src={dining1} alt="Hands preparing food" className="w-full h-full object-cover" />
@@ -254,8 +257,8 @@ const Dining = () => {
         </section>
 
         {/* Image Strip */}
-        <section className="pb-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 px-4">
+        <section className="pb-6 md:pb-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4 px-3 md:px-4">
             <ScrollReveal>
               <div className="aspect-[16/10] overflow-hidden">
                 <img src={dining2} alt="The fire stove" className="w-full h-full object-cover" />
@@ -270,7 +273,7 @@ const Dining = () => {
         </section>
 
         {/* Closing CTA */}
-        <section className="py-24 md:py-32 px-6 md:px-12 text-center">
+        <section className="py-16 md:py-32 px-5 md:px-12 text-center">
           <ScrollReveal>
             <h2 className="font-serif text-3xl md:text-5xl italic mb-6 max-w-2xl mx-auto leading-[1.3]">
               The chai is always on. Always.

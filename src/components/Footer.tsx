@@ -4,15 +4,15 @@ import { Instagram, Youtube, Facebook, Phone } from "lucide-react";
 
 const Footer = () => {
   return (
-    <footer className="bg-foreground text-background py-20 md:py-28 px-6 md:px-12">
+    <footer className="bg-foreground text-background py-14 md:py-24 px-5 md:px-12">
       <div className="max-w-6xl mx-auto">
         <ScrollReveal>
-          <p className="font-serif text-2xl md:text-3xl mb-16 max-w-xl leading-relaxed">
+          <p className="font-serif text-xl md:text-3xl mb-10 md:mb-16 max-w-xl leading-relaxed">
             Embrace a responsible way of traveling at a slow, leisurely pace.
           </p>
         </ScrollReveal>
 
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 md:gap-8 mb-16">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 mb-10 md:mb-16">
           <ScrollReveal delay={0.1}>
             <div>
               <h4 className="font-sans text-xs tracking-[0.2em] uppercase text-background/40 mb-4">

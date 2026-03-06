@@ -20,7 +20,7 @@ const Collaborate = () => {
         <Navigation />
 
         {/* Hero */}
-        <section className="pt-32 pb-16 md:pt-40 md:pb-20 px-6 md:px-12">
+        <section className="pt-28 pb-12 md:pt-40 md:pb-20 px-5 md:px-12">
           <div className="max-w-4xl mx-auto text-center">
             <ScrollReveal>
               <motion.h1
@@ -36,9 +36,9 @@ const Collaborate = () => {
         </section>
 
         {/* Volunteer Section */}
-        <section className="py-20 md:py-28 px-6 md:px-12">
+        <section className="py-14 md:py-28 px-5 md:px-12">
           <div className="max-w-6xl mx-auto">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 items-center">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-20 items-center">
               <ScrollReveal direction="left">
                 <div className="aspect-[4/5] overflow-hidden">
                   <img
@@ -96,7 +96,7 @@ const Collaborate = () => {
         </section>
 
         {/* Life at ART Village - Image Break */}
-        <section className="py-16 px-6 md:px-12 bg-secondary/30">
+        <section className="py-12 md:py-16 px-5 md:px-12 bg-secondary/30">
           <div className="max-w-4xl mx-auto text-center">
             <ScrollReveal>
               <p className="font-sans text-xs tracking-[0.2em] uppercase text-muted-foreground mb-4">
@@ -111,9 +111,9 @@ const Collaborate = () => {
         </section>
 
         {/* Collaborate Section */}
-        <section className="py-20 md:py-28 px-6 md:px-12">
+        <section className="py-14 md:py-28 px-5 md:px-12">
           <div className="max-w-6xl mx-auto">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 items-center">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-20 items-center">
               <ScrollReveal delay={0.2} direction="left">
                 <div className="md:order-2">
                   <h2 className="font-serif text-3xl md:text-4xl mb-6">
@@ -172,7 +172,7 @@ const Collaborate = () => {
         </section>
 
         {/* Contact CTA */}
-        <section className="py-20 md:py-28 px-6 md:px-12 bg-secondary/30">
+        <section className="py-14 md:py-28 px-5 md:px-12 bg-secondary/30">
           <div className="max-w-3xl mx-auto text-center">
             <ScrollReveal>
               <h2 className="font-serif text-2xl md:text-3xl mb-4">

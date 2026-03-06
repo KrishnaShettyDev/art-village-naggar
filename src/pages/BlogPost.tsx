@@ -122,7 +122,7 @@ const BlogPost = () => {
       <PageTransition>
         <main className="bg-background overflow-x-hidden">
           <Navigation />
-          <section className="pt-32 pb-24 md:pt-40 md:pb-36 px-6 md:px-12">
+          <section className="pt-28 pb-16 md:pt-40 md:pb-36 px-5 md:px-12">
             <div className="max-w-3xl mx-auto">
               <div className="animate-pulse">
                 <div className="h-4 bg-secondary rounded w-24 mb-4" />
@@ -149,7 +149,7 @@ const BlogPost = () => {
       <PageTransition>
         <main className="bg-background overflow-x-hidden">
           <Navigation />
-          <section className="pt-32 pb-24 md:pt-40 md:pb-36 px-6 md:px-12">
+          <section className="pt-28 pb-16 md:pt-40 md:pb-36 px-5 md:px-12">
             <div className="max-w-3xl mx-auto text-center">
               <h1 className="font-serif text-3xl md:text-4xl mb-6">
                 {(error as Error)?.message === "Article not found"
@@ -184,7 +184,7 @@ const BlogPost = () => {
         <Navigation />
 
         {/* Header */}
-        <section className="pt-32 pb-8 md:pt-40 md:pb-12 px-6 md:px-12">
+        <section className="pt-28 pb-6 md:pt-40 md:pb-12 px-5 md:px-12">
           <div className="max-w-3xl mx-auto">
             <ScrollReveal>
               <Link
@@ -211,7 +211,7 @@ const BlogPost = () => {
         </section>
 
         {/* Cover Image */}
-        <section className="px-6 md:px-12 mb-12">
+        <section className="px-5 md:px-12 mb-10 md:mb-12">
           <ScrollReveal>
             <div className="max-w-4xl mx-auto">
               <div className="aspect-[16/9] overflow-hidden">
@@ -226,7 +226,7 @@ const BlogPost = () => {
         </section>
 
         {/* Content */}
-        <section className="px-6 md:px-12 pb-24">
+        <section className="px-5 md:px-12 pb-16 md:pb-24">
           <div className="max-w-3xl mx-auto">
             <ScrollReveal>
               <div className="prose-custom">

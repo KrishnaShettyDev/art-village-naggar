@@ -111,7 +111,7 @@ const Stays = () => {
         <Navigation />
 
         {/* Hero Section */}
-        <section className="pt-32 pb-12 md:pt-40 md:pb-16 px-6 md:px-12">
+        <section className="pt-28 pb-10 md:pt-40 md:pb-16 px-5 md:px-12">
           <div className="max-w-4xl mx-auto text-center">
             <ScrollReveal>
               <motion.p
@@ -144,10 +144,10 @@ const Stays = () => {
         </section>
 
         {/* Featured: Entire House */}
-        <section className="px-6 md:px-12 pb-20">
+        <section className="px-5 md:px-12 pb-14 md:pb-20">
           <div className="max-w-6xl mx-auto">
             <ScrollReveal>
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-12 items-center">
                 {/* Image */}
                 <div className="aspect-[4/3] overflow-hidden">
                   <ImageCarousel
@@ -200,12 +200,12 @@ const Stays = () => {
         </section>
 
         {/* Divider */}
-        <div className="max-w-6xl mx-auto px-6 md:px-12">
+        <div className="max-w-6xl mx-auto px-5 md:px-12">
           <div className="border-t border-border/50" />
         </div>
 
         {/* Duplex Suites Section */}
-        <section className="px-6 md:px-12 py-20">
+        <section className="px-5 md:px-12 py-14 md:py-20">
           <div className="max-w-6xl mx-auto">
             <ScrollReveal>
               <div className="text-center mb-12">
@@ -218,12 +218,12 @@ const Stays = () => {
               </div>
             </ScrollReveal>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 lg:gap-12">
               {duplexSuites.map((suite, index) => (
                 <ScrollReveal key={suite.id} delay={index * 0.1}>
                   <div className="group">
                     {/* Image */}
-                    <div className="aspect-[4/3] overflow-hidden mb-6">
+                    <div className="aspect-[4/3] overflow-hidden mb-5">
                       <ImageCarousel
                         images={suite.images}
                         alt={suite.name}
@@ -240,14 +240,14 @@ const Stays = () => {
                           {suite.capacity}
                         </span>
                       </div>
-                      <p className="font-sans text-sm text-muted-foreground leading-relaxed mb-6">
+                      <p className="font-sans text-sm text-muted-foreground leading-relaxed mb-5">
                         {suite.description}
                       </p>
                       <a
                         href={suite.airbnbLink}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 font-sans text-xs tracking-[0.15em] uppercase border border-foreground/20 px-6 py-3 hover:bg-foreground hover:text-background transition-all duration-300"
+                        className="inline-flex items-center gap-2 font-sans text-xs tracking-[0.15em] uppercase border border-foreground/20 px-5 py-3 hover:bg-foreground hover:text-background transition-all duration-300"
                       >
                         Book on Airbnb
                         <ExternalLink className="w-3 h-3" />
@@ -261,12 +261,12 @@ const Stays = () => {
         </section>
 
         {/* Divider */}
-        <div className="max-w-6xl mx-auto px-6 md:px-12">
+        <div className="max-w-6xl mx-auto px-5 md:px-12">
           <div className="border-t border-border/50" />
         </div>
 
         {/* Attic Rooms Section */}
-        <section className="px-6 md:px-12 py-20">
+        <section className="px-5 md:px-12 py-14 md:py-20">
           <div className="max-w-6xl mx-auto">
             <ScrollReveal>
               <div className="text-center mb-12">
@@ -279,12 +279,12 @@ const Stays = () => {
               </div>
             </ScrollReveal>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 lg:gap-12">
               {atticRooms.map((room, index) => (
                 <ScrollReveal key={room.id} delay={index * 0.1}>
                   <div className="group">
                     {/* Image */}
-                    <div className="aspect-[4/3] overflow-hidden mb-6">
+                    <div className="aspect-[4/3] overflow-hidden mb-5">
                       <ImageCarousel
                         images={room.images}
                         alt={room.name}
@@ -301,14 +301,14 @@ const Stays = () => {
                           {room.capacity}
                         </span>
                       </div>
-                      <p className="font-sans text-sm text-muted-foreground leading-relaxed mb-6">
+                      <p className="font-sans text-sm text-muted-foreground leading-relaxed mb-5">
                         {room.description}
                       </p>
                       <a
                         href={room.airbnbLink}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 font-sans text-xs tracking-[0.15em] uppercase border border-foreground/20 px-6 py-3 hover:bg-foreground hover:text-background transition-all duration-300"
+                        className="inline-flex items-center gap-2 font-sans text-xs tracking-[0.15em] uppercase border border-foreground/20 px-5 py-3 hover:bg-foreground hover:text-background transition-all duration-300"
                       >
                         Book on Airbnb
                         <ExternalLink className="w-3 h-3" />
@@ -322,7 +322,7 @@ const Stays = () => {
         </section>
 
         {/* Terms Notice */}
-        <section className="px-6 md:px-12 pb-8">
+        <section className="px-5 md:px-12 pb-6 md:pb-8">
           <div className="max-w-6xl mx-auto">
             <div className="text-center">
               <p className="font-sans text-xs text-muted-foreground">
@@ -336,7 +336,7 @@ const Stays = () => {
         </section>
 
         {/* WhatsApp CTA */}
-        <section className="py-20 md:py-28 px-6 md:px-12 bg-secondary/30">
+        <section className="py-14 md:py-28 px-5 md:px-12 bg-secondary/30">
           <div className="max-w-3xl mx-auto text-center">
             <ScrollReveal>
               <h2 className="font-serif text-2xl md:text-3xl mb-4">

@@ -117,7 +117,7 @@ const Experiences = () => {
             />
             <div className="absolute inset-0 bg-foreground/40" />
           </motion.div>
-          <div className="relative z-10 flex flex-col justify-end h-full pb-16 px-6 md:px-12">
+          <div className="relative z-10 flex flex-col justify-end h-full pb-12 md:pb-16 px-5 md:px-12">
             <motion.p
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -130,7 +130,7 @@ const Experiences = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5, duration: 0.8 }}
-              className="font-serif text-5xl md:text-7xl text-background font-normal"
+              className="font-serif text-4xl sm:text-5xl md:text-7xl text-background font-normal"
             >
               Experiences
             </motion.h1>
@@ -146,11 +146,13 @@ const Experiences = () => {
         </section>
 
         {/* Introduction */}
-        <section className="py-24 md:py-36 px-6 md:px-12">
+        <section className="py-16 md:py-36 px-5 md:px-12">
           <div className="max-w-4xl mx-auto text-center">
             <ScrollReveal>
-              <h2 className="font-serif text-3xl md:text-4xl leading-[1.3] mb-8">
-                Not activities. Not itineraries.<br />
+              <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl leading-[1.3] mb-6 md:mb-8">
+                Not activities. Not itineraries.
+                <span className="hidden md:inline"><br /></span>
+                <span className="inline md:hidden"> </span>
                 Time spent with people who know this place.
               </h2>
               <p className="font-sans text-base text-muted-foreground leading-relaxed max-w-2xl mx-auto">
@@ -164,11 +166,11 @@ const Experiences = () => {
         </section>
 
         {/* Experiences Grid */}
-        <section className="px-6 md:px-12 pb-24">
-          <div className="max-w-6xl mx-auto space-y-24 md:space-y-32">
+        <section className="px-5 md:px-12 pb-16 md:pb-24">
+          <div className="max-w-6xl mx-auto space-y-16 md:space-y-32">
             {experiences.map((exp, i) => (
               <ScrollReveal key={exp.title}>
-                <div className={`grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center ${i % 2 === 1 ? "md:[direction:rtl]" : ""}`}>
+                <div className={`grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-16 items-center ${i % 2 === 1 ? "md:[direction:rtl]" : ""}`}>
                   <div className="aspect-[4/3] overflow-hidden">
                     <img
                       src={exp.image}
@@ -201,7 +203,7 @@ const Experiences = () => {
         </section>
 
         {/* Booking Note */}
-        <section className="py-20 md:py-28 px-6 md:px-12 bg-secondary/50">
+        <section className="py-14 md:py-28 px-5 md:px-12 bg-secondary/50">
           <div className="max-w-3xl mx-auto text-center">
             <ScrollReveal>
               <h2 className="font-serif text-2xl md:text-3xl italic mb-6">
@@ -221,7 +223,7 @@ const Experiences = () => {
         </section>
 
         {/* CTA */}
-        <section className="py-24 md:py-36 px-6 md:px-12 text-center">
+        <section className="py-16 md:py-36 px-5 md:px-12 text-center">
           <ScrollReveal>
             <h2 className="font-serif text-3xl md:text-5xl italic mb-8">
               Ready to experience the mountains differently?

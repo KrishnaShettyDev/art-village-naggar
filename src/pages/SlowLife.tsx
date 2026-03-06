@@ -47,7 +47,7 @@ const SlowLife = () => {
         <Navigation />
 
         {/* Hero */}
-        <section ref={heroRef} className="relative h-screen overflow-hidden">
+        <section ref={heroRef} className="relative min-h-[100dvh] overflow-hidden">
           <motion.div style={{ y: heroY }} className="absolute inset-0">
             <img
               src={heroImage}
@@ -69,7 +69,7 @@ const SlowLife = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5, duration: 0.8 }}
-              className="font-serif text-5xl md:text-7xl lg:text-8xl text-background font-normal italic leading-[1.1]"
+              className="font-serif text-4xl sm:text-5xl md:text-7xl lg:text-8xl text-background font-normal italic leading-[1.1]"
             >
               Slow Life<br />Staycation
             </motion.h1>
@@ -98,7 +98,7 @@ const SlowLife = () => {
         </section>
 
         {/* Introduction */}
-        <section className="py-24 md:py-36 px-6 md:px-12">
+        <section className="py-16 md:py-36 px-5 md:px-12">
           <div className="max-w-4xl mx-auto text-center">
             <ScrollReveal>
               <h2 className="font-serif text-3xl md:text-5xl italic leading-[1.2] mb-8">
@@ -119,21 +119,21 @@ const SlowLife = () => {
         </section>
 
         {/* Three Pillars */}
-        <section className="py-16 md:py-24 px-6 md:px-12 bg-secondary/30">
+        <section className="py-14 md:py-24 px-5 md:px-12 bg-secondary/30">
           <div className="max-w-6xl mx-auto">
             <ScrollReveal>
               <p className="font-sans text-xs tracking-[0.2em] uppercase text-muted-foreground mb-4 text-center">
                 Our Philosophy
               </p>
-              <h2 className="font-serif text-3xl md:text-4xl text-center mb-16">
+              <h2 className="font-serif text-3xl md:text-4xl text-center mb-10 md:mb-16">
                 The Three Pillars of Slow Living
               </h2>
             </ScrollReveal>
 
-            <div className="space-y-24 md:space-y-32">
+            <div className="space-y-16 md:space-y-32">
               {pillars.map((pillar, i) => (
                 <ScrollReveal key={pillar.title}>
-                  <div className={`grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center ${i % 2 === 1 ? "md:[direction:rtl]" : ""}`}>
+                  <div className={`grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center ${i % 2 === 1 ? "md:[direction:rtl]" : ""}`}>
                     <div className="aspect-[4/3] overflow-hidden">
                       <img
                         src={pillar.img}
@@ -155,8 +155,8 @@ const SlowLife = () => {
         </section>
 
         {/* The Setting */}
-        <section className="py-20 md:py-28 px-6 md:px-12 bg-secondary/50">
-          <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center">
+        <section className="py-14 md:py-28 px-5 md:px-12 bg-secondary/50">
+          <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center">
             <ScrollReveal>
               <div className="aspect-[4/5] overflow-hidden">
                 <img
@@ -193,7 +193,7 @@ const SlowLife = () => {
         </section>
 
         {/* Quote Section */}
-        <section className="py-24 md:py-36 px-6 md:px-12">
+        <section className="py-16 md:py-36 px-5 md:px-12">
           <div className="max-w-4xl mx-auto text-center">
             <ScrollReveal>
               <h2 className="font-serif text-3xl md:text-5xl italic leading-[1.2] mb-8">
@@ -215,7 +215,7 @@ const SlowLife = () => {
         </section>
 
         {/* CTA */}
-        <section className="py-24 md:py-36 px-6 md:px-12 bg-foreground text-background text-center">
+        <section className="py-16 md:py-36 px-5 md:px-12 bg-foreground text-background text-center">
           <ScrollReveal>
             <p className="font-sans text-xs tracking-[0.2em] uppercase text-background/60 mb-6">
               Ready to Slow Down?

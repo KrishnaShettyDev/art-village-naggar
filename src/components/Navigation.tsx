@@ -125,7 +125,7 @@ const Navigation = () => {
 
           <button
             onClick={() => setIsOpen(true)}
-            className={`lg:hidden p-2 transition-colors ${textColorClass}`}
+            className={`lg:hidden p-3 -mr-1 transition-colors ${textColorClass}`}
             aria-label="Open menu"
           >
             <Menu className="w-6 h-6" />
@@ -145,13 +145,13 @@ const Navigation = () => {
           >
             <button
               onClick={() => setIsOpen(false)}
-              className="absolute top-5 right-6 md:right-12 text-background p-2"
+              className="absolute top-4 right-4 md:top-5 md:right-12 text-background p-3"
               aria-label="Close menu"
             >
               <X className="w-6 h-6" />
             </button>
 
-            <nav className="flex flex-col items-center gap-6 py-20">
+            <nav className="flex flex-col items-center gap-5 py-16">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}

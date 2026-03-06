@@ -26,7 +26,7 @@ const Contact = () => {
       <Navigation />
 
       {/* Hero */}
-      <section className="relative h-[60vh] md:h-[70vh] overflow-hidden">
+      <section className="relative h-[50vh] md:h-[70vh] overflow-hidden">
         <img
           src={howToReachImg}
           alt="Mountain road leading to Chachogi"
@@ -38,26 +38,29 @@ const Contact = () => {
             <p className="font-sans text-xs tracking-[0.3em] uppercase text-background/60 mb-4">
               Contact & Directions
             </p>
-            <h1 className="font-serif text-4xl md:text-6xl text-background leading-[1.15]">
-              The road ends here.<br />The story begins.
+            <h1 className="font-serif text-3xl sm:text-4xl md:text-6xl text-background leading-[1.15]">
+              The road ends here.
+              <span className="hidden md:inline"><br /></span>
+              <span className="inline md:hidden"> </span>
+              The story begins.
             </h1>
           </ScrollReveal>
         </div>
       </section>
 
       {/* How to Reach */}
-      <section className="py-24 md:py-32 px-6 md:px-12">
+      <section className="py-16 md:py-32 px-5 md:px-12">
         <div className="max-w-6xl mx-auto">
           <ScrollReveal>
             <p className="font-sans text-xs tracking-[0.3em] uppercase text-muted-foreground mb-4">
               How to reach
             </p>
-            <h2 className="font-serif text-3xl md:text-4xl mb-16">
+            <h2 className="font-serif text-3xl md:text-4xl mb-10 md:mb-16">
               Getting to Chachogi
             </h2>
           </ScrollReveal>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
             <ScrollReveal delay={0.1}>
               <div>
                 <h3 className="font-serif text-xl mb-4">By Air</h3>
@@ -103,8 +106,8 @@ const Contact = () => {
       </section>
 
       {/* Contact Info + Form */}
-      <section className="py-20 md:py-28 px-6 md:px-12 bg-secondary/50">
-        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16">
+      <section className="py-14 md:py-28 px-5 md:px-12 bg-secondary/50">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16">
           {/* Contact details */}
           <ScrollReveal>
             <div>
@@ -210,7 +213,7 @@ const Contact = () => {
       </section>
 
       {/* Embedded Map */}
-      <section className="h-[400px] md:h-[500px]">
+      <section className="h-[280px] md:h-[500px]">
         <iframe
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3377.5!2d77.1734!3d32.1312!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzLCsDA3JzUyLjMiTiA3N8KwMTAnMjQuMiJF!5e0!3m2!1sen!2sin!4v1700000000000"
           width="100%"

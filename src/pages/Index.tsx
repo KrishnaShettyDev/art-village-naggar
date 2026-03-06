@@ -36,7 +36,7 @@ const Index = () => {
       <Navigation />
 
       {/* Hero */}
-      <section ref={heroRef} className="relative h-screen overflow-hidden">
+      <section ref={heroRef} className="relative min-h-[100dvh] overflow-hidden">
         <motion.div style={{ y: heroY }} className="absolute inset-0">
           <img
             src={heroImg}
@@ -62,7 +62,7 @@ const Index = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.8, duration: 1 }}
-            className="font-serif text-5xl md:text-7xl lg:text-8xl text-background font-normal italic leading-[1.1]"
+            className="font-serif text-4xl sm:text-5xl md:text-7xl lg:text-8xl text-background font-normal italic leading-[1.1]"
           >
             Embrace a<br />slow life.
           </motion.h1>
@@ -100,8 +100,8 @@ const Index = () => {
       </section>
 
       {/* About / Mission */}
-      <section className="py-24 md:py-36 px-6 md:px-12">
-        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 items-center">
+      <section className="py-16 md:py-28 px-5 md:px-12">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-20 items-center">
           <ScrollReveal>
             <div>
               <p className="font-sans text-xs tracking-[0.2em] uppercase text-muted-foreground mb-6">
@@ -142,7 +142,7 @@ const Index = () => {
       </section>
 
       {/* Kathkuni Heritage */}
-      <section className="py-20 md:py-28 px-6 md:px-12 bg-secondary/50">
+      <section className="py-14 md:py-24 px-5 md:px-12 bg-secondary/50">
         <div className="max-w-4xl mx-auto text-center">
           <ScrollReveal>
             <p className="font-sans text-xs tracking-[0.2em] uppercase text-muted-foreground mb-4">
@@ -165,13 +165,13 @@ const Index = () => {
       </section>
 
       {/* Accommodation Options */}
-      <section className="py-24 md:py-36 px-6 md:px-12">
+      <section className="py-16 md:py-28 px-5 md:px-12">
         <div className="max-w-6xl mx-auto">
           <ScrollReveal>
             <p className="font-sans text-xs tracking-[0.2em] uppercase text-muted-foreground mb-4 text-center">
               Where to Stay
             </p>
-            <h2 className="font-serif text-3xl md:text-4xl text-center mb-16">
+            <h2 className="font-serif text-2xl md:text-4xl text-center mb-10 md:mb-16">
               Choose your experience.
             </h2>
           </ScrollReveal>
@@ -235,7 +235,7 @@ const Index = () => {
       </section>
 
       {/* Experience Highlights */}
-      <section className="py-20 md:py-28 px-6 md:px-12 bg-secondary/30">
+      <section className="py-14 md:py-24 px-5 md:px-12 bg-secondary/30">
         <div className="max-w-6xl mx-auto">
           <ScrollReveal>
             <p className="font-sans text-xs tracking-[0.2em] uppercase text-muted-foreground mb-4">
@@ -246,7 +246,7 @@ const Index = () => {
             </h2>
           </ScrollReveal>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-8">
             {[
               {
                 title: "Village Cultural & Heritage Tours",
@@ -298,11 +298,10 @@ const Index = () => {
       </section>
 
       {/* CTA */}
-      <section className="py-24 md:py-36 px-6 md:px-12 bg-secondary/50 text-center">
+      <section className="py-16 md:py-28 px-5 md:px-12 bg-secondary/50 text-center">
         <ScrollReveal>
-          <h2 className="font-serif text-3xl md:text-5xl italic mb-8">
-            Embrace a responsible way of traveling<br />
-            at a slow, leisurely pace.
+          <h2 className="font-serif text-2xl sm:text-3xl md:text-5xl italic mb-6 md:mb-8">
+            Embrace a responsible way of traveling at a slow, leisurely pace.
           </h2>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link

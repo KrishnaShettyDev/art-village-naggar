@@ -30,12 +30,12 @@ const About = () => {
           <img src={kathkuniWall} alt="Kathkuni wall construction" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-foreground/20" />
         </motion.div>
-        <div className="relative z-10 flex flex-col justify-end h-full pb-16 px-6 md:px-12">
+        <div className="relative z-10 flex flex-col justify-end h-full pb-12 md:pb-16 px-5 md:px-12">
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5, duration: 0.8 }}
-            className="font-serif text-5xl md:text-7xl text-background font-normal"
+            className="font-serif text-4xl sm:text-5xl md:text-7xl text-background font-normal"
           >
             The Story
           </motion.h1>
@@ -43,7 +43,7 @@ const About = () => {
       </section>
 
       {/* Layer 1: The Disappearance */}
-      <section className="py-24 md:py-36 px-6 md:px-12">
+      <section className="py-16 md:py-36 px-5 md:px-12">
         <div className="max-w-3xl mx-auto">
           <ScrollReveal>
             <p className="font-sans text-xs tracking-[0.2em] uppercase text-muted-foreground mb-6">
@@ -78,7 +78,7 @@ const About = () => {
       </section>
 
       {/* Full-width image break */}
-      <section className="px-6 md:px-12">
+      <section className="px-5 md:px-12">
         <ScrollReveal>
           <div className="max-w-6xl mx-auto aspect-[21/9] overflow-hidden">
             <img src={heroImg} alt="Light through Kathkuni window" className="w-full h-full object-cover" />
@@ -87,7 +87,7 @@ const About = () => {
       </section>
 
       {/* Layer 2: The Restoration */}
-      <section className="py-24 md:py-36 px-6 md:px-12">
+      <section className="py-16 md:py-36 px-5 md:px-12">
         <div className="max-w-3xl mx-auto">
           <ScrollReveal>
             <p className="font-sans text-xs tracking-[0.2em] uppercase text-muted-foreground mb-6">
@@ -120,7 +120,7 @@ const About = () => {
       </section>
 
       {/* Hands image */}
-      <section className="px-6 md:px-12">
+      <section className="px-5 md:px-12">
         <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-4">
           <ScrollReveal>
             <div className="aspect-square overflow-hidden">
@@ -136,7 +136,7 @@ const About = () => {
       </section>
 
       {/* Layer 3: The Village */}
-      <section className="py-24 md:py-36 px-6 md:px-12">
+      <section className="py-16 md:py-36 px-5 md:px-12">
         <div className="max-w-3xl mx-auto">
           <ScrollReveal>
             <p className="font-sans text-xs tracking-[0.2em] uppercase text-muted-foreground mb-6">
@@ -169,7 +169,7 @@ const About = () => {
       </section>
 
       {/* Village and forest images */}
-      <section className="px-6 md:px-12 pb-24">
+      <section className="px-5 md:px-12 pb-16 md:pb-24">
         <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-4">
           <ScrollReveal>
             <div className="aspect-[4/5] overflow-hidden">
@@ -185,7 +185,7 @@ const About = () => {
       </section>
 
       {/* Vijyendra */}
-      <section className="py-24 md:py-36 px-6 md:px-12 bg-secondary/30">
+      <section className="py-16 md:py-36 px-5 md:px-12 bg-secondary/30">
         <div className="max-w-3xl mx-auto text-center">
           <ScrollReveal>
             <p className="font-sans text-xs tracking-[0.2em] uppercase text-muted-foreground mb-6">
