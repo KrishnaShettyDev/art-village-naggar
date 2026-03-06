@@ -14,6 +14,7 @@ import Gallery from "./pages/Gallery";
 import Experiences from "./pages/Experiences";
 import Contact from "./pages/Contact";
 import Blogs from "./pages/Blogs";
+import BlogPost from "./pages/BlogPost";
 import TheHouse from "./pages/TheHouse";
 import TheCafe from "./pages/TheCafe";
 import ShepherdHostel from "./pages/ShepherdHostel";
@@ -51,6 +52,7 @@ const AnimatedRoutes = () => {
         <Route path="/gallery" element={<Gallery />} />
         <Route path="/experiences" element={<Experiences />} />
         <Route path="/blogs" element={<Blogs />} />
+        <Route path="/blogs/:slug" element={<BlogPost />} />
         <Route path="/collaborate" element={<Collaborate />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/terms" element={<Terms />} />
