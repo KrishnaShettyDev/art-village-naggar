@@ -8,7 +8,7 @@ import { ExternalLink } from "lucide-react";
 import villageElder from "@/assets/village-elder.jpg";
 import guestsTour from "@/assets/guests-tour.jpg";
 import handsWorking from "@/assets/hands-working.jpg";
-import balconyView from "@/assets/balcony-view.jpg";
+import collabImage from "@/Collaborate /collab.jpg";
 
 const VOLUNTEER_FORM_LINK = "https://forms.gle/YZymXVkZmPHkdfVX8";
 const COLLABORATE_FORM_LINK = "https://docs.google.com/forms/d/e/1FAIpQLSc6NDrHl92TSHChaNpfEV28TuNY7-TeZDR3tf1l_SQouhb4_A/viewform";
@@ -161,7 +161,7 @@ const Collaborate = () => {
               <ScrollReveal direction="right">
                 <div className="md:order-1 aspect-[4/5] overflow-hidden">
                   <img
-                    src={balconyView}
+                    src={collabImage}
                     alt="Collaborate with Art Village"
                     className="w-full h-full object-cover"
                   />
