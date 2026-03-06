@@ -6,10 +6,12 @@ import PageTransition from "@/components/PageTransition";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 // Experience images
-import expCultural from "@/assets/experiences/20180311-_DSC0492.jpg";
-import expNature from "@/assets/experiences/20190109-_DSC0741.jpg";
-import expForest from "@/assets/experiences/DSC07673 (3).JPG";
-import expOutdoor from "@/assets/experiences/IMG_20180918_165742.jpg";
+import expCultural from "@/assets/experiences/20260220-P1034047.jpg";
+import expCooking from "@/assets/experiences/DSC07673 (3).JPG";
+import expHikes from "@/assets/experiences/20180311-_DSC0492.jpg";
+import expStargazing from "@/assets/experiences/20190109-_DSC0741.jpg";
+import expForest from "@/assets/experiences/IMG_20180918_165742.jpg";
+import expCrafts from "@/assets/experiences/IMG_1378.jpg";
 
 const experiences = [
   {
@@ -36,7 +38,7 @@ const experiences = [
       "Wood-fired pizza making",
       "Farm-to-table philosophy",
     ],
-    image: expOutdoor,
+    image: expCooking,
   },
   {
     title: "Snowline Hikes & Meadow Retreat",
@@ -49,7 +51,7 @@ const experiences = [
       "Seasonal wildflower trails",
       "Expert local guides",
     ],
-    image: expNature,
+    image: expHikes,
   },
   {
     title: "Stargazing & Night Camping",
@@ -62,7 +64,7 @@ const experiences = [
       "Overnight camping options",
       "Traditional storytelling",
     ],
-    image: expForest,
+    image: expStargazing,
   },
   {
     title: "Forest Walks & Hidden Trails",
@@ -75,7 +77,7 @@ const experiences = [
       "Secret viewpoint discoveries",
       "Bird watching opportunities",
     ],
-    image: expNature,
+    image: expForest,
   },
   {
     title: "Traditional Crafts Workshop",
@@ -88,7 +90,7 @@ const experiences = [
       "Wood carving basics",
       "Take home your creation",
     ],
-    image: expCultural,
+    image: expCrafts,
   },
 ];
 

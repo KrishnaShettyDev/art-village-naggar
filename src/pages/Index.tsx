@@ -6,23 +6,11 @@ import PageTransition from "@/components/PageTransition";
 import SplashScreen from "@/components/SplashScreen";
 import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
-import heroImg from "@/assets/hero-home.jpg";
+import heroImg from "@/assets/home/20260222-P1034400.jpg";
 import woodTexture from "@/assets/wood-texture.jpg";
 import theHouseRoom from "@/assets/the-house-room.jpg";
 import shepherdHostel from "@/assets/shepherd-hostel.jpg";
 import cafeFood from "@/assets/cafe-food.jpg";
-import handsWorking from "@/assets/hands-working.jpg";
-import villagePath from "@/assets/village-path.jpg";
-import fireStove from "@/assets/fire-stove.jpg";
-import forestLight from "@/assets/forest-light.jpg";
-
-const textureImages = [
-  { src: handsWorking, alt: "Traditional craftsmanship" },
-  { src: villagePath, alt: "Village stone path" },
-  { src: fireStove, alt: "Wood-fired warmth" },
-  { src: forestLight, alt: "Forest light" },
-];
-
 const Index = () => {
   const hasSeenSplash = sessionStorage.getItem("splash_seen") === "true";
   const [showSplash, setShowSplash] = useState(!hasSeenSplash);
@@ -306,27 +294,6 @@ const Index = () => {
             </div>
           </ScrollReveal>
         </div>
-      </section>
-
-      {/* Village Texture Strip */}
-      <section className="py-12 md:py-16">
-        <ScrollReveal>
-          <div className="flex gap-4 overflow-x-auto px-6 md:px-12 pb-4 snap-x snap-mandatory scrollbar-hide">
-            {textureImages.map((img, i) => (
-              <div
-                key={i}
-                className="flex-shrink-0 w-72 md:w-96 aspect-square overflow-hidden snap-center"
-              >
-                <img
-                  src={img.src}
-                  alt={img.alt}
-                  className="w-full h-full object-cover"
-                  loading="lazy"
-                />
-              </div>
-            ))}
-          </div>
-        </ScrollReveal>
       </section>
 
       {/* CTA */}
