@@ -4,6 +4,8 @@ import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
 import PageTransition from "@/components/PageTransition";
 import SEO from "@/components/SEO";
+import { BreadcrumbSchema } from "@/components/StructuredData";
+import { SITE_URL } from "@/lib/seo";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { EASING, HERO_TIMING } from "@/lib/animations";
@@ -107,6 +109,12 @@ const Experiences = () => {
   return (
     <PageTransition>
       <SEO />
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", url: SITE_URL },
+          { name: "Experiences", url: `${SITE_URL}/experiences` },
+        ]}
+      />
       <main className="bg-background overflow-x-hidden">
         <Navigation />
 

@@ -5,7 +5,8 @@ import ScrollReveal from "@/components/ScrollReveal";
 import PageTransition from "@/components/PageTransition";
 import ImageCarousel from "@/components/ImageCarousel";
 import SEO from "@/components/SEO";
-import { AccommodationSchema } from "@/components/StructuredData";
+import { AccommodationSchema, BreadcrumbSchema } from "@/components/StructuredData";
+import { SITE_URL } from "@/lib/seo";
 import { motion } from "framer-motion";
 import { Users, Bed, Bath, Mountain, Flame, ExternalLink } from "lucide-react";
 import { EASING, HERO_TIMING } from "@/lib/animations";
@@ -116,6 +117,12 @@ const Stays = () => {
         description="Heritage rooms in a 100-year-old Kathkuni house. Duplex suites with hot tubs, cozy attic rooms, and full villa rental."
         image="https://artvillagenaggar.com/og-image.jpg"
         amenities={["Mountain View", "Fireplace", "Hot Tub", "Free WiFi", "Restaurant"]}
+      />
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", url: SITE_URL },
+          { name: "Stays", url: `${SITE_URL}/stays` },
+        ]}
       />
       <main className="bg-background overflow-x-hidden">
         <Navigation />

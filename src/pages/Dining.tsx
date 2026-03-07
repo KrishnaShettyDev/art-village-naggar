@@ -4,6 +4,8 @@ import Footer from "@/components/Footer";
 import PageTransition from "@/components/PageTransition";
 import ScrollReveal from "@/components/ScrollReveal";
 import SEO from "@/components/SEO";
+import { BreadcrumbSchema } from "@/components/StructuredData";
+import { SITE_URL } from "@/lib/seo";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { ExternalLink } from "lucide-react";
@@ -48,6 +50,12 @@ const Dining = () => {
   return (
     <PageTransition>
       <SEO />
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", url: SITE_URL },
+          { name: "Dining", url: `${SITE_URL}/dining` },
+        ]}
+      />
       <main className="bg-background overflow-x-hidden">
         <Navigation />
 

@@ -5,7 +5,7 @@ import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
 import PageTransition from "@/components/PageTransition";
 import SEO from "@/components/SEO";
-import { BlogPostSchema } from "@/components/StructuredData";
+import { BlogPostSchema, BreadcrumbSchema } from "@/components/StructuredData";
 import { SITE_URL } from "@/lib/seo";
 import { useNotionArticle, formatArticleDate, type ContentBlock } from "@/hooks/useNotionArticle";
 
@@ -201,6 +201,13 @@ const BlogPost = () => {
         datePublished={article.date}
         image={coverImage}
         url={articleUrl}
+      />
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", url: SITE_URL },
+          { name: "Blogs", url: `${SITE_URL}/blogs` },
+          { name: article.title, url: articleUrl },
+        ]}
       />
       <main className="bg-background overflow-x-hidden">
         <Navigation />
