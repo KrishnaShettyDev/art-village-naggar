@@ -83,8 +83,17 @@ async function getArticles(): Promise<NotionArticle[]> {
 }
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
-  // Enable CORS
-  res.setHeader("Access-Control-Allow-Origin", "*");
+  // Enable CORS - restricted to our domain
+  const allowedOrigins = [
+    "https://artvillagenaggar.com",
+    "https://www.artvillagenaggar.com",
+    "https://art-village-naggar.vercel.app",
+  ];
+  const origin = req.headers.origin || "";
+
+  if (allowedOrigins.includes(origin) || process.env.NODE_ENV === "development") {
+    res.setHeader("Access-Control-Allow-Origin", origin || allowedOrigins[0]);
+  }
   res.setHeader("Access-Control-Allow-Methods", "GET, OPTIONS");
   res.setHeader("Access-Control-Allow-Headers", "Content-Type");
 
