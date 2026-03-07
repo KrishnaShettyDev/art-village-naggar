@@ -10,18 +10,56 @@ import { LocalBusinessSchema } from "@/components/StructuredData";
 import { EASING, HERO_TIMING } from "@/lib/animations";
 import howToReachImg from "@/assets/how-to-reach.jpg";
 
+// Sanitize input to prevent XSS
+const sanitizeInput = (input: string): string => {
+  return input
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#x27;")
+    .trim();
+};
+
+// Validate email format
+const isValidEmail = (email: string): boolean => {
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailRegex.test(email);
+};
+
 const Contact = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     message: "",
   });
+  const [formStatus, setFormStatus] = useState<"idle" | "success" | "error">("idle");
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // For now, just log — backend integration later
-    console.log("Contact form submitted:", formData);
+
+    // Validate inputs
+    const sanitizedName = sanitizeInput(formData.name).slice(0, 100);
+    const sanitizedEmail = sanitizeInput(formData.email).slice(0, 100);
+    const sanitizedMessage = sanitizeInput(formData.message).slice(0, 2000);
+
+    if (!sanitizedName || !sanitizedEmail || !sanitizedMessage) {
+      setFormStatus("error");
+      return;
+    }
+
+    if (!isValidEmail(formData.email)) {
+      setFormStatus("error");
+      return;
+    }
+
+    // Form is valid - in production, send to backend API
+    // For now, open WhatsApp with the message
+    const whatsappMessage = `Name: ${sanitizedName}%0AEmail: ${sanitizedEmail}%0AMessage: ${sanitizedMessage}`;
+    window.open(`https://wa.me/919816650400?text=${whatsappMessage}`, "_blank");
+
     setFormData({ name: "", email: "", message: "" });
+    setFormStatus("success");
   };
 
   return (
