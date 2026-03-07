@@ -123,7 +123,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     });
   }
 
-  // Enable CORS - restricted to our domain
+  // Enable CORS - restricted to allowed origins only
   const allowedOrigins = [
     "https://artvillagenaggar.com",
     "https://www.artvillagenaggar.com",
@@ -131,8 +131,8 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   ];
   const origin = req.headers.origin || "";
 
-  if (allowedOrigins.includes(origin) || process.env.NODE_ENV === "development") {
-    res.setHeader("Access-Control-Allow-Origin", origin || allowedOrigins[0]);
+  if (allowedOrigins.includes(origin)) {
+    res.setHeader("Access-Control-Allow-Origin", origin);
   }
   res.setHeader("Access-Control-Allow-Methods", "GET, OPTIONS");
   res.setHeader("Access-Control-Allow-Headers", "Content-Type");
