@@ -241,19 +241,17 @@ const Experiences = () => {
             </h2>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
-                to="/stays"
+                to="/collaborate"
                 className="inline-block font-sans text-xs tracking-[0.2em] uppercase bg-foreground text-background px-8 py-4 hover:bg-foreground/90 transition-colors"
               >
-                Book Your Stay
+                Get Involved
               </Link>
-              <a
-                href="https://wa.me/919816650400"
-                target="_blank"
-                rel="noopener noreferrer"
+              <Link
+                to="/stays"
                 className="inline-block font-sans text-xs tracking-[0.2em] uppercase border border-foreground px-8 py-4 hover:bg-foreground hover:text-background transition-colors"
               >
-                Ask About Experiences
-              </a>
+                Book a Stay
+              </Link>
             </div>
           </ScrollReveal>
         </section>

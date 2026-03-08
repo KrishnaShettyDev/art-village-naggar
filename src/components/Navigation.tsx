@@ -8,7 +8,7 @@ const exploreLinks = [
   { to: "/experiences", label: "Experiences" },
   { to: "/dining", label: "Dining" },
   { to: "/gallery", label: "Gallery" },
-  { to: "/blogs", label: "Blogs" },
+  { to: "/shepherd-magazine", label: "Shepherd Magazine" },
   { to: "/story", label: "Our Story" },
 ];
 
@@ -102,24 +102,24 @@ const Navigation = () => {
               </AnimatePresence>
             </div>
 
-            {/* Collaborate Link */}
+            {/* Collaborate CTA - Primary */}
             <Link
               to="/collaborate"
-              className={`font-sans text-xs tracking-[0.15em] uppercase transition-colors hover:opacity-70 ${textColorClass}`}
-            >
-              Collaborate
-            </Link>
-
-            {/* Book Your Stay CTA */}
-            <Link
-              to="/stays"
               className={`font-sans text-xs tracking-[0.15em] uppercase px-5 py-2.5 transition-colors ${
                 showSolidBg
                   ? "bg-foreground text-background hover:bg-foreground/90"
                   : "bg-background text-foreground hover:bg-background/90"
               }`}
             >
-              Book Your Stay
+              Get Involved
+            </Link>
+
+            {/* Book a Stay - Secondary */}
+            <Link
+              to="/stays"
+              className={`font-sans text-xs tracking-[0.15em] uppercase transition-colors hover:opacity-70 ${textColorClass}`}
+            >
+              Book a Stay
             </Link>
           </nav>
 
@@ -217,30 +217,11 @@ const Navigation = () => {
                 </Link>
               </motion.div>
 
-              {/* Collaborate */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.3 }}
-              >
-                <Link
-                  to="/collaborate"
-                  onClick={() => setIsOpen(false)}
-                  className={`font-serif text-2xl md:text-3xl transition-opacity duration-300 ${
-                    location.pathname === "/collaborate"
-                      ? "text-background opacity-100"
-                      : "text-background/60 hover:text-background hover:opacity-100"
-                  }`}
-                >
-                  Collaborate
-                </Link>
-              </motion.div>
-
               {/* Contact */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.4 }}
+                transition={{ delay: 0.3 }}
               >
                 <Link
                   to="/contact"
@@ -255,19 +236,26 @@ const Navigation = () => {
                 </Link>
               </motion.div>
 
-              {/* Book CTA */}
+              {/* CTAs */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.45 }}
-                className="mt-6"
+                transition={{ delay: 0.4 }}
+                className="mt-6 flex flex-col gap-3"
               >
+                <Link
+                  to="/collaborate"
+                  onClick={() => setIsOpen(false)}
+                  className="inline-block font-sans text-xs tracking-[0.15em] uppercase px-6 py-3 bg-background text-foreground hover:bg-background/90 transition-colors text-center"
+                >
+                  Get Involved
+                </Link>
                 <Link
                   to="/stays"
                   onClick={() => setIsOpen(false)}
-                  className="inline-block font-sans text-xs tracking-[0.15em] uppercase px-6 py-3 bg-background text-foreground hover:bg-background/90 transition-colors"
+                  className="inline-block font-sans text-xs tracking-[0.15em] uppercase px-6 py-3 border border-background/50 text-background hover:bg-background/10 transition-colors text-center"
                 >
-                  Book Your Stay
+                  Book a Stay
                 </Link>
               </motion.div>
             </nav>

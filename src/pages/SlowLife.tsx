@@ -88,13 +88,19 @@ const SlowLife = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: HERO_TIMING.cta.delay, duration: HERO_TIMING.cta.duration, ease: EASING }}
-              className="mt-12"
+              className="mt-12 flex flex-col sm:flex-row gap-4"
             >
               <Link
-                to="/stays"
+                to="/collaborate"
                 className="inline-block font-sans text-xs tracking-[0.2em] uppercase bg-background text-foreground px-8 py-4 hover:bg-background/90 transition-all duration-700"
               >
-                Book Your Stay
+                Get Involved
+              </Link>
+              <Link
+                to="/stays"
+                className="inline-block font-sans text-xs tracking-[0.2em] uppercase border border-background/70 text-background px-8 py-4 hover:bg-background/10 transition-all duration-500"
+              >
+                Book a Stay
               </Link>
             </motion.div>
           </div>
@@ -226,20 +232,20 @@ const SlowLife = () => {
               Ready to Slow Down?
             </p>
             <h2 className="font-serif text-3xl md:text-5xl italic mb-8">
-              Your mountain retreat awaits.
+              Be part of our community.
             </h2>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
-                to="/stays"
+                to="/collaborate"
                 className="inline-block font-sans text-xs tracking-[0.2em] uppercase bg-background text-foreground px-8 py-4 hover:bg-background/90 transition-all duration-500"
               >
-                Book Your Stay
+                Collaborate With Us
               </Link>
               <Link
-                to="/experiences"
+                to="/stays"
                 className="inline-block font-sans text-xs tracking-[0.2em] uppercase border border-background px-8 py-4 hover:bg-background hover:text-foreground transition-all duration-500"
               >
-                Explore Experiences
+                Book a Stay
               </Link>
             </div>
           </ScrollReveal>

@@ -83,13 +83,19 @@ const Index = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: HERO_TIMING.cta.delay, duration: HERO_TIMING.cta.duration, ease: EASING }}
-            className="mt-12"
+            className="mt-12 flex flex-col sm:flex-row gap-4"
           >
             <Link
-              to="/stays"
+              to="/collaborate"
               className="inline-block font-sans text-xs tracking-[0.2em] uppercase bg-background text-foreground px-8 py-4 hover:bg-background/90 transition-all duration-500"
             >
-              Book Your Stay
+              Get Involved
+            </Link>
+            <Link
+              to="/stays"
+              className="inline-block font-sans text-xs tracking-[0.2em] uppercase border border-background/70 text-background px-8 py-4 hover:bg-background/10 transition-all duration-500"
+            >
+              Book a Stay
             </Link>
           </motion.div>
         </motion.div>
@@ -307,23 +313,24 @@ const Index = () => {
       <section className="py-16 md:py-28 px-5 md:px-12 bg-secondary/50 text-center">
         <ScrollReveal>
           <h2 className="font-serif text-2xl sm:text-3xl md:text-5xl italic mb-6 md:mb-8">
-            Embrace a responsible way of traveling at a slow, leisurely pace.
+            Be part of a community rethinking rural living.
           </h2>
+          <p className="font-sans text-base text-muted-foreground max-w-xl mx-auto mb-8">
+            Join us as a volunteer, collaborator, or guest. Experience the mountains differently.
+          </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
-              to="/stays"
+              to="/collaborate"
               className="inline-block font-sans text-xs tracking-[0.2em] uppercase bg-foreground text-background px-8 py-4 hover:bg-foreground/90 transition-all duration-500"
             >
-              Book Your Stay
+              Collaborate With Us
             </Link>
-            <a
-              href="https://wa.me/919816650400"
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              to="/stays"
               className="inline-block font-sans text-xs tracking-[0.2em] uppercase border border-foreground px-8 py-4 hover:bg-foreground hover:text-background transition-all duration-500"
             >
-              WhatsApp Us
-            </a>
+              Book a Stay
+            </Link>
           </div>
         </ScrollReveal>
       </section>

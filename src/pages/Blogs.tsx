@@ -64,7 +64,7 @@ const Blogs = () => {
               transition={{ delay: HERO_TIMING.tagline.delay, duration: HERO_TIMING.tagline.duration, ease: EASING }}
               className="font-sans text-xs tracking-[0.3em] uppercase text-muted-foreground mb-4"
             >
-              Blogs
+              Publications
             </motion.p>
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
@@ -72,10 +72,7 @@ const Blogs = () => {
               transition={{ delay: HERO_TIMING.heading.delay, duration: HERO_TIMING.heading.duration, ease: EASING }}
               className="font-serif text-3xl sm:text-4xl md:text-6xl leading-[1.15] mb-6"
             >
-              Observations from
-              <span className="hidden md:inline"><br /></span>
-              <span className="inline md:hidden"> </span>
-              2,300 metres.
+              Shepherd Magazine
             </motion.h1>
             <motion.p
               initial={{ opacity: 0 }}
@@ -83,8 +80,8 @@ const Blogs = () => {
               transition={{ delay: HERO_TIMING.description.delay, duration: HERO_TIMING.description.duration, ease: EASING }}
               className="font-sans text-base text-muted-foreground leading-relaxed max-w-xl"
             >
-              Stories about Kathkuni architecture, the people of Chachogi, the food that grows here,
-              and the seasons that shape everything.
+              Observations from 2,300 metres. Stories about Kathkuni architecture,
+              the people of Chachogi, the food that grows here, and the seasons that shape everything.
             </motion.p>
           </div>
         </section>
@@ -143,7 +140,7 @@ const Blogs = () => {
           <section className="px-5 md:px-12 mb-14 md:mb-20">
             <div className="max-w-6xl mx-auto">
               <ScrollReveal>
-                <Link to={`/blogs/${featuredArticle.slug}`} className="group grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-12">
+                <Link to={`/shepherd-magazine/${featuredArticle.slug}`} className="group grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-12">
                   <div className="aspect-[16/10] overflow-hidden">
                     <img
                       src={getArticleImage(featuredArticle, 0)}
@@ -178,7 +175,7 @@ const Blogs = () => {
             <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10">
               {otherArticles.map((article, i) => (
                 <ScrollReveal key={article.id} delay={i * 0.1}>
-                  <Link to={`/blogs/${article.slug}`} className="group block">
+                  <Link to={`/shepherd-magazine/${article.slug}`} className="group block">
                     <div className="aspect-[3/2] overflow-hidden mb-4">
                       <img
                         src={getArticleImage(article, i + 1)}

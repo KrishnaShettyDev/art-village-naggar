@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
@@ -147,15 +148,12 @@ const Collaborate = () => {
                       Apply Now
                       <ExternalLink className="w-3 h-3" />
                     </a>
-                    <a
-                      href="https://instagram.com/artvillagenaggar"
-                      target="_blank"
-                      rel="noopener noreferrer"
+                    <Link
+                      to="/shepherd-magazine"
                       className="inline-flex items-center gap-2 font-sans text-xs tracking-[0.15em] uppercase border border-foreground/20 px-6 py-3 hover:bg-foreground hover:text-background transition-all duration-300"
                     >
                       View Publications
-                      <ExternalLink className="w-3 h-3" />
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </ScrollReveal>

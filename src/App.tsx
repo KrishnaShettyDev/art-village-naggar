@@ -2,9 +2,15 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation, Navigate, useParams } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 import { useEffect } from "react";
+
+// Redirect component for blog post slugs
+const BlogPostRedirect = () => {
+  const { slug } = useParams();
+  return <Navigate to={`/shepherd-magazine/${slug}`} replace />;
+};
 import Index from "./pages/Index";
 import Stays from "./pages/Stays";
 import SlowLife from "./pages/SlowLife";
@@ -51,8 +57,11 @@ const AnimatedRoutes = () => {
         <Route path="/story" element={<About />} />
         <Route path="/gallery" element={<Gallery />} />
         <Route path="/experiences" element={<Experiences />} />
-        <Route path="/blogs" element={<Blogs />} />
-        <Route path="/blogs/:slug" element={<BlogPost />} />
+        <Route path="/shepherd-magazine" element={<Blogs />} />
+        <Route path="/shepherd-magazine/:slug" element={<BlogPost />} />
+        {/* Redirects for old blog URLs */}
+        <Route path="/blogs" element={<Navigate to="/shepherd-magazine" replace />} />
+        <Route path="/blogs/:slug" element={<BlogPostRedirect />} />
         <Route path="/collaborate" element={<Collaborate />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/terms" element={<Terms />} />

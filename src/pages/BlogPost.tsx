@@ -165,7 +165,7 @@ const BlogPost = () => {
                   : "We couldn't load this article. Please try again later."}
               </p>
               <Link
-                to="/blogs"
+                to="/shepherd-magazine"
                 className="inline-flex items-center gap-2 font-sans text-xs tracking-[0.2em] uppercase border-b border-foreground/30 pb-1 hover:border-foreground transition-all duration-500"
               >
                 <ArrowLeft className="w-4 h-4" />
@@ -180,7 +180,7 @@ const BlogPost = () => {
   }
 
   const coverImage = article.coverImage || getDefaultCover(article.slug);
-  const articleUrl = `${SITE_URL}/blogs/${article.slug}`;
+  const articleUrl = `${SITE_URL}/shepherd-magazine/${article.slug}`;
 
   return (
     <PageTransition>
@@ -205,7 +205,7 @@ const BlogPost = () => {
       <BreadcrumbSchema
         items={[
           { name: "Home", url: SITE_URL },
-          { name: "Blogs", url: `${SITE_URL}/blogs` },
+          { name: "Shepherd Magazine", url: `${SITE_URL}/shepherd-magazine` },
           { name: article.title, url: articleUrl },
         ]}
       />
@@ -217,7 +217,7 @@ const BlogPost = () => {
           <div className="max-w-3xl mx-auto">
             <ScrollReveal>
               <Link
-                to="/blogs"
+                to="/shepherd-magazine"
                 className="inline-flex items-center gap-2 font-sans text-xs tracking-[0.15em] uppercase text-muted-foreground hover:text-foreground transition-colors mb-8"
               >
                 <ArrowLeft className="w-4 h-4" />
@@ -266,7 +266,7 @@ const BlogPost = () => {
             {/* Back link */}
             <div className="mt-16 pt-8 border-t border-border">
               <Link
-                to="/blogs"
+                to="/shepherd-magazine"
                 className="inline-flex items-center gap-2 font-sans text-xs tracking-[0.2em] uppercase text-muted-foreground hover:text-foreground transition-colors"
               >
                 <ArrowLeft className="w-4 h-4" />

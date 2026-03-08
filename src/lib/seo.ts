@@ -65,8 +65,8 @@ export const routeMetadata: Record<string, PageMeta> = {
     description:
       "Village tours, farm-to-table cooking, snowline hikes, stargazing, forest walks, and traditional crafts. Immersive experiences at 2,300 metres.",
   },
-  "/blogs": {
-    title: "Blogs | Art Village Naggar",
+  "/shepherd-magazine": {
+    title: "Shepherd Magazine | Art Village Naggar",
     description:
       "Observations from 2,300 metres. Stories about Kathkuni architecture, village life, seasonal food, and Himalayan traditions.",
     ogType: "website",

@@ -127,7 +127,7 @@ const Footer = () => {
                   <Link to="/experiences" className="font-sans text-sm text-background/70 hover:text-background transition-colors">Experiences</Link>
                   <Link to="/dining" className="font-sans text-sm text-background/70 hover:text-background transition-colors">Dining</Link>
                   <Link to="/gallery" className="font-sans text-sm text-background/70 hover:text-background transition-colors">Gallery</Link>
-                  <Link to="/blogs" className="font-sans text-sm text-background/70 hover:text-background transition-colors">Blogs</Link>
+                  <Link to="/shepherd-magazine" className="font-sans text-sm text-background/70 hover:text-background transition-colors">Shepherd Magazine</Link>
                 </div>
               </div>
               <div>
