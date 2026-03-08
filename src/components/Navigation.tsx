@@ -117,7 +117,11 @@ const Navigation = () => {
             {/* Book a Stay - Secondary */}
             <Link
               to="/stays"
-              className={`font-sans text-xs tracking-[0.15em] uppercase transition-colors hover:opacity-70 ${textColorClass}`}
+              className={`font-sans text-xs tracking-[0.15em] uppercase px-5 py-2.5 transition-colors ${
+                showSolidBg
+                  ? "border border-foreground text-foreground hover:bg-foreground hover:text-background"
+                  : "border border-background text-background hover:bg-background hover:text-foreground"
+              }`}
             >
               Book a Stay
             </Link>
