@@ -244,7 +244,7 @@ const Experiences = () => {
                 to="/collaborate"
                 className="inline-block font-sans text-xs tracking-[0.2em] uppercase bg-foreground text-background px-8 py-4 hover:bg-foreground/90 transition-colors"
               >
-                Get Involved
+                Collaborate
               </Link>
               <Link
                 to="/stays"

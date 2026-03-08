@@ -111,7 +111,7 @@ const Navigation = () => {
                   : "bg-background text-foreground hover:bg-background/90"
               }`}
             >
-              Get Involved
+              Collaborate
             </Link>
 
             {/* Book a Stay - Secondary */}
@@ -248,7 +248,7 @@ const Navigation = () => {
                   onClick={() => setIsOpen(false)}
                   className="inline-block font-sans text-xs tracking-[0.15em] uppercase px-6 py-3 bg-background text-foreground hover:bg-background/90 transition-colors text-center"
                 >
-                  Get Involved
+                  Collaborate
                 </Link>
                 <Link
                   to="/stays"

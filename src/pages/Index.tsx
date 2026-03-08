@@ -89,7 +89,7 @@ const Index = () => {
               to="/collaborate"
               className="inline-block font-sans text-xs tracking-[0.2em] uppercase bg-background text-foreground px-8 py-4 hover:bg-background/90 transition-all duration-500"
             >
-              Get Involved
+              Collaborate
             </Link>
             <Link
               to="/stays"
@@ -323,7 +323,7 @@ const Index = () => {
               to="/collaborate"
               className="inline-block font-sans text-xs tracking-[0.2em] uppercase bg-foreground text-background px-8 py-4 hover:bg-foreground/90 transition-all duration-500"
             >
-              Collaborate With Us
+              Collaborate
             </Link>
             <Link
               to="/stays"
