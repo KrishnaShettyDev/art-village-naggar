@@ -15,6 +15,13 @@ import woodTexture from "@/assets/wood-texture.jpg";
 import entireKathkuniVilla from "@/assets/Entire Kathkuni House (6 Bedrooms)/Entire Kathkuni Villa.avif";
 import summerGoldSuite from "@/assets/Summer Gold Duplex Suite/Summer Gold Duplex Suite 1.webp";
 import springGreenRoom from "@/assets/Spring Green Attic Room/Spring Green Attic Room 1.webp";
+// Experience images
+import expCultural from "@/assets/experiences/20260220-P1034047.jpg";
+import expCooking from "@/assets/experiences/DSC07673 (3).JPG";
+import expHikes from "@/assets/experiences/20180311-_DSC0492.jpg";
+import expStargazing from "@/assets/experiences/20190109-_DSC0741.jpg";
+import expForest from "@/assets/experiences/IMG_20180918_165742.jpg";
+import dining1 from "@/assets/dining/dining 1.avif";
 const Index = () => {
   const hasSeenSplash = sessionStorage.getItem("splash_seen") === "true";
   const [showSplash, setShowSplash] = useState(!hasSeenSplash);
@@ -258,40 +265,54 @@ const Index = () => {
             </h2>
           </ScrollReveal>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             {[
               {
                 title: "Village Cultural & Heritage Tours",
                 description: "Explore temple tours, architectural walks, and timeless Kathkuni craftsmanship.",
+                img: expCultural,
               },
               {
                 title: "Farm-to-Table Cooking",
                 description: "Prepare meals using fresh farm ingredients and create wood-fired pizzas.",
+                img: expCooking,
               },
               {
                 title: "Snowline Hikes & Meadow Retreat",
                 description: "Trek through crisp mountain air to breathtaking alpine landscapes.",
+                img: expHikes,
               },
               {
                 title: "Stargazing & Night Camping",
                 description: "Lie beneath a sky ablaze with stars, warmed by the crackling campfire.",
+                img: expStargazing,
               },
               {
                 title: "Forest Walks & Hidden Trails",
                 description: "Discover secret trails that lead to breathtaking views through forested areas.",
+                img: expForest,
               },
               {
                 title: "Shepherd Cafe & Dining",
                 description: "Local Himachali, Mediterranean, and Asian cuisine with farm-to-table freshness.",
+                img: dining1,
               },
             ].map((exp, i) => (
               <ScrollReveal key={exp.title} delay={i * 0.1}>
-                <div className="border-t border-border pt-6">
-                  <h3 className="font-serif text-lg mb-3">{exp.title}</h3>
+                <Link to="/experiences" className="group block">
+                  <div className="aspect-[4/3] overflow-hidden mb-4">
+                    <img
+                      src={exp.img}
+                      alt={exp.title}
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                      loading="lazy"
+                    />
+                  </div>
+                  <h3 className="font-serif text-lg mb-2 group-hover:text-primary transition-colors">{exp.title}</h3>
                   <p className="font-sans text-sm text-muted-foreground leading-relaxed">
                     {exp.description}
                   </p>
-                </div>
+                </Link>
               </ScrollReveal>
             ))}
           </div>

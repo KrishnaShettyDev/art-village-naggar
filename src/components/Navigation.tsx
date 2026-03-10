@@ -59,7 +59,7 @@ const Navigation = () => {
             to="/"
             className={`font-serif text-lg tracking-wide transition-colors ${textColorClass}`}
           >
-            Art Village Naggar
+            <span className="font-sans font-medium">ART</span> Village Naggar
           </Link>
 
           {/* Desktop Navigation */}
@@ -102,28 +102,28 @@ const Navigation = () => {
               </AnimatePresence>
             </div>
 
-            {/* Collaborate CTA - Primary */}
+            {/* Stays Link */}
+            <Link
+              to="/stays"
+              className={`font-sans text-xs tracking-[0.15em] uppercase transition-colors hover:opacity-70 ${textColorClass}`}
+            >
+              Stays
+            </Link>
+
+            {/* Collaborate Link */}
             <Link
               to="/collaborate"
-              className={`font-sans text-xs tracking-[0.15em] uppercase px-5 py-2.5 transition-colors ${
-                showSolidBg
-                  ? "bg-foreground text-background hover:bg-foreground/90"
-                  : "bg-background text-foreground hover:bg-background/90"
-              }`}
+              className={`font-sans text-xs tracking-[0.15em] uppercase transition-colors hover:opacity-70 ${textColorClass}`}
             >
               Collaborate
             </Link>
 
-            {/* Book a Stay - Secondary */}
+            {/* Contact Link */}
             <Link
-              to="/stays"
-              className={`font-sans text-xs tracking-[0.15em] uppercase px-5 py-2.5 transition-colors ${
-                showSolidBg
-                  ? "border border-foreground text-foreground hover:bg-foreground hover:text-background"
-                  : "border border-background text-background hover:bg-background hover:text-foreground"
-              }`}
+              to="/contact"
+              className={`font-sans text-xs tracking-[0.15em] uppercase transition-colors hover:opacity-70 ${textColorClass}`}
             >
-              Book a Stay
+              Contact
             </Link>
           </nav>
 

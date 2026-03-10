@@ -158,7 +158,7 @@ const Footer = () => {
 
         {/* Bottom Bar */}
         <div className="border-t border-background/10 pt-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
-          <Link to="/" className="font-serif text-lg">Art Village Naggar</Link>
+          <Link to="/" className="font-serif text-lg"><span className="font-sans font-medium">ART</span> Village Naggar</Link>
           <p className="font-sans text-xs text-background/30">
             Conscious Travel · Therapeutic Relaxation · Contextual Lifestyle
           </p>
