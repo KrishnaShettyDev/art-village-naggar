@@ -1,4 +1,4 @@
-# Art Village Naggar - robots.txt
+# ART - Adaptive Rural Tourism - robots.txt
 
 User-agent: Googlebot
 Allow: /

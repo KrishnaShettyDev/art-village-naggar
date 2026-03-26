@@ -1,5 +1,5 @@
-// Service Worker for Art Village Naggar PWA
-const CACHE_NAME = 'art-village-naggar-v1';
+// Service Worker for ART - Adaptive Rural Tourism PWA
+const CACHE_NAME = 'art-adaptive-rural-tourism-v2';
 const OFFLINE_URL = '/offline.html';
 
 // Assets to cache immediately on install
