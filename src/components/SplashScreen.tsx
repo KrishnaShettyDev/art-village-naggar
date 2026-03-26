@@ -55,7 +55,7 @@ const SplashScreen = ({ onComplete }: SplashScreenProps) => {
         <div className="relative z-10 text-center px-6">
           {/* Wordmark */}
           <motion.h1
-            className="font-serif text-3xl md:text-5xl lg:text-6xl text-warm-cream tracking-wide"
+            className="text-warm-cream"
             initial={{ opacity: 0, y: 20 }}
             animate={
               phase === "text" || phase === "exit"
@@ -64,7 +64,8 @@ const SplashScreen = ({ onComplete }: SplashScreenProps) => {
             }
             transition={{ duration: 1, ease: [0.25, 0.1, 0.25, 1] }}
           >
-            Art Village Naggar
+            <span className="font-sans font-bold text-4xl md:text-6xl lg:text-7xl tracking-tight block">ART</span>
+            <span className="font-serif text-lg md:text-2xl lg:text-3xl tracking-wide block mt-2">Adaptive Rural Tourism</span>
           </motion.h1>
 
           {/* Divider line */}
@@ -90,7 +91,7 @@ const SplashScreen = ({ onComplete }: SplashScreenProps) => {
             }
             transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
           >
-            Stay inside the story
+            Rethinking Rural Living
           </motion.p>
         </div>
       </motion.div>

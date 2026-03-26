@@ -207,7 +207,7 @@ const About = () => {
               by making it useful."
             </h2>
             <p className="font-sans text-base text-muted-foreground leading-relaxed">
-              — Vijyendra Thakur, designer and founder of Art Village Naggar
+              — Vijyendra Thakur, designer and founder of ART
             </p>
           </ScrollReveal>
         </div>

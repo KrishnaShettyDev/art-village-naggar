@@ -26,14 +26,31 @@ const Collaborate = () => {
         <section className="pt-28 pb-12 md:pt-40 md:pb-20 px-5 md:px-12">
           <div className="max-w-4xl mx-auto text-center">
             <ScrollReveal>
+              <motion.p
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.6 }}
+                className="font-sans text-xs tracking-[0.3em] uppercase text-muted-foreground mb-4"
+              >
+                Join Our Community
+              </motion.p>
               <motion.h1
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8 }}
                 className="font-serif text-4xl md:text-6xl mb-4"
               >
-                Collaborate
+                Volunteer & Collaborate
               </motion.h1>
+              <motion.p
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+                className="font-sans text-base md:text-lg text-muted-foreground max-w-2xl mx-auto"
+              >
+                Be part of a community rethinking rural living. Whether you're looking for a meaningful
+                volunteer experience or want to collaborate on creative projects, we welcome you.
+              </motion.p>
             </ScrollReveal>
           </div>
         </section>
@@ -46,7 +63,7 @@ const Collaborate = () => {
                 <div className="aspect-[4/5] overflow-hidden">
                   <img
                     src={guestsTour}
-                    alt="Volunteering at Art Village"
+                    alt="Volunteering at ART"
                     className="w-full h-full object-cover"
                   />
                 </div>
@@ -54,56 +71,64 @@ const Collaborate = () => {
 
               <ScrollReveal delay={0.2} direction="right">
                 <div>
+                  <p className="font-sans text-xs tracking-[0.2em] uppercase text-muted-foreground mb-3">
+                    Volunteer Program
+                  </p>
                   <h2 className="font-serif text-3xl md:text-4xl mb-6">
-                    Volunteer
+                    Live the Shepherd Life
                   </h2>
                   <div className="space-y-4 font-sans text-base text-muted-foreground leading-relaxed">
                     <p>
-                      Join us in a transformative experience at our 100-year-old Kathkuni house,
-                      nestled in the heart of the Kullu valley. As part of ART (Adaptive Rural Tourism),
-                      a village-based design community, you will immerse yourself in the serenity of
-                      rural life while contributing to sustainable tourism initiatives.
+                      <strong className="text-foreground">Volunteer Yatra</strong> is our immersive program where you become
+                      part of our community, not just a visitor. Wake up to mountain views, share meals with locals,
+                      and contribute to meaningful work that shapes rural tourism.
                     </p>
                     <p>
-                      Interns will have the opportunity to engage in hospitality, design projects,
-                      community workshops, and day-to-day operations, all while surrounded by the
-                      breathtaking beauty of forests, snow peaks, and traditional Himalayan culture.
+                      <strong className="text-foreground">What you'll do:</strong> Engage in hospitality operations,
+                      assist with community workshops, participate in design and renovation projects, help with
+                      sustainable farming initiatives, and support local cultural events and festivals.
                     </p>
                     <p>
-                      This is a unique chance to live in an environmentally conscious space designed
-                      with locally sourced materials and upcycled elements. You will be part of a
-                      meaningful community-focused project, with exposure to local culture, traditions,
-                      and the chance to help foster positive change.
+                      <strong className="text-foreground">What you'll gain:</strong> Free accommodation in our heritage
+                      Kathkuni house, home-cooked meals, deep cultural immersion, hands-on experience in sustainable
+                      tourism, and lifelong connections with the mountain community.
                     </p>
                     <p>
-                      In exchange for your contributions, we offer free long-term accommodation, meals,
-                      and the invaluable experience of working in a sustainable, rural tourism environment.
-                      If you're passionate about hospitality, community engagement, and design, and want
-                      to make a difference in a picturesque setting, this opportunity is for you!
+                      <strong className="text-foreground">Duration:</strong> Minimum 2 weeks commitment. Ideal for
+                      students, gap-year travelers, professionals on sabbatical, or anyone seeking a meaningful break
+                      from urban life.
                     </p>
                   </div>
 
-                  <a
-                    href={VOLUNTEER_FORM_LINK}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 mt-8 font-sans text-xs tracking-[0.15em] uppercase bg-foreground text-background px-6 py-3 hover:bg-foreground/90 transition-all duration-300"
-                  >
-                    Apply Now
-                    <ExternalLink className="w-3 h-3" />
-                  </a>
+                  <div className="flex flex-wrap gap-4 mt-8">
+                    <a
+                      href={VOLUNTEER_FORM_LINK}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 font-sans text-xs tracking-[0.15em] uppercase bg-foreground text-background px-6 py-3 hover:bg-foreground/90 transition-all duration-300"
+                    >
+                      Apply Now
+                      <ExternalLink className="w-3 h-3" />
+                    </a>
+                    <Link
+                      to="/shepherd-magazine"
+                      className="inline-flex items-center gap-2 font-sans text-xs tracking-[0.15em] uppercase border border-foreground/20 px-6 py-3 hover:bg-foreground hover:text-background transition-all duration-300"
+                    >
+                      Life as a Shepherd
+                    </Link>
+                  </div>
                 </div>
               </ScrollReveal>
             </div>
           </div>
         </section>
 
-        {/* Life at ART Village - Image Break */}
+        {/* Life at ART - Image Break */}
         <section className="py-12 md:py-16 px-5 md:px-12 bg-secondary/30">
           <div className="max-w-4xl mx-auto text-center">
             <ScrollReveal>
               <p className="font-sans text-xs tracking-[0.2em] uppercase text-muted-foreground mb-4">
-                Life at ART Village
+                Life at ART
               </p>
               <p className="font-serif text-xl md:text-2xl italic leading-relaxed">
                 "Bask in the sun and laze on our wooden verandas, witness Himachali village
@@ -119,22 +144,32 @@ const Collaborate = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-20 items-center">
               <ScrollReveal delay={0.2} direction="left">
                 <div className="md:order-2">
+                  <p className="font-sans text-xs tracking-[0.2em] uppercase text-muted-foreground mb-3">
+                    Creative Partnerships
+                  </p>
                   <h2 className="font-serif text-3xl md:text-4xl mb-6">
-                    Collaborate
+                    Collaborate With Us
                   </h2>
                   <div className="space-y-4 font-sans text-base text-muted-foreground leading-relaxed">
                     <p>
-                      The ART Village Naggar at Chachogi offers the most authentic Himalayan natural
-                      living experiences you will come across. We tend to involve local skills and
-                      knowledge in every aspect of the provided experience.
+                      <strong className="text-foreground">ART (Adaptive Rural Tourism)</strong> is a community
+                      organization dedicated to rethinking and redesigning village spaces. We're not a hotel —
+                      we're a movement to preserve heritage while creating sustainable livelihoods.
                     </p>
                     <p>
-                      From the architecture to design to aesthetics to food to merriment, every
-                      element of the experience here represents unique cultural and ecological harmony.
+                      <strong className="text-foreground">Our initiatives include:</strong> Heritage architecture
+                      restoration, sustainable farming programs, local artisan workshops, cultural documentation
+                      projects, and community-driven tourism experiences.
                     </p>
                     <p>
-                      Come join us as collaborators in the creative processes of redesigning rural
-                      lifestyle, or book a stay with us and experience the magic!
+                      <strong className="text-foreground">Who can collaborate:</strong> Artists seeking residency,
+                      researchers studying rural development, architects interested in traditional techniques,
+                      photographers documenting mountain culture, and organizations aligned with our mission.
+                    </p>
+                    <p>
+                      <strong className="text-foreground">Past collaborations:</strong> We've worked with design
+                      students, documentary filmmakers, sustainable tourism consultants, and cultural anthropologists
+                      from across the world.
                     </p>
                   </div>
 
@@ -145,7 +180,7 @@ const Collaborate = () => {
                       rel="noopener noreferrer"
                       className="inline-flex items-center gap-2 font-sans text-xs tracking-[0.15em] uppercase bg-foreground text-background px-6 py-3 hover:bg-foreground/90 transition-all duration-300"
                     >
-                      Apply Now
+                      Propose a Collaboration
                       <ExternalLink className="w-3 h-3" />
                     </a>
                     <Link
@@ -162,7 +197,7 @@ const Collaborate = () => {
                 <div className="md:order-1 aspect-[4/5] overflow-hidden">
                   <img
                     src={collabImage}
-                    alt="Collaborate with Art Village"
+                    alt="Collaborate with ART"
                     className="w-full h-full object-cover"
                   />
                 </div>
@@ -182,7 +217,7 @@ const Collaborate = () => {
                 Reach out to us and we'll help you find the right opportunity.
               </p>
               <a
-                href="https://wa.me/919816650400?text=Hi%2C%20I%27m%20interested%20in%20collaborating%20with%20Art%20Village%20Naggar"
+                href="https://wa.me/919816650400?text=Hi%2C%20I%27m%20interested%20in%20collaborating%20with%20ART%20-%20Adaptive%20Rural%20Tourism"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-3 font-sans text-sm tracking-[0.1em] uppercase bg-foreground text-background px-8 py-4 hover:bg-foreground/90 transition-colors"

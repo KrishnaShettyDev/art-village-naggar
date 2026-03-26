@@ -10,7 +10,7 @@ export const OrganizationSchema = () => {
     url: SITE_URL,
     logo: `${SITE_URL}/logo.png`,
     description:
-      "A restored Kathkuni house in Chachogi village, offering heritage stays in the Kullu Valley, Himachal Pradesh.",
+      "A community organization rethinking and redesigning village spaces. Volunteer programs, creative collaborations, and authentic Himalayan experiences in Kullu Valley, Himachal Pradesh.",
     address: {
       "@type": "PostalAddress",
       streetAddress: "Chachogi Village, 4 km above Naggar",

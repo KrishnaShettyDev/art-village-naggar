@@ -274,7 +274,7 @@ const Contact = () => {
           allowFullScreen
           loading="lazy"
           referrerPolicy="no-referrer-when-downgrade"
-          title="Art Village Naggar location"
+          title="ART - Adaptive Rural Tourism location"
         />
       </section>
 

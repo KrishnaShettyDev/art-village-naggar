@@ -113,7 +113,7 @@ const Stays = () => {
     <PageTransition>
       <SEO />
       <AccommodationSchema
-        name="Art Village Naggar - Heritage Accommodation"
+        name="ART - Heritage Accommodation"
         description="Heritage rooms in a 100-year-old Kathkuni house. Duplex suites with hot tubs, cozy attic rooms, and full villa rental."
         image="https://artvillagenaggar.com/og-image.jpg"
         amenities={["Mountain View", "Fireplace", "Hot Tub", "Free WiFi", "Restaurant"]}

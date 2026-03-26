@@ -115,7 +115,7 @@ const SlowLife = () => {
               </h2>
               <p className="font-sans text-base text-muted-foreground leading-relaxed max-w-2xl mx-auto mb-6">
                 In a world that moves too fast, we invite you to slow down. A Slow Life Staycation
-                at ART Village Naggar is not about escaping reality — it's about discovering a
+                at ART is not about escaping reality — it's about discovering a
                 more meaningful way to experience it.
               </p>
               <p className="font-sans text-base text-muted-foreground leading-relaxed max-w-2xl mx-auto">

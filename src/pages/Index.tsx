@@ -52,7 +52,7 @@ const Index = () => {
         <motion.div style={{ y: heroY }} className="absolute inset-0">
           <img
             src={heroImg}
-            alt="ART Village Naggar - Traditional Kathkuni house in the Himalayas"
+            alt="ART - Adaptive Rural Tourism - Community initiatives in the Himalayas"
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-foreground/30" />
@@ -123,27 +123,34 @@ const Index = () => {
           <ScrollReveal>
             <div>
               <p className="font-sans text-xs tracking-[0.2em] uppercase text-muted-foreground mb-6">
-                Our Mission
+                ART — Adaptive Rural Tourism
               </p>
               <h2 className="font-serif text-3xl md:text-4xl leading-[1.3] mb-8">
-                Rethinking and redesigning village spaces for enriching experiences.
+                A community organization rethinking rural living.
               </h2>
               <p className="font-sans text-base text-muted-foreground leading-relaxed mb-4">
-                At ART Village Naggar, we aim to rethink and redesign village spaces, traditional houses,
-                and the lifestyles within them, creating enriching experiences for travellers seeking authentic
-                Himalayan natural living.
+                We are not a hotel — we're a movement. ART brings together volunteers, collaborators,
+                and conscious travelers to preserve heritage, support local communities, and create
+                sustainable livelihoods in the Himalayas.
               </p>
               <p className="font-sans text-base text-muted-foreground leading-relaxed mb-6">
-                By integrating local skills, knowledge, and materials, we create spaces that are sustainable
-                in design, preserving the rural charm of the village while offering luxuries traditionally
-                found in resort settings.
+                Through volunteer programs, creative collaborations, and community initiatives,
+                we're reimagining what rural tourism can be — one that gives back more than it takes.
               </p>
-              <Link
-                to="/slow-life"
-                className="inline-block font-sans text-xs tracking-[0.2em] uppercase border-b border-foreground/30 pb-1 hover:border-foreground transition-all duration-500"
-              >
-                Discover Slow Life
-              </Link>
+              <div className="flex flex-wrap gap-4">
+                <Link
+                  to="/collaborate"
+                  className="inline-block font-sans text-xs tracking-[0.2em] uppercase border-b border-foreground pb-1 hover:border-foreground/50 transition-all duration-500"
+                >
+                  Join Our Community
+                </Link>
+                <Link
+                  to="/slow-life"
+                  className="inline-block font-sans text-xs tracking-[0.2em] uppercase border-b border-foreground/30 pb-1 hover:border-foreground transition-all duration-500"
+                >
+                  Discover Slow Life
+                </Link>
+              </div>
             </div>
           </ScrollReveal>
 
@@ -333,26 +340,35 @@ const Index = () => {
       {/* CTA */}
       <section className="py-16 md:py-28 px-5 md:px-12 bg-secondary/50 text-center">
         <ScrollReveal>
+          <p className="font-sans text-xs tracking-[0.2em] uppercase text-muted-foreground mb-4">
+            Get Involved
+          </p>
           <h2 className="font-serif text-2xl sm:text-3xl md:text-5xl italic mb-6 md:mb-8">
             Be part of a community rethinking rural living.
           </h2>
           <p className="font-sans text-base text-muted-foreground max-w-xl mx-auto mb-8">
-            Join us as a volunteer, collaborator, or guest. Experience the mountains differently.
+            Whether you want to volunteer, collaborate on creative projects, or simply experience
+            conscious travel — there's a place for you in our community.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               to="/collaborate"
               className="inline-block font-sans text-xs tracking-[0.2em] uppercase bg-foreground text-background px-8 py-4 hover:bg-foreground/90 transition-all duration-500"
             >
-              Collaborate
+              Volunteer & Collaborate
             </Link>
             <Link
-              to="/stays"
+              to="/shepherd-magazine"
               className="inline-block font-sans text-xs tracking-[0.2em] uppercase border border-foreground px-8 py-4 hover:bg-foreground hover:text-background transition-all duration-500"
             >
-              Book a Stay
+              Read Shepherd Magazine
             </Link>
           </div>
+          <p className="font-sans text-sm text-muted-foreground mt-6">
+            <Link to="/stays" className="underline hover:text-foreground transition-colors">
+              Looking to book a stay?
+            </Link>
+          </p>
         </ScrollReveal>
       </section>
 

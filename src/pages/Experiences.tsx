@@ -167,7 +167,7 @@ const Experiences = () => {
                 Time spent with people who know this place.
               </h2>
               <p className="font-sans text-base text-muted-foreground leading-relaxed max-w-2xl mx-auto">
-                Every experience at ART Village Naggar is designed to help you connect deeply
+                Every experience at ART is designed to help you connect deeply
                 with the land, the culture, and the people who call this valley home.
                 These aren't tourist activities — they're invitations to participate
                 in a way of life that has evolved here over centuries.

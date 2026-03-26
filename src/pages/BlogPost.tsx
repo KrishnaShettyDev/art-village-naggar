@@ -185,13 +185,13 @@ const BlogPost = () => {
   return (
     <PageTransition>
       <SEO
-        title={`${article.title} | Art Village Naggar`}
+        title={`${article.title} | ART - Adaptive Rural Tourism`}
         description={article.excerpt}
         ogImage={coverImage}
         ogType="article"
         article={{
           publishedTime: article.date,
-          author: "Art Village Naggar",
+          author: "ART - Adaptive Rural Tourism",
           tags: [article.category],
         }}
       />
